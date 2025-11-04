@@ -1,6 +1,16 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
+/* Provide a minimal JSX namespace fallback if @types/react is not available */
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      [elemName: string]: any;
+    }
+  }
+}
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

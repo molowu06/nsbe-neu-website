@@ -28,12 +28,12 @@ function MemberCard({ member }: { member: EboardMember }) {
             cursor: 'pointer'
         }}
         >
-        {/* Image container */}
+        {/* image container */}
         <div 
             style={{
             position: 'relative',
-            width: '140px',
-            height: '140px',
+            width: '170px',
+            height: '170px',
             borderRadius: '12px',
             overflow: 'hidden',
             boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
@@ -186,10 +186,10 @@ function MemberCard({ member }: { member: EboardMember }) {
             
             {/* griddd */}
             <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(5, 1fr)',
-            gap: '1.75rem',
-            justifyItems: 'center'
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '2rem'
             }}>
             {eboardMembers.map((member, index) => (
                 <MemberCard key={index} member={member} />

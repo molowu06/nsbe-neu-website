@@ -18,7 +18,8 @@ export const eboardMembers: EboardMember[] = [
         year: "3rd",
         major: "Computer Engineering",
         linkedin: "https://www.linkedin.com/in/gabriella-thomas-arbaje/",
-        image: "/headshots/gaby.jpg"
+        image: "/headshots/gaby.jpg",
+        email: "bess.nsbe.president@gmail.com"
     },
     {
         name: "Jovaan Moyo",
@@ -26,7 +27,8 @@ export const eboardMembers: EboardMember[] = [
         year: "3rd",
         major: "Industrial Engineering",
         linkedin: "https://www.linkedin.com/in/jovaan-m/",
-        image: "/headshots/von.jpg"
+        image: "/headshots/von.jpg",
+        email: "bess.nsbe.vp@gmail.com"
     },
     {
         name: "Sophia Ellis",
@@ -34,7 +36,8 @@ export const eboardMembers: EboardMember[] = [
         year: "2nd",
         major: "Mechanical Engineering",
         linkedin: "https://www.linkedin.com/in/sophia-ellis/",
-        image: "/headshots/sophia.jpg"
+        image: "/headshots/sophia.jpg",
+        email: "bess.nsbe.secretary@gmail.com"
     },
     {
         name: "Moises Castillo",
@@ -42,7 +45,8 @@ export const eboardMembers: EboardMember[] = [
         year: "3rd",
         major: "Industrial Engineering",
         linkedin: "https://www.linkedin.com/in/castillo-moises/",
-        image: "/headshots/moises.jpg"
+        image: "/headshots/moises.jpg",
+        email: "bess.nsbe.parliamentarian@gmail.com"
     },
     {
         name: "Ziggy McFarlene",
@@ -50,7 +54,8 @@ export const eboardMembers: EboardMember[] = [
         year: "3rd",
         major: "Mechanical Engineering",
         linkedin: "https://www.linkedin.com/in/emmanuel-mcfarlene/",
-        image: "/headshots/ziggy.jpg"
+        image: "/headshots/ziggy.jpg",
+        email: "bess.nsbe.programs@gmail.com"
     },
     {
         name: "Ahmed Albuelbasher",
@@ -58,7 +63,8 @@ export const eboardMembers: EboardMember[] = [
         year: "2nd",
         major: "Mechanical Engineering",
         linkedin: "https://www.linkedin.com/in/ahmed-abuelbasher-12b262211/",
-        image: "/headshots/ahmed.jpg"
+        image: "/headshots/ahmed.jpg",
+        email: "bess.nsbe.treasurer@gmail.com"
     },
     {
         name: "Ugochi Onyejiaka",
@@ -66,7 +72,8 @@ export const eboardMembers: EboardMember[] = [
         year: "2nd",
         major: "Data Science & Economics",
         linkedin: "https://www.linkedin.com/in/vivian-onyejiaka/",
-        image: "/headshots/ugochi.jpg"
+        image: "/headshots/ugochi.jpg",
+        email: "bess.nsbe.publications@gmail.com"
     },
     {
         name: "Dennis Penny Lopez",
@@ -74,7 +81,8 @@ export const eboardMembers: EboardMember[] = [
         year: "2nd",
         major: "Civil Engineering",
         linkedin: "https://www.linkedin.com/in/dennis-penny/",
-        image: "/headshots/dennis.jpg"
+        image: "/headshots/dennis.jpg",
+        email: "bess.nsbe.senator2@gmail.com"
     },
     {
         name: "Adwoa Obeng",
@@ -82,7 +90,8 @@ export const eboardMembers: EboardMember[] = [
         year: "2nd",
         major: "Data Science & International Affairs",
         linkedin: "https://www.linkedin.com/in/adwoa-obeng-511667219/",
-        image: "/headshots/adwoa.jpg"
+        image: "/headshots/adwoa.jpg",
+        email: "bess.nsbe.communications@gmail.com"
     },
     {
         name: "Abby Asare",
@@ -90,7 +99,8 @@ export const eboardMembers: EboardMember[] = [
         year: "2nd",
         major: "Mechanical Engineering",
         linkedin: "https://www.linkedin.com/in/abigail-asare/",
-        image: "/headshots/abby.jpg"
+        image: "/headshots/abby.jpg",
+        email: "bess.nsbe.aex@gmail.com"
     },
     {
         name: "Oli Millien",
@@ -98,7 +108,8 @@ export const eboardMembers: EboardMember[] = [
         year: "2nd",
         major: "Computer Engineering",
         linkedin: "https://www.linkedin.com/in/olivetan-millien/",
-        image: "/headshots/oli.jpg"
+        image: "/headshots/oli.jpg",
+        email: "bess.nsbe.torch@gmail.com"
     },
     {
         name: "Jarmaine Arwa",
@@ -106,7 +117,8 @@ export const eboardMembers: EboardMember[] = [
         year: "2nd",
         major: "Electrical & Computer Engineering",
         linkedin: "https://www.linkedin.com/in/jarmainearwa/",
-        image: "/headshots/jarmaine.jpg"
+        image: "/headshots/jarmaine.jpg",
+        email: "bess.nsbe.finance@gmail.com"
     },
     {
         name: "Tahmir Murphy",
@@ -114,7 +126,8 @@ export const eboardMembers: EboardMember[] = [
         year: "2nd",
         major: "Bioengineering",
         linkedin: "https://www.linkedin.com/in/tahmir-murphy/",
-        image: "/headshots/tahmir.jpg"
+        image: "/headshots/tahmir.jpg",
+        email: "bess.nsbe.pci@gmail.com"
     },
     {
         name: "Milkias Ghidei",
@@ -122,6 +135,7 @@ export const eboardMembers: EboardMember[] = [
         year: "2nd",
         major: "Mechanical Engineering",
         linkedin: "https://www.linkedin.com/in/milkias-ghidei-1024b6277/",
-        image: "/headshots/milk.jpg"
+        image: "/headshots/milk.jpg",
+        email: "bess.nsbe.relations@gmail.com"
     },
 ];

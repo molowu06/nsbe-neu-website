@@ -1,8 +1,8 @@
 export interface EboardMember {
     name: string;
     position: string;
-    year: string;
-    major: string;
+    year?: string;
+    major?: string;
     email?: string;
     linkedin?: string;
     image?: string;
@@ -54,7 +54,7 @@ export const eboardMembers: EboardMember[] = [
         year: "3rd",
         major: "Mechanical Engineering",
         linkedin: "https://www.linkedin.com/in/emmanuel-mcfarlene/",
-        image: "/headshots/ziggy.jpg",
+        image: "/headshots/rat_from_flushed_away.jpg",
         email: "bess.nsbe.programs@gmail.com"
     },
     {
@@ -138,4 +138,12 @@ export const eboardMembers: EboardMember[] = [
         image: "/headshots/milk.jpg",
         email: "bess.nsbe.relations@gmail.com"
     },
+    // {
+    //     name: "Dean Richard Harris",
+    //     position: "Advisor",
+    //     major: "Associate Dean of Engineering",
+    //     linkedin: "https://www.linkedin.com/in/richard-harris-3315454/",
+    //     email: "ri.harris@northeastern.edu",
+    //     image: "/headshots/dean-harris.jpg"
+    // },
 ];

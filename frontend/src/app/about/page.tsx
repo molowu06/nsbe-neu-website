@@ -62,7 +62,7 @@ export default function AboutPage() {
             <img
               src="/images/bess-eboard.jpg"
               alt="BESS-NSBE EBoard"
-              className="w-full rounded-lg shadow-md object-cover"
+              className="w-full rounded-lg shadow-md object-cover transition-transform duration-300 hover:scale-105"
             />
           </div>
 
@@ -74,7 +74,7 @@ export default function AboutPage() {
             <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-6">
 
               {/* mission card - gold background */}
-              <div className="flex-1 bg-[#BF8836] rounded-2xl p-8">
+              <div className="flex-1 bg-[#BF8836] rounded-2xl p-8 transition-transform duration-300 hover:scale-105">
                 <h3 className="text-xl font-bold text-white mb-4">Our Mission</h3>
                 {/* mission statement */}
                 <p className="text-white">
@@ -85,7 +85,7 @@ export default function AboutPage() {
               </div>
 
               {/* vision card - dark background */}
-              <div className="flex-1 bg-gray-900 rounded-2xl p-8">
+              <div className="flex-1 bg-gray-900 rounded-2xl p-8 transition-transform duration-300 hover:scale-105">
                 <h3 className="text-xl font-bold text-white mb-4">Our Vision</h3>
                 {/* vision statement */}
                 <p className="text-gray-300">

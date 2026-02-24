@@ -11,7 +11,7 @@ const Footer = () => {
       {/* Logo Section */}
       <div className={styles.logo}>
         <Image 
-          src="/logo/footerlogo.png"
+          src="/logo/footer_logo.png"
           alt="NSBE Logo"
           width={300}
           height={300}

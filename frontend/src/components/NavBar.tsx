@@ -8,20 +8,20 @@ const NavBar = () => {
       <div className={styles.logo}>
         <Link href="/home">
           <Image 
-              src="/logo/logo.png"
+              src="/logo/navbar_logo.png"
               alt="NSBE Logo" 
               width={160}
               height={160}
             />
            </Link>
-          <h3><strong>Northeastern Black Engineering Student Society</strong> </h3>
+          <h3><strong>BESS - NSBE Northeastern Chapter</strong> </h3>
       </div>
 
       <ul className={styles.links}>
         <li><Link href="/home">Home</Link></li>
-        <li><Link href="/events">Events</Link></li>
+        <li><Link href="/event">Events</Link></li>
         <li><Link href="/newsletter">Newsletter</Link></li>
-        <li><Link href="/conferences">Conferences</Link></li>
+        <li><Link href="/conferences">Archive</Link></li>
         <li><Link href="/about">About</Link></li>
       </ul>
 

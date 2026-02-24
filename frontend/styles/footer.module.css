@@ -1,3 +1,5 @@
+
+
 .footer {
   background: #1f2b46;
   color: #e5e7eb;
@@ -15,16 +17,6 @@
   align-items: center;
   flex: 1 1 200px;
   margin-right: 3rem;
-}
-
-.socials {
-  text-align: center;
-  margin-bottom: 2rem;
-  flex: 1 1 200px;
-}
-
-.socials h2 {
-  font-size: 1.2rem;
 }
 
 .newsletter {
@@ -69,6 +61,16 @@
   cursor: pointer;
 }
 
+.socials {
+  text-align: center;
+  margin-bottom: 2rem;
+  flex: 1 1 200px;
+}
+
+.socials h2 {
+  font-size: 1.2rem;
+}
+
 .socialsLink {
   display: flex;
   justify-content: center;
@@ -83,7 +85,7 @@
 
 .bottom {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* responsive columns */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 2rem;
   width: 100%;
   margin-bottom: 2rem;

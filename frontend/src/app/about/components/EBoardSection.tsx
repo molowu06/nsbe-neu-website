@@ -146,31 +146,51 @@ function MemberCard({ member }: { member: EboardMember }) {
         </p>
 
         {/* Email */}
-        <a
-          href={`mailto:${member.email}`}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
-            fontSize: "0.8rem",
-            color: "#006400",
-            textDecoration: "none",
-            fontFamily: "system-ui, -apple-system, sans-serif",
-          }}
-        >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
+        {member.email && member.email.trim() !== "" && (
+          <a
+            href={`mailto:${member.email}`}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              fontSize: "0.8rem",
+              color: "#006400",
+              textDecoration: "none",
+              fontFamily: "system-ui, -apple-system, sans-serif",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+              width: "100%",
+            }}
           >
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-            <polyline points="22,6 12,13 2,6" />
-          </svg>
-          {member.email}
-        </a>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              style={{
+                display: "inline-block",
+                verticalAlign: "middle",
+                color: "#006400",
+                flexShrink: 0,
+              }}
+            >
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            <span
+              style={{
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {member.email}
+            </span>
+          </a>
+        )}
       </div>
     </div>
   );
@@ -215,7 +235,7 @@ export default function EBoardSection() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
             gap: "1.5rem",
             maxWidth: "1200px",
             margin: "0 auto",
@@ -223,6 +243,7 @@ export default function EBoardSection() {
             alignItems: "stretch",
             width: "100%",
           }}
+          className="eboard-grid-responsive"
         >
           {eboardMembers.map((member, index) => (
             <MemberCard key={index} member={member} />

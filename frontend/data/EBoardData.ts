@@ -46,7 +46,7 @@ export const eboardMembers: EboardMember[] = [
         major: "Industrial Engineering",
         linkedin: "https://www.linkedin.com/in/castillo-moises/",
         image: "/headshots/moises.jpg",
-        email: "bess.nsbe.parliamentarian@gmail.com"
+        email: "bess.nsbe.parliamentation@gmail.com"
     },
     {
         name: "Ziggy McFarlene",
@@ -104,7 +104,7 @@ export const eboardMembers: EboardMember[] = [
     },
     {
         name: "Oli Millien",
-        position: "Torch Chair",
+        position: "TORCH Chair",
         year: "2nd",
         major: "Computer Engineering",
         linkedin: "https://www.linkedin.com/in/olivetan-millien/",
@@ -122,7 +122,7 @@ export const eboardMembers: EboardMember[] = [
     },
     {
         name: "Tahmir Murphy",
-        position: "Pre-Collegiate Initiatives Chair",
+        position: "Pre-Collegiate Initiative Chair",
         year: "2nd",
         major: "Bioengineering",
         linkedin: "https://www.linkedin.com/in/tahmir-murphy/",
@@ -140,7 +140,7 @@ export const eboardMembers: EboardMember[] = [
     },
     {
         name: "Seunfunmi Soyannwo",
-        position: "Freshman Rep",
+        position: "Freshman Representative",
         year: "1st",
         major: "Bioengineering",
         linkedin: "https://www.linkedin.com/in/seunfunmi-soyannwo-1198aa313/",

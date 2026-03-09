@@ -4,7 +4,7 @@ export default function AboutPage() {
   return (
     <main>
       {/* BANNER */}
-      <section className="bg-gray-900 text-white py-4 px-4 sm:px-6">
+      <section className="bg-gray-900 text-white py-4 px-4 sm:px-4">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
           {/* logo — left */}
           <img

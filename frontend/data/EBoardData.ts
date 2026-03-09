@@ -46,7 +46,7 @@ export const eboardMembers: EboardMember[] = [
         major: "Industrial Engineering",
         linkedin: "https://www.linkedin.com/in/castillo-moises/",
         image: "/headshots/moises.jpg",
-        email: "bess.nsbe.parliamentation@gmail.com"
+        email: "bess.nsbe.parliamentarian@gmail.com"
     },
     {
         name: "Ziggy McFarlene",

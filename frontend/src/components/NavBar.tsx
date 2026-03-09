@@ -13,7 +13,7 @@ const NavBar = () => {
               width={160}
               height={160}
             />
-           </Link>
+          </Link>
           <h3><strong>BESS - NSBE Northeastern Chapter</strong> </h3>
       </div>
 

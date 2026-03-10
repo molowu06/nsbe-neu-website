@@ -1,65 +1,202 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+import { useState, useEffect } from "react"
+import { weeklyNewsletters, photoArchives } from "@/lib/newsletters"
+import NewsletterViewer from "@/components/NewsletterViewer"
+
+const NewsletterPage = () => {
+    const [currentWeekIndex, setCurrentWeekIndex] = useState(0)
+    const [activeTab, setActiveTab] = useState<"monthly" | "photos">("monthly")
+    const currentWeek = weeklyNewsletters[currentWeekIndex]
+    const totalWeeks = weeklyNewsletters.length
+    
+    useEffect(() => {
+        if (activeTab === "monthly") {
+            const container = document.getElementById("mailchimp-archive")
+            if (container) {
+                container.innerHTML = `
+                <style type="text/css">
+                    .display_archive {font-family: Poppins, arial, verdana; font-size: 14px; color: white !important;}
+                    .campaign {line-height: 125%; margin: 15px; padding: 15px; border-bottom: 1px solid rgba(245, 158, 11, 0.3);}
+                    .campaign a {color: #f59e0b !important; text-decoration: none;}
+                    .campaign a:hover {color: #fbbf24 !important;}
+                </style>
+            `
+
+            const script = document.createElement("script")
+            script.src = "https://neu.us3.list-manage.com/generate-js/?u=8f022d3f56b12ccfcfed63a48&show=10&fid=29928"
+            script.async = true
+            container.appendChild(script)
+            }
+        }
+    }, [activeTab])
+
+    return (
+        <div className="bg-black min-h-screen">
+            {/* Hero Section */}
+            <section className="bg-neutral-900 py-20">
+                <div className="mx-auto w-11/12 md:w-2/3 text-center">
+                    <h1 className="font-cormorantGaramond text-6xl font-light text-white mb-4">
+                        Newsletter & Archives
+                    </h1>
+                    <p className="font-poppins text-neutral-300 text-lg">
+                        Stay updated with our weekly newsletters and browse past event photos
+                    </p>
+                </div>
+            </section>
+
+            {/* Subscribe Section */}
+            <section className="bg-black py-16 border-b border-neutral-800">
+                <div className="mx-auto w-11/12 md:w-2/3 flex flex-col items-center gap-6">
+                    {/* Email Icon */}
+                    <div className="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center">
+                        <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    
+                    <h2 className="font-poppins text-2xl font-semibold text-white">
+                        Subscribe to Our Newsletter
+                    </h2>
+                    
+                    <p className="font-poppins text-neutral-400 text-center">
+                        Get the latest updates, event announcements, and member spotlights delivered to your inbox
+                    </p>
+
+                    {/*Email Form */}
+                    <form
+                        action="https://neu.us3.list-manage.com/subscribe/post?u=8f022d3f56b12ccfcfed63a48&id=29928" 
+                        method="POST"
+                        target="_blank"
+                        className="flex gap-3 w-full md:w-auto"
+                    >
+                        <input
+                            type="email"
+                            name="EMAIL"
+                            placeholder="Enter your email address"
+                            required
+                            className="flex-1 md:w-80 px-4 py-3 rounded bg-white text-black font-poppins text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+                        />
+                        <button
+                            type="submit"
+                            className="bg-amber-500 text-black px-8 py-3 rounded font-poppins text-sm font-semibold hover:bg-amber-400 transition duration-150"
+                        >
+                          Subscribe
+                        </button>
+                    </form>
+                  </div>
+            </section>
+
+            {/* Weekly Newsletter Viewer */}
+            <section className="py-20 border-b border-neutral-800">
+                <div className="mx-auto w-11/12 md:w-2/3 flex flex-col gap-10">
+                    
+                    {/* Section Header */}
+                    <div className="flex flex-col gap-2">
+                        <h2 className="font-cormorantGaramond text-4xl font-light text-white">
+                            {currentWeekIndex === 0 ? "This Week's Newsletter" : "Past Newsletter"}
+                        </h2>
+                        <p className="font-poppins text-amber-500 text-sm">
+                            {currentWeek.date}
+                        </p>
+                    </div>
+
+                    {/* Newsletter Content */}
+                    <NewsletterViewer newsletter={currentWeek} />
+
+                    {/* Week Navigation */}
+                    <div className="flex items-center justify-center gap-6 font-poppins text-sm">
+                        <button
+                            onClick={() => setCurrentWeekIndex(currentWeekIndex + 1)}
+                            disabled={currentWeekIndex === totalWeeks - 1}
+                            className="text-amber-500 hover:text-amber-400 disabled:text-neutral-600 transition duration-150 text-2xl"
+                        >
+                            ←
+                        </button>
+                  
+                    {currentWeekIndex > 0 && (
+                        <button
+                            onClick={() => setCurrentWeekIndex(currentWeekIndex - 1)}
+                            className="text-amber-500 hover:text-amber-400 disabled:text-neutral-600 transition duration-150 text-2xl"
+                        >
+                            →
+                        </button>
+                    )}
+                    </div>
+                </div>
+            </section>
+
+            {/* Tabs Section */}
+            <section className="bg-black py-6 border-b border-neutral-800">
+                <div className="mx-auto w-11/12 md:w-2/3 flex gap-8">
+                    <button
+                        onClick={() => setActiveTab("monthly")}
+                        className={`font-poppins text-sm pb-2 border-b-2 transition-colors ${
+                            activeTab === "monthly"
+                                ? "text-amber-500 border-amber-500"
+                                : "text-neutral-400 border-transparent hover:text-neutral-300"
+                        }`}
+                    >
+                        📧 Monthly Newsletters
+                    </button>
+                    <button
+                        onClick={() => setActiveTab("photos")}
+                        className={`font-poppins text-sm pb-2 border-b-2 transition-colors ${
+                            activeTab === "photos"
+                                ? "text-amber-500 border-amber-500"
+                                : "text-neutral-400 border-transparent hover:text-neutral-300"
+                        }`}
+                    >
+                        📸 Photo Archives
+                    </button>
+                </div>
+            </section>
+
+            {/* Tab Content */}
+            {activeTab === "monthly" && (
+                <section className="py-20">
+                    <div className="mx-auto w-11/12 md:w-2/3 flex flex-col gap-10">
+                        <h2 className="font-cormorantGaramond text-4xl font-light text-white text-center">
+                            Monthly Newsletter Archive
+                        </h2>
+                        
+                        {/* Mailchimp Archive Embed */}
+                        <div id="mailchimp-archive" className="text-white min-h-[400px]">
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {activeTab === "photos" && (
+                <section className="py-20">
+                    <div className="mx-auto w-11/12 md:w-2/3 flex flex-col gap-10">
+                        <h2 className="font-cormorantGaramond text-4xl font-light text-white text-center mb-8">
+                            Photo Archives
+                        </h2>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {photoArchives.map((archive) => (
+                                <div key={archive.id} className="border border-amber-500/30 rounded-lg overflow-hidden hover:border-amber-500 transition-colors cursor-pointer">
+                                    <div className="h-48 bg-neutral-800 flex items-center justify-center">
+                                        <p className="font-poppins text-neutral-500">Photo Gallery</p>
+                                    </div>
+                                    <div className="p-4">
+                                        <h3 className="font-poppins text-white text-lg font-semibold mb-2">
+                                            {archive.title}
+                                        </h3>
+                                        <p className="font-poppins text-neutral-400 text-sm">
+                                            {archive.date} • {archive.photoCount} photos
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    )
 }
+
+export default NewsletterPage

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { eboardMembers, EboardMember } from "../../../../data/EBoardData";
+import { eboardMembers, EboardMember } from "../../../data/EBoardData";
 
 function MemberCard({ member }: { member: EboardMember }) {
   const [isHovered, setIsHovered] = useState(false);

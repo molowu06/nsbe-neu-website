@@ -6,7 +6,7 @@ const NavBar = () => {
   return (
     <nav className={styles.nav}>
       <div className={styles.logo}>
-        <Link href="/home">
+        <Link href="/">
           <Image 
               src="/logo/navbar_logo.png"
               alt="NSBE Logo" 
@@ -18,7 +18,7 @@ const NavBar = () => {
       </div>
 
       <ul className={styles.links}>
-        <li><Link href="/home">Home</Link></li>
+        <li><Link href="/">Home</Link></li>
         <li><Link href="/event">Events</Link></li>
         <li><Link href="/newsletter">Newsletter</Link></li>
         <li><Link href="/membership">Membership</Link></li>

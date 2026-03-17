@@ -1,5 +1,5 @@
 import Image from "next/image";
-import EventsSection from "./components/events-section";
+import EventsSection from "@/app/components/events-section";
 
 export default function Home() {
   return (
@@ -35,7 +35,7 @@ export default function Home() {
               src="/images/nsbe-collage.png"
               alt="BESS members collage"
               fill
-              style={{ objectFit: "cover", objectPosition: "left center" }}
+              style={{ objectFit: "cover", objectPosition: "center 0%" }}
               priority
             />
           </div>
@@ -46,13 +46,29 @@ export default function Home() {
 
       {/* ── WHO WE ARE ───────────────────────────────────── */}
       <section className="section-light">
-        <div className="green-card">
+        <div className="white-card">
           <h3>COMMUNITY. EXCELLENCE. SCHOLARSHIP.</h3>
           <p>
             The mission of the National Society of Black Engineers is to increase the
             number of culturally responsible Black Engineers who excel academically, succeed
             professionally, and positively impact the community.
           </p>
+        </div>
+      </section>
+
+
+      {/* ── PHOTO ROW ────────────────────────────────────── */}
+      <section className="photo-row">
+        <div className="photo-row-grid">
+          <div className="photo-row-item">
+            <Image src="/images/homepage1.png" alt="BESS photo 1" width={400} height={280} style={{ width: "100%", height: "100%", objectFit: "cover" }}/>
+          </div>
+          <div className="photo-row-item">
+            <Image src="/images/homepage2.png" alt="BESS photo 2" width={400} height={280} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
+          <div className="photo-row-item">
+            <Image src="/images/homepage3.png" alt="BESS photo 3" width={400} height={280} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
         </div>
       </section>
 

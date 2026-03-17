@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+@media (min-width: 1024px) {
+  .eboard-grid-responsive {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  .eboard-grid-responsive > * {
+    flex: 0 0 280px;
+    max-width: 280px;
+  }
+}
+
 /* ─── HERO SECTION ─────────────────────────────────────────── */
 
 .hero-wrapper {
@@ -54,6 +67,7 @@
   margin-top: 8px;
 }
 
+/* Right — collage fills right side flush to hero edges */
 .hero-image {
   top: 30px;
   bottom: 30px;
@@ -78,7 +92,7 @@
 }
 
 .hero-btn-primary:hover {
-  background-color: #c8860a;
+  background-color: #a86e08;
   transform: translateY(-2px);
 }
 
@@ -111,11 +125,11 @@
 }
 
 
-/* ─── GREEN CARD ────────────────────────────────────────────── */
+/* ─── WHITE CARD ────────────────────────────────────────────── */
 
-.green-card {
-  background-color: #273c16;
-  color: white;
+.white-card {
+  background-color: white;
+  border: 2px solid #c8860a;
   border-radius: 24px;
   padding: 48px 56px;
   max-width: 1100px;
@@ -124,26 +138,48 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.green-card:hover {
+.white-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
 }
 
-.green-card h3 {
+.white-card h3 {
   font-size: 2rem;
   font-weight: 600;
   letter-spacing: 2px;
   margin-bottom: 20px;
   text-transform: uppercase;
-  color: white;
+  color: #273c16 !important;
 }
 
-.green-card p {
+.white-card p {
   font-size: 1.2rem;
   line-height: 1.75;
   max-width: 720px;
   margin: 0 auto;
-  color: white;
+  color: #273c16 !important;
+}
+
+
+/* ─── PHOTO ROW ─────────────────────────────────────────────── */
+
+.photo-row {
+  background-color: white;
+  padding: 0 32px 64px;
+}
+
+.photo-row-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.photo-row-item {
+  height: 280px;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 
@@ -298,23 +334,27 @@
   }
 
   .hero-image {
-    display: none;   /* hide on mobile */
+    display: none;
   }
 
   .hero-text h1 {
     font-size: 2.2rem;
   }
 
-  .green-card {
+  .white-card {
     padding: 36px 24px;
   }
 
-  .green-card h3 {
+  .white-card h3 {
     font-size: 1.5rem;
   }
 
-  .green-card p {
+  .white-card p {
     font-size: 1rem;
+  }
+
+  .photo-row-grid {
+    grid-template-columns: 1fr;
   }
 
   .events-grid {

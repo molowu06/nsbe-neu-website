@@ -32,8 +32,8 @@ export default function Home() {
           {/* Right — collage */}
           <div className="hero-image">
             <Image
-              src="/images/nsbe-collage.png"
-              alt="BESS members collage"
+              src="/images/nsbe-collage-color.png"
+              alt="BESS members collage color"
               fill
               style={{ objectFit: "cover", objectPosition: "center 0%" }}
               priority

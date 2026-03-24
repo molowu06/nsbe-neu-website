@@ -29,6 +29,7 @@
   display: flex;
   gap: 2vw;                
   list-style: none;
+  align-items: center;
 }
 
 .links a {
@@ -64,6 +65,8 @@ body {
   gap: 0.3rem;
   padding: 0;
   font-family: inherit;
+  line-height: normal;
+  vertical-align: baseline;
 }
 
 .dropdownTrigger:hover {

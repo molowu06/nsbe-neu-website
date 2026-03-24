@@ -1,5 +1,3 @@
-import EBoardSection from "./components/EBoardSection";
-
 export default function AboutPage() {
   return (
     <main>
@@ -130,7 +128,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      <EBoardSection />
     </main>
   );
 }

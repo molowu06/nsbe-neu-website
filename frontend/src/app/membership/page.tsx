@@ -29,10 +29,13 @@ export default function MembershipPage() {
       {/* MEMBER OF THE MONTH */}
       <MemberOfTheMonth />
 
+      {/* MEMBERSHIP TIERS */}
+      <MembershipTiers />
+
       {/* TOP 10 MEMBERS */}
       <TopMembers />
 
-      {/* HOW TO BECOME A MEMBER */}
+      {/* HOW TO BECOME A MEMBER
       <section
         style={{
           padding: "3rem 1rem",
@@ -66,10 +69,9 @@ export default function MembershipPage() {
             Learn how to join the community
           </p>
         </div>
-      </section>
+      </section> */}
 
-      {/* MEMBERSHIP TIERS */}
-      <MembershipTiers />
+      
     </main>
   );
 }

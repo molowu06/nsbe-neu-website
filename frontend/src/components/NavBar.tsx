@@ -1,8 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../../styles/navbar.module.css";
 
 const NavBar = () => {
+  const [aboutOpen, setAboutOpen] = useState(false);
+
   return (
     <nav className={styles.nav}>
       <div className={styles.logo}>
@@ -22,9 +27,47 @@ const NavBar = () => {
         <li><Link href="/event">Events</Link></li>
         <li><Link href="/newsletter">Newsletter</Link></li>
         <li><Link href="/membership">Membership</Link></li>
-        <li><Link href="/about">About</Link></li>
-      </ul>
 
+        <li
+          className={styles.dropdown}
+          onMouseEnter= {() => setAboutOpen(true)}
+          onMouseLeave= {() => setAboutOpen(false)}
+        >
+          <button
+            className= {styles.dropdownTrigger}
+            onClick= {() => setAboutOpen(false)}
+          >
+            About
+            <span
+              className={`${styles.arrow} ${aboutOpen ? styles.arrowOpen : ""}`}
+            >
+              ▾
+            </span>
+          </button>
+
+          {/* the dropdown menu, renders when aboutOpen is true */}
+          {aboutOpen && (
+            <ul className={styles.dropdownMenu}>
+              <li>
+                <Link 
+                  href="/about"
+                  onClick={() => setAboutOpen(false)}
+                >
+                  About BESS
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about/eboard"
+                  onClick={() => setAboutOpen(false)}
+                >
+                  Executive Board &apos;25-&apos;26
+                </Link>
+              </li>
+            </ul>
+          )}
+        </li>
+      </ul>
     </nav>
   );
 };

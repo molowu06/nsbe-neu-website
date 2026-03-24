@@ -1,0 +1,184 @@
+.page {
+  padding: 60px 80px;
+  background: #f3f1ed;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #1f4d1f;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: #666;
+  font-size: 1.25rem;
+}
+
+/* CONTROL PANEL (ALL INLINE) */
+.controlPanel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 75px;
+  flex-wrap: wrap;
+}
+
+/* SEGMENTED CONTROL */
+.segmentedControl {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.segmentBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+  transition: 0.2s ease;
+}
+
+.segmentBtn svg {
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+.activeSegment {
+  background-color: #caa52b;
+  color: white;
+}
+
+/* FILTERS */
+.filterIcon {
+  stroke: #333;
+  fill: none;
+  stroke-width: 2;
+}
+
+.dropdown {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: white;
+}
+
+.filterGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.filterTag {
+  padding: 6px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.activeFilter {
+  background-color: #caa52b;
+  color: white;
+  border: none;
+}
+
+/* FULL WIDTH WHITE BANNER */
+.bannerWrapper {
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.bannerCard {
+  width: 100%;
+  background: white;
+  padding: 25px 40px;
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  font-size: 3.2rem;
+  font-weight: 600;
+  color: #1f4d1f;
+  text-align: center;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+}
+
+.cardImagePlaceholder {
+  height: 180px;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.cardInfo {
+  padding: 40px;
+}
+
+.category {
+  font-size: 1.4rem;
+  color: #caa52b;
+  font-weight: 600;
+}
+
+/* LIST */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+}
+
+.listImagePlaceholder {
+  width: 120px;
+  height: 80px;
+  background: #ddd;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.listInfo {
+  flex: 1;
+}
+
+.photoCount {
+  font-weight: 600;
+}

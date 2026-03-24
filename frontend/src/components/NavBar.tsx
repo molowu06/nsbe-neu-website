@@ -23,6 +23,7 @@ const NavBar = () => {
         <li><Link href="/newsletter">Newsletter</Link></li>
         <li><Link href="/membership">Membership</Link></li>
         <li><Link href="/about">About</Link></li>
+        <li><Link href="/archive">Archive</Link></li>
       </ul>
 
     </nav>

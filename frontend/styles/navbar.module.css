@@ -1,4 +1,4 @@
-/* Navbar container */
+/* navbar container */
 .nav {
   background: #ffffff;
   border-bottom: 3px solid #D4AF37;
@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -23,6 +24,15 @@
   font-size: 1.2rem;       
 }
 
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #111827;
+  padding: 0.5rem;
+  z-index: 1001;
+}
 
 /* Navigation links */
 .links {
@@ -117,4 +127,91 @@ body {
 .dropdownMenu li a:hover {
   background: #fdf6e3;
   color: #C8102E;
+}
+
+/*
+mobile styles
+*/
+
+@media (max-width: 767px) {
+  /* show the hamburger button */
+  .hamburger {
+    display: block;
+  }
+
+  /* hide chapter name on small screens to save space */
+  .logo h3 {
+    display: none;
+  }
+
+  /* collapse links by default on mobile */
+  .links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* show links when hamburger is tapped */
+  .linksOpen {
+    display: flex;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+  }
+
+  /* each link takes full width */
+  .links li {
+    width: 100%;
+  }
+
+  .links a,
+  .dropdownTrigger {
+    display: block;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #f3f4f6;
+    text-align: center;
+  }
+
+  /* dropdown becomes inline (not floating) on mobile */
+  .dropdownMenu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    min-width: 0;
+    padding: 0;
+    background: #f9fafb;
+  }
+
+  /* sub-links are indented to show hierarchy */
+  .dropdownMenu li a {
+    padding: 0.75rem 2rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .dropdownTrigger {
+  justify-content: center;
+  }
+}
+
+/* tablet styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .logo h3 {
+    font-size: 0.95rem;
+  }
+
+  .links {
+    gap: 1.2vw;
+  }
+
+  .links a,
+  .dropdownTrigger {
+    font-size: 0.95rem;
+  }
 }

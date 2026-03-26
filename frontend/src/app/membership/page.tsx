@@ -1,6 +1,6 @@
+import Leaderboard from "@/components/Leaderboard";
 import MemberOfTheMonth from "./components/MemberOfTheMonth";
 import MembershipTiers from "./components/MembershipTiers";
-import TopMembers from "./components/Leaderboard";
 
 export default function MembershipPage() {
   return (
@@ -32,8 +32,9 @@ export default function MembershipPage() {
       {/* MEMBERSHIP TIERS */}
       <MembershipTiers />
 
-      {/* TOP 10 MEMBERS */}
-      <TopMembers />
+      {/* MEMBERSHIP LEADERBOARD */}
+      <Leaderboard/>
+
 
       {/* HOW TO BECOME A MEMBER
       <section

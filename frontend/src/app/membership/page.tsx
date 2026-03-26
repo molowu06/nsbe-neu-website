@@ -2,6 +2,8 @@ import Leaderboard from "@/components/Leaderboard";
 import MemberOfTheMonth from "./components/MemberOfTheMonth";
 import MembershipTiers from "./components/MembershipTiers";
 
+export const revalidate = 60;
+
 export default function MembershipPage() {
   return (
     <main>

@@ -14,15 +14,15 @@ export default function MembershipTiers() {
             Progress through our tier system as you engage with BESS
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ">
             {tiers.map((tier) => (
             <div
                 key={tier.name}
-                className={`${tier.colors.bg} ${tier.colors.border} border-2 rounded-2xl p-6 flex flex-col`}
+                className={`${tier.colors.bg} ${tier.colors.border} border-2 rounded-2xl p-6 flex flex-col transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl`}
             >
               {/* tier name + description */}
                 <h3
-                className={`text-xl font-bold text-center ${tier.colors.text}`}
+                className={`text-xl font-bold text-center ${tier.colors.text} `}
                 >
                 {tier.name}
                 </h3>

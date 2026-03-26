@@ -110,26 +110,6 @@
 .hero-btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 20px 30px;
-  background-color: #c8860a;
-  color: white;
-  border-radius: 8px;
-  font-size: 2.4rem;
-  font-weight: 500;
- 
-.hero-image {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-  left: 50%;
-  z-index: 1;
-}
- 
-.hero-btn-primary {
-  display: inline-flex;
-  align-items: center;
   gap: 8px;
   padding: 14px 28px;
   background-color: #c8860a;
@@ -142,22 +122,21 @@
   white-space: nowrap;
 }
 
+.hero-image {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 50%;
+  z-index: 1;
+}
+
  
 .hero-btn-primary:hover {
   background-color: #a86e08;
   transform: translateY(-2px);
 }
 
-.hero-btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  padding: 20px 30px;
-  background-color: #1a1a1a;
-  color: white;
-  border-radius: 8px;
-  font-size: 2.4rem;
-  font-weight: 500;
- 
 .hero-btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -170,21 +149,6 @@
   text-decoration: none;
   transition: background-color 0.2s ease, transform 0.2s ease;
   white-space: nowrap;
-}
-
- 
-.hero-btn-secondary:hover {
-  background-color: #333;
-  transform: translateY(-2px);
-}
- 
- 
-/* ─── SHARED LIGHT SECTION ──────────────────────────────────── */
- 
-.section-light {
-  background-color: white;
-  padding: 64px 24px 48px;
-  text-align: center;
 }
  
  

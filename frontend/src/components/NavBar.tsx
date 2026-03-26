@@ -100,7 +100,7 @@ const NavBar = () => {
               <li>
                 <Link 
                   href="/about"
-                  onClick={() => setAboutOpen(false)}
+                  onClick={closeAll}
                 >
                   About BESS
                 </Link>
@@ -108,7 +108,7 @@ const NavBar = () => {
               <li>
                 <Link
                   href="/about/eboard"
-                  onClick={() => setAboutOpen(false)}
+                  onClick={closeAll}
                 >
                   Executive Board &apos;25-&apos;26
                 </Link>

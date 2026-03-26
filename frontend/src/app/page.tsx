@@ -19,11 +19,11 @@ export default function Home() {
               positively impact the community.
             </p>
             <div className="hero-buttons">
-              <a href="#" className="hero-btn-primary">
-                Become a Member →
+              <a href="https://nsbe.org/collegiate/" target="_blank" className="hero-btn-primary">
+                Become a NSBE Member →
               </a>
-              <a href="#" className="hero-btn-secondary">
-                Learn More
+              <a href="/about" className="hero-btn-secondary">
+                About BESS
               </a>
             </div>
           </div>
@@ -44,7 +44,7 @@ export default function Home() {
 
 
       {/* ── WHO WE ARE ───────────────────────────────────── */}
-      <section className="section-light">
+      <section className="section-light py-10">
         <div className="white-card">
           <h3>COMMUNITY. EXCELLENCE. SCHOLARSHIP.</h3>
           <p>

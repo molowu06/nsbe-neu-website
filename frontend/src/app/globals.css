@@ -66,16 +66,15 @@
   flex-wrap: wrap;
   margin-top: 8px;
 }
- 
+
 .hero-image {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-  left: 50%;
+  top: 30px;
+  bottom: 30px;
+  right: 30px;
+  left: 10px;           
   z-index: 1;
 }
- 
+
 .hero-btn-primary {
   display: inline-flex;
   align-items: center;
@@ -90,12 +89,22 @@
   transition: background-color 0.2s ease, transform 0.2s ease;
   white-space: nowrap;
 }
+
+.hero-image {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 50%;
+  z-index: 1;
+}
+
  
 .hero-btn-primary:hover {
   background-color: #a86e08;
   transform: translateY(-2px);
 }
- 
+
 .hero-btn-secondary {
   display: inline-flex;
   align-items: center;
@@ -108,20 +117,6 @@
   text-decoration: none;
   transition: background-color 0.2s ease, transform 0.2s ease;
   white-space: nowrap;
-}
- 
-.hero-btn-secondary:hover {
-  background-color: #333;
-  transform: translateY(-2px);
-}
- 
- 
-/* ─── SHARED LIGHT SECTION ──────────────────────────────────── */
- 
-.section-light {
-  background-color: white;
-  padding: 64px 24px 48px;
-  text-align: center;
 }
  
  

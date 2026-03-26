@@ -14,20 +14,20 @@
 }
 
 /* ─── HERO SECTION ─────────────────────────────────────────── */
- 
+
 .hero-wrapper {
   background-color: #f0f0f0;
   padding: 0;
   overflow: hidden;
   position: relative;
 }
- 
+
 .hero-container {
   position: relative;
   min-height: 560px;
   overflow: hidden;
 }
- 
+
 /* Left — text */
 .hero-text {
   position: relative;
@@ -38,7 +38,7 @@
   max-width: 540px;
   padding: 100px 60px;
 }
- 
+
 .hero-text h1 {
   font-size: 3.2rem;
   font-weight: 800;
@@ -47,11 +47,11 @@
   margin: 0;
   white-space: nowrap;
 }
- 
+
 .hero-highlight {
   color: #c8860a;
 }
- 
+
 .hero-subtitle {
   font-size: 1.05rem;
   color: #555;
@@ -59,7 +59,7 @@
   max-width: 420px;
   margin: 0;
 }
- 
+
 .hero-buttons {
   display: flex;
   gap: 16px;
@@ -68,10 +68,11 @@
 }
 
 .hero-image {
-  top: 30px;
-  bottom: 30px;
-  right: 30px;
-  left: 10px;           
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 50%;
   z-index: 1;
 }
 
@@ -90,16 +91,6 @@
   white-space: nowrap;
 }
 
-.hero-image {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-  left: 50%;
-  z-index: 1;
-}
-
- 
 .hero-btn-primary:hover {
   background-color: #a86e08;
   transform: translateY(-2px);
@@ -118,10 +109,24 @@
   transition: background-color 0.2s ease, transform 0.2s ease;
   white-space: nowrap;
 }
- 
- 
+
+.hero-btn-secondary:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+
+/* ─── SHARED LIGHT SECTION ──────────────────────────────────── */
+
+.section-light {
+  background-color: white;
+  padding: 64px 24px 48px;
+  text-align: center;
+}
+
+
 /* ─── WHITE CARD ────────────────────────────────────────────── */
- 
+
 .white-card {
   background-color: white;
   border: 2px solid #c8860a;
@@ -132,12 +137,12 @@
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
- 
+
 .white-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
 }
- 
+
 .white-card h3 {
   font-size: 2rem;
   font-weight: 600;
@@ -146,7 +151,7 @@
   text-transform: uppercase;
   color: #273c16 !important;
 }
- 
+
 .white-card p {
   font-size: 1.2rem;
   line-height: 1.75;
@@ -154,16 +159,16 @@
   margin: 0 auto;
   color: #273c16 !important;
 }
- 
- 
+
+
 /* ─── EVENTS SECTION ────────────────────────────────────────── */
- 
+
 .events-section {
   background-color: white;
   padding: 64px 32px;
   text-align: center;
 }
- 
+
 .events-heading {
   color: #1a1a1a;
   font-size: 2.5rem;
@@ -172,7 +177,7 @@
   text-transform: uppercase;
   margin-bottom: 48px;
 }
- 
+
 .events-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -180,7 +185,7 @@
   max-width: 1100px;
   margin: 0 auto;
 }
- 
+
 .event-card {
   background-color: white;
   border-radius: 20px;
@@ -192,12 +197,12 @@
   border: 2px solid #c8860a;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
- 
+
 .event-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
- 
+
 .event-date-badge {
   display: flex;
   flex-direction: column;
@@ -210,47 +215,47 @@
   height: 72px;
   flex-shrink: 0;
 }
- 
+
 .event-weekday {
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 1px;
   opacity: 0.8;
 }
- 
+
 .event-day {
   font-size: 1.8rem;
   font-weight: 800;
   line-height: 1;
 }
- 
+
 .event-month {
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 1px;
   opacity: 0.8;
 }
- 
+
 .event-content {
   display: flex;
   flex-direction: column;
   gap: 10px;
   flex: 1;
 }
- 
+
 .event-name {
   color: #273c16;
   font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.3;
 }
- 
+
 .event-meta {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
- 
+
 .event-meta-item {
   display: flex;
   align-items: flex-start;
@@ -259,19 +264,19 @@
   color: #4a4a4a;
   line-height: 1.4;
 }
- 
+
 .event-meta-item svg {
   flex-shrink: 0;
   margin-top: 1px;
   color: #273c16;
 }
- 
+
 .event-description {
   font-size: 0.875rem;
   color: #3a3a3a;
   line-height: 1.6;
 }
- 
+
 .event-rsvp-btn {
   display: inline-block;
   margin-top: auto;
@@ -287,45 +292,45 @@
   align-self: flex-start;
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
- 
+
 .event-rsvp-btn:hover {
   background-color: #1d2e10;
   transform: translateY(-2px);
 }
- 
- 
+
+
 /* ─── RESPONSIVE ────────────────────────────────────────────── */
- 
+
 @media (max-width: 900px) {
   .hero-container {
     min-height: unset;
   }
- 
+
   .hero-text {
     padding: 48px 24px;
     max-width: 100%;
   }
- 
+
   .hero-image {
     display: none;
   }
- 
+
   .hero-text h1 {
     font-size: 2.2rem;
   }
- 
+
   .white-card {
     padding: 36px 24px;
   }
- 
+
   .white-card h3 {
     font-size: 1.5rem;
   }
- 
+
   .white-card p {
     font-size: 1rem;
   }
- 
+
   .events-grid {
     grid-template-columns: 1fr;
   }

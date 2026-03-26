@@ -1,8 +1,12 @@
 import Leaderboard from "@/components/Leaderboard";
 import MemberOfTheMonth from "./components/MemberOfTheMonth";
 import MembershipTiers from "./components/MembershipTiers";
+<<<<<<< HEAD
 
 export const revalidate = 60;
+=======
+import TopMembers from "./components/Leaderboard";
+>>>>>>> e7a85c1 (fixing homepage conflicts)
 
 export default function MembershipPage() {
   return (

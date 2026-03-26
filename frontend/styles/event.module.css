@@ -1,0 +1,330 @@
+/* ==============================
+   Event Type Colors
+   ============================== */
+.event-gbm {
+  background-color: #dbeafe; /* blue-100 */
+  color: #1e40af; /* blue-800 */
+}
+
+.event-pci {
+  background-color: #e8d1ce; /* amber-100 */
+  color: #C8102E; /* amber-800 */
+}
+
+.event-torch {
+  background-color: #cee6d9; /* violet-100 */
+  color: #1F5E3B; /* violet-800 */
+}
+
+.event-big-events {
+  background-color: #e7dfc7; /* green-100 */
+  color: #D4AF37; /* green-800 */
+}
+
+.event-dot {
+  background-color: #e7dfc7; /* green-100 */
+  color: #D4AF37; /* green-800 */
+}
+
+.event-conference {
+  background-color: #e7dfc7; /* green-100 */
+  color: #D4AF37; /* green-800 */
+}
+/* ==============================
+   Event List Card
+   ============================== */
+.event-list-card {
+  background-color: #ffffff;
+  border-radius: 1rem; /* rounded-2xl */
+  padding: 1rem 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.event-list-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Event Title */
+.event-list-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #374151; /* gray-700 */
+  margin-bottom: 0.5rem;
+}
+
+/* Time and Location */
+.event-list-time,
+.event-list-location {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem; /* text-sm */
+  color: #374151; /* gray-700 */
+  margin-bottom: 0.25rem;
+}
+
+/* Icon styling */
+.event-icon {
+  display: inline-block;
+  margin-right: 0.25rem;
+  color: #D4AF37; /* gold */
+}
+
+/* Add to Calendar Button */
+.add-to-calendar-btn {
+  background-color: #D4AF37; /* gold */
+  color: #000000;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.add-to-calendar-btn:hover {
+  background-color: #C19B2E;
+  transform: translateY(-1px);
+}
+
+/* ==============================
+   Event Filters
+   ============================== */
+.filters-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 0.5rem;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db; /* gray-300 */
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+}
+
+.view-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  color: #4b5563; /* gray-700 */
+  background-color: transparent;
+}
+
+.view-btn:hover {
+  background-color: #f3f4f6; /* gray-100 */
+}
+
+.active {
+  background-color: #e2b512; /* gold */
+  color: #000000;
+}
+
+.filter-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-icon {
+  color: #4b5563; /* gray-600 */
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: 1px solid #d1d5db; /* gray-300 */
+  background-color: #ffffff;
+  color: #4b5563; /* gray-700 */
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.filter-btn:hover {
+  background-color: #f3f4f6; /* gray-100 */
+}
+
+.active-filter {
+  background-color: #d4af37; /* gold */
+  color: #000000;
+}
+
+/* ==============================
+   Calendar
+   ============================== */
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.calendar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.calendar-month {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.calendar-grid {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
+.weekday {
+  padding: 0.5rem 0;
+}
+
+.calendar-day {
+  min-height: 140px;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  background-color: white;
+  transition: all 0.2s;
+  overflow: hidden;
+}
+
+.calendar-day.has-events {
+  border-color: #e5e7eb;
+  background-color: #ffffff; /* amber-50 */
+}
+
+/* Event Cards in Calendar */
+.day-event {
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  margin-bottom: 0.25rem;
+  transition: opacity 0.2s;
+}
+
+.day-event:hover {
+  opacity: 0.8;
+}
+
+.day-event-title {
+  font-size: 0.75rem;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.day-event-info {
+  font-size: 0.625rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #374151;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ==============================
+   Calendar Nav Buttons: Real Button Style
+   ============================== */
+.calendar-nav button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  /* Button style */
+  border: 2px solid #d1d5db; /* gray border */
+  background-color: #f9fafb; /* light button background */
+  color: #111827; /* dark text */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+/* Prev / Next buttons */
+.calendar-nav .prev-btn,
+.calendar-nav .next-btn {
+  background-color: #f3f4f6; /* gray button */
+  border-color: #d1d5db; 
+  color: #374151;
+}
+
+.calendar-nav .prev-btn:hover,
+.calendar-nav .next-btn:hover {
+  background-color: #e5e7eb;
+  border-color: #9ca3af;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+/* Today button */
+.calendar-nav .today-btn {
+  background-color: #D4AF37; /* gold */
+  border-color: #b9972f;
+  color: #000000;
+}
+
+.calendar-nav .today-btn:hover {
+  background-color: #C19B2E; /* darker gold */
+  border-color: #8f7a21;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+/* Grouping Prev / Today / Next */
+.calendar-nav .button-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Highlight today's date */
+.calendar-day.today {
+  border: 2px solid #2862df; /* gold border */
+  background-color: #cedbff; /* subtle gold background */
+}
+
+/* ==============================
+   Calendar Day Hover
+   ============================== */
+.calendar-day {
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.calendar-day:hover {
+  background-color: #f3f4f6; /* light gray on hover */
+  transform: translateY(-2px); /* subtle lift effect */
+  cursor: pointer;
+}

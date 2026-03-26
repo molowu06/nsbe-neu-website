@@ -104,7 +104,7 @@ export const eboardMembers: EboardMember[] = [
     },
     {
         name: "Oli Millien",
-        position: "Torch Chair",
+        position: "TORCH Chair",
         year: "2nd",
         major: "Computer Engineering",
         linkedin: "https://www.linkedin.com/in/olivetan-millien/",
@@ -122,7 +122,7 @@ export const eboardMembers: EboardMember[] = [
     },
     {
         name: "Tahmir Murphy",
-        position: "Pre-Collegiate Initiatives Chair",
+        position: "Pre-Collegiate Initiative Chair",
         year: "2nd",
         major: "Bioengineering",
         linkedin: "https://www.linkedin.com/in/tahmir-murphy/",
@@ -138,12 +138,13 @@ export const eboardMembers: EboardMember[] = [
         image: "/headshots/milk.jpg",
         email: "bess.nsbe.relations@gmail.com"
     },
-    // {
-    //     name: "Dean Richard Harris",
-    //     position: "Advisor",
-    //     major: "Associate Dean of Engineering",
-    //     linkedin: "https://www.linkedin.com/in/richard-harris-3315454/",
-    //     email: "ri.harris@northeastern.edu",
-    //     image: "/headshots/dean-harris.jpg"
-    // },
+    {
+        name: "Seunfunmi Soyannwo",
+        position: "Freshman Representative",
+        year: "1st",
+        major: "Bioengineering",
+        linkedin: "https://www.linkedin.com/in/seunfunmi-soyannwo-1198aa313/",
+        email: "soyannwo.o@northeastern.edu",
+        image: "/headshots/seunfunmi.jpg"
+    },
 ];

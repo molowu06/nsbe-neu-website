@@ -1,0 +1,90 @@
+// data/TierData.ts
+
+export const tiers = [
+    {
+        name: "Green Tier",
+        description: "For anyone who attends at least 1 event",
+        level: "Entry level",
+        subtitle: "Attend 1+ event",
+        benefits: [
+            "Access to General Body Meetings (GBMs)",
+            "Access to Aex meetings",
+            "Access to large events",
+            "PCI Saturdays",
+            "TORCH Saturdays",
+        ],
+        colors: {
+            bg: "bg-white",
+            border: "borger-green-600",
+            text: "text-green-700",
+            button: "bg-green-600 hover:bg-green-700 text-white",
+            check: "text-green-600",
+        },
+        levelSize: "text-3xl",
+    },
+
+    {
+        name: "Red Tier",
+        description: "Members who have at least 8 points",
+        level: "8+ Points",
+        subtitle: "Active member status",
+        benefits: [
+            "All Green Tier benefits",
+            "Access to professional conferences",
+            "Inclusion in resume book",
+            "Ability to list BESS affiliation",
+            "LinkedIn and resume credentials",
+        ],
+        colors: {
+            bg: "bg-red-600",
+            border: "border-red-600",
+            text: "text-white",
+            button: "bg-white hover:bg-gray-100 text-red-600",
+            check: "text-yellow-300",
+        },
+        levelSize: "text-3xl",
+    },
+    {
+        name: "Black Tier",
+        description: "Graduate and Alumni members (unofficial status)",
+        level: "Graduate/Alumni",
+        subtitle: "Post-graduation",
+        benefits: [
+            "All Green Tier benefits",
+            "Alumni network access",
+            "Mentorship opportunities",
+            "Career support resources",
+            "Chapter event invitations",
+        ],
+        colors: {
+            bg: "bg-gray-900",
+            border: "border-gray-900",
+            text: "text-white",
+            button: "bg-white hover:bg-gray-100 text-gray-900",
+            check: "text-green-400",
+        },
+        levelSize: "text-2xl",
+    },
+    {
+    name: "Gold Tier",
+    description: "Past or present members of Executive Board",
+    level: "E-Board",
+    subtitle: "Leadership status",
+    benefits: [
+        "All Red Tier benefits",
+        "Highest priority conference access",
+        "Priority event registration",
+        "Leadership development",
+        "Executive networking",
+        "Recognition and awards",
+    ],
+    colors: {
+        bg: "bg-amber-500",
+        border: "border-amber-500",
+        text: "text-white",
+        button: "bg-gray-900 hover:bg-gray-800 text-white",
+        check: "text-green-300",
+    },
+    levelSize: "text-3xl",
+    },
+];

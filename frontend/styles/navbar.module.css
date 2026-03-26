@@ -1,0 +1,117 @@
+/* Navbar container */
+.nav {
+  background: #ffffff;
+  border-bottom: 3px solid #D4AF37;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 3vw;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo h3 {
+  font-size: 1.2rem;       
+}
+
+
+/* Navigation links */
+.links {
+  display: flex;
+  gap: 2vw;                
+  list-style: none;
+}
+
+.links a {
+  text-decoration: none;
+  color: #111827;
+  font-weight: 700;
+  font-size: 1.1rem;     
+}
+
+.links a:hover {
+  color:#C8102E ;
+}
+
+body {
+  padding-top: 5rem;    
+}
+
+/* dropdown wrapper*/
+.dropdown {
+  position: relative;
+}
+
+.dropdownTrigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: #111827;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0;
+  font-family: inherit;
+}
+
+.dropdownTrigger:hover {
+  color: #C8102E;
+}
+
+/* arrow icon next to "About" */
+.arrow {
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+/* rotates arrow upward when dropdown is open */
+.arrowOpen {
+  transform: rotate(180deg);
+}
+
+/* the floating dropdown panel */
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  min-width: 220px;
+  z-index: 1001;
+}
+
+/* individual dropdown links */
+.dropdownMenu li a {
+  display: block;
+  padding: 0.6rem 1.2rem;
+  color: #111827;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+/* hover state — light gold tint to match brand */
+.dropdownMenu li a:hover {
+  background: #fdf6e3;
+  color: #C8102E;
+}

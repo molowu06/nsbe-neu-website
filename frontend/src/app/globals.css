@@ -14,6 +14,7 @@
 }
 
 /* ─── HERO SECTION ─────────────────────────────────────────── */
+
  
 .hero-wrapper {
   background-color: #f0f0f0;
@@ -21,6 +22,13 @@
   overflow: hidden;
   position: relative;
 }
+
+.hero-container {
+  position: relative;
+  min-height: 700px;
+  overflow: hidden;
+}
+
  
 .hero-container {
   position: relative;
@@ -38,6 +46,30 @@
   max-width: 540px;
   padding: 100px 60px;
 }
+
+.hero-text h1 {
+  font-size: 5.6rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #273c16;
+  margin: -5px -10px 0;
+  white-space: nowrap;
+}
+
+.hero-highlight {
+  color: #c8860a;
+  margin: 140px;
+  font-size: 6rem;
+}
+
+.hero-subtitle {
+  font-size: 1.9rem;
+  color: #273c16;
+  line-height: 1.7;
+  max-width:500px;
+  margin: 0;
+}
+
  
 .hero-text h1 {
   font-size: 3.2rem;
@@ -66,6 +98,25 @@
   flex-wrap: wrap;
   margin-top: 8px;
 }
+
+.hero-image {
+  top: 30px;
+  bottom: 30px;
+  right: 30px;
+  left: 10px;           
+  z-index: 1;
+}
+
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 30px;
+  background-color: #c8860a;
+  color: white;
+  border-radius: 8px;
+  font-size: 2.4rem;
+  font-weight: 500;
  
 .hero-image {
   position: absolute;
@@ -90,11 +141,22 @@
   transition: background-color 0.2s ease, transform 0.2s ease;
   white-space: nowrap;
 }
+
  
 .hero-btn-primary:hover {
   background-color: #a86e08;
   transform: translateY(-2px);
 }
+
+.hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 20px 30px;
+  background-color: #1a1a1a;
+  color: white;
+  border-radius: 8px;
+  font-size: 2.4rem;
+  font-weight: 500;
  
 .hero-btn-secondary {
   display: inline-flex;
@@ -109,6 +171,7 @@
   transition: background-color 0.2s ease, transform 0.2s ease;
   white-space: nowrap;
 }
+
  
 .hero-btn-secondary:hover {
   background-color: #333;

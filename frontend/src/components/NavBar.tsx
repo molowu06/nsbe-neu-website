@@ -1,18 +1,51 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import {FaBars, FaTimes } from "react-icons/fa";
 import styles from "../../styles/navbar.module.css";
 
 const NavBar = () => {
-  const [membershipOpen, setMembershipOpen] = useState(false);
+  // menuOpen state for hamburger toggle
+  const [menuOpen, setMenuOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+
+  // close mobile menu when clicking outside the nav
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+        setAboutOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // close mobile menu  is window resizes past mobile breakpoint
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth >= 768) {
+        setMenuOpen(false);
+      }
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // helper to close everything when a link is clicked
+  const closeAll = () => {
+    setMenuOpen(false);
+    setAboutOpen(false);
+  }
 
   return (
-    <nav className={styles.nav}>
+    // ref is for outside-click detection
+    <nav className={styles.nav} ref={navRef}>
       <div className={styles.logo}>
-        <Link href="/">
+        <Link href="/" onClick={closeAll}>
           <Image 
               src="/logo/navbar_logo.png"
               alt="NSBE Logo" 
@@ -23,60 +56,37 @@ const NavBar = () => {
           <h3><strong>BESS - NSBE Northeastern Chapter</strong> </h3>
       </div>
 
-      <ul className={styles.links}>
-        <li><Link href="/">Home</Link></li>
-        <li><Link href="/event">Events</Link></li>
-        <li><Link href="/newsletter">Newsletter</Link></li>
-        <li
-          className={styles.dropdown}
-          onMouseEnter= {() => setMembershipOpen(true)}
-          onMouseLeave= {() => setMembershipOpen(false)}
-        >
-          <button
-            className= {styles.dropdownTrigger}
-            onClick= {() => setMembershipOpen(false)}
-          >
-            Membership
-            <span
-              className={`${styles.arrow} ${membershipOpen ? styles.arrowOpen : ""}`}
-            >
-              ▾
-            </span>
-          </button>
+      {/* hamburger button - only visible on mobile via CSS */}
+      <button
+        className={styles.hamburger}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle menu"
+      >
+        {menuOpen ? <FaTimes size={24}/> : <FaBars size={24} />}
+      </button>
 
-          {/* the dropdown menu, renders when membershipOpen is true */}
-          {membershipOpen && (
-            <ul className={styles.dropdownMenu}>
-              <li>
-                <Link 
-                  href="/membership"
-                  onClick={() => setMembershipOpen(false)}
-                >
-                  BESS Members
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/membership/MembershipNSBE"
-                  onClick={() => setMembershipOpen(false)}
-                >
-                  National NSBE Membership
-                </Link>
-              </li>
-            </ul>
-          )}
+      <ul className={`${styles.links} ${menuOpen ? styles.linksOpen : ""}`}>
+        <li><Link href="/" onClick={closeAll}>Home</Link></li>
+        <li><Link href="/event" onClick={closeAll}>Events</Link></li>
+        <li><Link href="/newsletter" onClick={closeAll}>Newsletter</Link></li>
+        <li>
+          <Link href="/membership" onClick={closeAll}>Membership</Link>
         </li>
 
         <li
           className={styles.dropdown}
-          onMouseEnter= {() => setAboutOpen(true)}
-          onMouseLeave= {() => setAboutOpen(false)}
+          onMouseEnter= {() => {
+            if (window.innerWidth >= 768) setAboutOpen(true);
+          }}
+          onMouseLeave= {() => {
+            if (window.innerWidth >= 768) setAboutOpen(false);
+          }}
         >
           <button
             className= {styles.dropdownTrigger}
-            onClick= {() => setAboutOpen(false)}
+            onClick= {() => setAboutOpen(!aboutOpen)}
           >
-            About
+            About{" "}
             <span
               className={`${styles.arrow} ${aboutOpen ? styles.arrowOpen : ""}`}
             >

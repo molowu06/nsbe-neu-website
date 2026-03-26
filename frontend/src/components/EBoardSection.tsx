@@ -184,11 +184,14 @@ function MemberCard({ member }: { member: EboardMember }) {
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
+              style={{ flexShrink: 0 }}
             >
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
               <polyline points="22,6 12,13 2,6" />
             </svg>
-            {member.email}
+            <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+              {member.email}
+            </span>
           </a>
         )}
       </div>
@@ -196,7 +199,7 @@ function MemberCard({ member }: { member: EboardMember }) {
   );
 }
 
-// ── Main Section ────────────────────────────────────────
+// ── main section ────────────────────────────────────────
 export default function EBoardSection() {
   const [members, setMembers] = useState<EboardMember[]>([]);
   const [loading, setLoading] = useState(true);

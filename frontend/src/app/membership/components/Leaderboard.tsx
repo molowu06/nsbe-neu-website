@@ -1,8 +1,8 @@
-// components/TopMembers.tsx
+// components/Leaderboard.tsx
 
 import { FaTrophy } from "react-icons/fa";
 
-export default function TopMembers() {
+export default function Leaderboard() {
   return (
     <section className="py-12 px-4">
       <div className="max-w-3xl mx-auto">

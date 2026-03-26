@@ -1,6 +1,6 @@
 import MemberOfTheMonth from "./components/MemberOfTheMonth";
 import MembershipTiers from "./components/MembershipTiers";
-import TopMembers from "./components/TopMembers";
+import TopMembers from "./components/Leaderboard";
 
 export default function MembershipPage() {
   return (

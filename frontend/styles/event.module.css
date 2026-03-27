@@ -1,41 +1,37 @@
-/* ==============================
-   Event Type Colors
-   ============================== */
+/* Event Type Colors */
 .event-gbm {
-  background-color: #dbeafe; /* blue-100 */
-  color: #1e40af; /* blue-800 */
+  background-color: #dbeafe;
+  color: #1e40af;
 }
 
 .event-pci {
-  background-color: #e8d1ce; /* amber-100 */
-  color: #C8102E; /* amber-800 */
+  background-color: #e8d1ce;
+  color: #C8102E;
 }
 
 .event-torch {
-  background-color: #cee6d9; /* violet-100 */
-  color: #1F5E3B; /* violet-800 */
+  background-color: #cee6d9;
+  color: #1F5E3B;
 }
 
 .event-big-events {
-  background-color: #e7dfc7; /* green-100 */
-  color: #D4AF37; /* green-800 */
+  background-color: #e7dfc7;
+  color: #D4AF37;
 }
 
 .event-dot {
-  background-color: #e7dfc7; /* green-100 */
-  color: #D4AF37; /* green-800 */
+  background-color: #e7dfc7;
+  color: #D4AF37;
 }
 
 .event-conference {
-  background-color: #e7dfc7; /* green-100 */
-  color: #D4AF37; /* green-800 */
+  background-color: #e7dfc7;
+  color: #D4AF37;
 }
-/* ==============================
-   Event List Card
-   ============================== */
+/* Event List Card */
 .event-list-card {
   background-color: #ffffff;
-  border-radius: 1rem; /* rounded-2xl */
+  border-radius: 1rem; 
   padding: 1rem 1.25rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -51,7 +47,7 @@
 .event-list-title {
   font-weight: 600;
   font-size: 1rem;
-  color: #374151; /* gray-700 */
+  color: #374151;
   margin-bottom: 0.5rem;
 }
 
@@ -60,8 +56,8 @@
 .event-list-location {
   display: flex;
   align-items: center;
-  font-size: 0.875rem; /* text-sm */
-  color: #374151; /* gray-700 */
+  font-size: 0.875rem;
+  color: #374151;
   margin-bottom: 0.25rem;
 }
 
@@ -69,12 +65,12 @@
 .event-icon {
   display: inline-block;
   margin-right: 0.25rem;
-  color: #D4AF37; /* gold */
+  color: #D4AF37;
 }
 
 /* Add to Calendar Button */
 .add-to-calendar-btn {
-  background-color: #D4AF37; /* gold */
+  background-color: #D4AF37;
   color: #000000;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -88,9 +84,7 @@
   transform: translateY(-1px);
 }
 
-/* ==============================
-   Event Filters
-   ============================== */
+/* Event Filters */
 .filters-container {
   display: flex;
   justify-content: space-between;
@@ -103,7 +97,7 @@
   display: flex;
   gap: 0.5rem;
   background-color: #ffffff;
-  border: 1px solid #d1d5db; /* gray-300 */
+  border: 1px solid #d1d5db;
   border-radius: 0.5rem;
   padding: 0.25rem;
 }
@@ -117,16 +111,16 @@
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
-  color: #4b5563; /* gray-700 */
+  color: #4b5563;
   background-color: transparent;
 }
 
 .view-btn:hover {
-  background-color: #f3f4f6; /* gray-100 */
+  background-color: #f3f4f6;
 }
 
 .active {
-  background-color: #e2b512; /* gold */
+  background-color: #e2b512;
   color: #000000;
 }
 
@@ -138,32 +132,30 @@
 }
 
 .filter-icon {
-  color: #4b5563; /* gray-600 */
+  color: #4b5563;
 }
 
 .filter-btn {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-weight: 600;
-  border: 1px solid #d1d5db; /* gray-300 */
+  border: 1px solid #d1d5db;
   background-color: #ffffff;
-  color: #4b5563; /* gray-700 */
+  color: #4b5563;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
 }
 
 .filter-btn:hover {
-  background-color: #f3f4f6; /* gray-100 */
+  background-color: #f3f4f6;
 }
 
 .active-filter {
-  background-color: #d4af37; /* gold */
+  background-color: #d4af37;
   color: #000000;
 }
 
-/* ==============================
-   Calendar
-   ============================== */
+/* Calendar */
 .calendar-container {
   display: flex;
   flex-direction: column;
@@ -190,7 +182,7 @@
   background-color: white;
   padding: 1.5rem;
   border-radius: 1rem;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 16px rgba(12, 83, 34, 0.1);
 }
 
 .weekdays {
@@ -219,7 +211,7 @@
 
 .calendar-day.has-events {
   border-color: #e5e7eb;
-  background-color: #ffffff; /* amber-50 */
+  background-color: #ffffff;
 }
 
 /* Event Cards in Calendar */
@@ -254,9 +246,7 @@
   white-space: nowrap;
 }
 
-/* ==============================
-   Calendar Nav Buttons: Real Button Style
-   ============================== */
+/* Calendar Nav Buttons */
 .calendar-nav button {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -267,9 +257,9 @@
   gap: 0.25rem;
 
   /* Button style */
-  border: 2px solid #d1d5db; /* gray border */
-  background-color: #f9fafb; /* light button background */
-  color: #111827; /* dark text */
+  border: 2px solid #d1d5db;
+  background-color: #f9fafb;
+  color: #111827;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: all 0.2s ease;
 }
@@ -277,7 +267,7 @@
 /* Prev / Next buttons */
 .calendar-nav .prev-btn,
 .calendar-nav .next-btn {
-  background-color: #f3f4f6; /* gray button */
+  background-color: #f3f4f6;
   border-color: #d1d5db; 
   color: #374151;
 }
@@ -292,13 +282,13 @@
 
 /* Today button */
 .calendar-nav .today-btn {
-  background-color: #D4AF37; /* gold */
+  background-color: #D4AF37;
   border-color: #b9972f;
   color: #000000;
 }
 
 .calendar-nav .today-btn:hover {
-  background-color: #C19B2E; /* darker gold */
+  background-color: #C19B2E;
   border-color: #8f7a21;
   transform: translateY(-1px);
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
@@ -312,19 +302,17 @@
 
 /* Highlight today's date */
 .calendar-day.today {
-  border: 2px solid #2862df; /* gold border */
-  background-color: #cedbff; /* subtle gold background */
+  border: 2px solid #bebebe;
+  background-color: #eaeaea;
 }
 
-/* ==============================
-   Calendar Day Hover
-   ============================== */
+/* Calendar Day */
 .calendar-day {
   transition: background-color 0.2s, transform 0.2s;
 }
 
 .calendar-day:hover {
-  background-color: #f3f4f6; /* light gray on hover */
-  transform: translateY(-2px); /* subtle lift effect */
+  background-color: #f3f4f6;
+  transform: translateY(-2px);
   cursor: pointer;
 }

@@ -21,10 +21,16 @@ export default function Events() {
   const calendarEvents = events.filter((event) => true);
 
   // List view (only upcoming events)
-  const now = new Date();
-  const listEvents = events.filter(
-    (event) => new Date(event.startDate) >= now
-  );
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+const listEvents = events
+  .filter((event) => new Date(event.startDate) >= today)
+  .sort(
+    (a, b) =>
+      new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+  )
+  .slice(0, 8);
 
   // Fetch Google Calendar events
   useEffect(() => {

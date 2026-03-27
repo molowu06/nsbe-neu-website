@@ -30,17 +30,20 @@
 }
 /* Event List Card */
 .event-list-card {
-  background-color: #ffffff;
-  border-radius: 1rem; 
-  padding: 1rem 1.25rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: white;
+  border-radius: 20px;
+  padding: 28px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 2px solid #c8860a;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .event-list-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
 /* Event Title */
@@ -70,18 +73,24 @@
 
 /* Add to Calendar Button */
 .add-to-calendar-btn {
-  background-color: #D4AF37;
-  color: #000000;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s;
+  display: inline-block;
+  margin-top: auto;
+  padding: 10px 24px;
+  background-color: #273c16;
+  color: white;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  align-self: flex-start;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .add-to-calendar-btn:hover {
   background-color: #C19B2E;
-  transform: translateY(-1px);
+  transform: translateY(-4px);
 }
 
 /* Event Filters */
@@ -173,9 +182,9 @@
 }
 
 .calendar-month {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  color: #000000;
+  color: #273c16;
 }
 
 .calendar-grid {
@@ -302,8 +311,7 @@
 
 /* Highlight today's date */
 .calendar-day.today {
-  border: 2px solid #bebebe;
-  background-color: #eaeaea;
+  border: 2px solid #D4AF37;
 }
 
 /* Calendar Day */
@@ -315,4 +323,12 @@
   background-color: #f3f4f6;
   transform: translateY(-2px);
   cursor: pointer;
+}
+
+.calendar-day-number {
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  color: #273c16;
 }

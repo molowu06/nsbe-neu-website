@@ -53,6 +53,7 @@ export async function fetchGoogleEvents(): Promise<EventType[]> {
         ? "All Day"
         : startObj.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
       location: event.location || "TBA",
+      link: event.htmlLink,
     };
   });
 }

@@ -160,8 +160,44 @@ export default function Home() {
         </div>
       </section>
 
+      {/* DONATION SECTION */}
+      <section className="donate-section">
+        <div className="donate-grid">
+
+          {/* LEFT SIDE */}
+          <div className="donate-content">
+            <h2 className="donate-heading">Support Our Mission</h2>
+
+            <p className="donate-text">
+              Your contribution helps fund scholarships, professional development,
+              community initiatives, and programs that empower the next generation
+              of culturally responsible engineers.
+            </p>
+
+            <Link href="/donate" className="donate-btn">
+              Donate →
+            </Link>
+          </div>
+
+          {/* RIGHT SIDE */}
+          <div className="donate-card">
+            <div className="donate-card-inner">
+              <Image
+                src="/images/homepage/bess-1.jpg"
+                alt="BESS community"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+           </div>
+         </div>
+
+        </div>
+      </section>
       {/* EVENTS SECTION */}
       <EventsSection />
+
+       
+      
     </main>
   );
 }

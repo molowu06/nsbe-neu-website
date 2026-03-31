@@ -6,40 +6,37 @@ import EventsSection from "@/app/components/events-section";
 import Link from "next/link";
 
 export default function Home() {
+  // Hero slideshow images (mixed JPG and PNG supported)
   const heroImages = [
     "/images/homepage/bess-1.jpg",
     "/images/homepage/bess-2.jpg",
-    "/images/homepage/bess-4.jpg",
-    "/images/homepage/bess-5.jpg",
-    "/images/homepage/bess-6.jpg",
-    "/images/homepage/bess-7.jpg",
-    "/images/homepage/bess-8.jpg",
-    "/images/homepage/bess-9.jpg",
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
 
+  // Slideshow effect
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) =>
         prev === heroImages.length - 1 ? 0 : prev + 1
       );
-    }, 4000);
+    }, 4000); // Change slide every 4 seconds
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <main>
-      {/* HERO SECTION */}
+      {/* ───────── HERO SECTION ───────── */}
       <section className="hero-wrapper">
         <div className="hero-background">
           {heroImages.map((img, index) => (
             <Image
               key={index}
               src={img}
-              alt="BESS members"
+              alt={`BESS slide ${index + 1}`}
               fill
+              sizes="100vw"
               priority={index === 0}
               className={`hero-slide ${
                 index === currentImage ? "active" : ""
@@ -62,7 +59,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHO WE ARE */}
+      {/* ───────── WHO WE ARE ───────── */}
       <section className="section-light">
         <div className="white-card">
           <h3>COMMUNITY. EXCELLENCE. SCHOLARSHIP.</h3>
@@ -78,7 +75,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PHOTO ROW SECTION */}
+      {/* ───────── PHOTO ROW SECTION ───────── */}
       <section className="photo-row">
         <div className="photo-row-grid">
           {/* Card 1 */}
@@ -160,44 +157,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DONATION SECTION */}
+      {/* ───────── DONATION SECTION ───────── */}
       <section className="donate-section">
         <div className="donate-grid">
-
-          {/* LEFT SIDE */}
+          {/* Left Content */}
           <div className="donate-content">
             <h2 className="donate-heading">Support Our Mission</h2>
-
             <p className="donate-text">
               Your contribution helps fund scholarships, professional development,
               community initiatives, and programs that empower the next generation
               of culturally responsible engineers.
             </p>
-
-            <Link href="/donate" className="donate-btn">
+            <Link href="/donate" className="hero-btn-primary">
               Donate →
             </Link>
           </div>
 
-          {/* RIGHT SIDE */}
+          {/* Right Image */}
           <div className="donate-card">
             <div className="donate-card-inner">
               <Image
                 src="/images/homepage/bess-1.jpg"
                 alt="BESS community"
                 fill
-                style={{ objectFit: "cover" }}
+                style={{ objectFit: "cover", objectPosition: "center 20%" }}
               />
-           </div>
-         </div>
-
+            </div>
+          </div>
         </div>
       </section>
-      {/* EVENTS SECTION */}
-      <EventsSection />
 
-       
-      
+      {/* ───────── EVENTS SECTION ───────── */}
+      <EventsSection />
     </main>
   );
 }

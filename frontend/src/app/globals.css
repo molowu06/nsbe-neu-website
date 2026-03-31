@@ -144,9 +144,9 @@
 }
 
 .white-card p {
-  font-size: 2.8rem;
+  font-size: 2.25rem;
   line-height: 1.7;
-  max-width: 970px;
+  max-width: 980px;
   margin: 0 auto 24px;
   color: #273c16;
 }
@@ -208,11 +208,76 @@
   margin-top: 40px;
 }
 
+/* ─── DONATION SPLIT SECTION ───────────────────────── */
 
+.donate-section {
+  background-color: white;
+  padding: 120px 40px;
+}
+
+.donate-grid {
+  max-width: 1450px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+/* LEFT SIDE */
+
+.donate-heading {
+  font-size: 3.8rem;
+  font-weight: 700;
+  color: #273c16;
+  margin-bottom: 24px;
+}
+
+.donate-text {
+  font-size: 1.4rem;
+  line-height: 1.7;
+  color: #333;
+  max-width: 650px;
+  margin-bottom: 36px;
+}
+
+.donate-btn {
+  display: inline-block;
+  padding: 16px 36px;
+  background-color: #c8860a;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.donate-btn:hover {
+  background-color: #a86e08;
+  transform: translateY(-3px);
+}
+
+/* RIGHT SIDE CARD */
+
+.donate-card {
+  position: relative;
+  height: 420px;
+  background-color: #273c16;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.donate-card-inner {
+  position: absolute;
+  inset: 20px; /* creates that framed look */
+  border-radius: 20px;
+  overflow: hidden;
+}
 /* ─── EVENTS SECTION ────────────────────────────────────────── */
  
 .events-section {
-  background-color: white;
+  background-color: #f0f0f0;
   padding: 64px 32px;
   text-align: center;
 }
@@ -348,7 +413,6 @@
   background-color: #1d2e10;
   transform: translateY(-2px);
 }
- 
 
 
 /* ─── RESPONSIVE ─────────────────────────── */

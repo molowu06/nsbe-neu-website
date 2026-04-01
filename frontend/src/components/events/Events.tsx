@@ -93,28 +93,28 @@ const listEvents = events
 
             <div className="flex-1">
               <h2 className="text-2xl sm:text-3xl font-bold text-[#000000] mb-1">
-                NSBE 52nd Annual Convention
+                Soiree Black
               </h2>
               <p className="text-gray-700 text-sm sm:text-base mb-3">
-                Join thousands of NSBE members from across the nation
+              Celebrate with us to honor the achievements, leadership, and impact of our members and supporters
               </p>
 
               <div className="flex flex-wrap gap-4 text-sm sm:text-base">
                 <div className="flex items-center gap-2">
                   <Calendar className="text-[#D4AF37]" size={16} />
-                  <span>March 18–22, 2026</span>
+                  <span>Sunday, April 12th | 6:00 - 9:00 PM</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="text-[#D4AF37]" size={16} />
-                  <span>Baltimore, MD</span>
+                  <span>Cabral Center</span>
                 </div>
                
               </div>
             </div>
 
             <div className="flex-shrink-0 self-center sm:self-start">
-              <button className="bg-[#a32b22] text-[#ffffff] px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold hover:bg-[#C19B2E] transition-colors">
-                Registeration Over
+              <button className="bg-[green] text-[#ffffff] px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold hover:bg-[#C19B2E] transition-colors">
+                RSVP
               </button>
             </div>
           </div>

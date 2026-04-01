@@ -2,6 +2,9 @@
 
 import { EventType } from "../../../types/event";
 import { addEventToCalendar } from "../../lib/calendar";
+import styles from "../../../styles/event.module.css";
+
+
 
 type Props = {
   event: EventType;
@@ -22,34 +25,34 @@ export default function EventCard({ event, onClick }: Props) {
 
   return (
     <div
-      className="event-card"
+      className={styles["event-card"]}
       onClick={() => onClick && onClick(event)}
     >
-      <div className="event-date-badge">
-        <span className="event-weekday">{weekday}</span>
-        <span className="event-day">{day}</span>
-        <span className="event-month">{month}</span>
+      <div className={styles["event-date-badge"]}>
+        <span className={styles["event-weekday"]}>{weekday}</span>
+        <span className={styles["event-day"]}>{day}</span>
+        <span className={styles["event-month"]}>{month}</span>
       </div>
 
-      <div className="event-content">
-        <h3 className="event-name">{event.title}</h3>
+      <div className={styles["event-content"]}>
+        <h3 className={styles["event-name"]}>{event.title}</h3>
 
-        <div className="event-meta">
-          <span className="event-meta-item">
+        <div className={styles["event-meta"]}>
+          <span className={styles["event-meta-item"]}>
             {event.startTime || "All Day"}
           </span>
 
-          <span className="event-meta-item">
+          <span className={styles["event-meta-item"]}>
             {event.location || "Location TBA"}
           </span>
         </div>
 
-        <p className="event-description">
+        <p className={styles["event-description"]}>
           {event.description || "More details coming soon."}
         </p>
 
         <button
-          className="event-rsvp-btn"
+          className={styles["event-rsvp-btn"]}
           onClick={(e) => {
             e.stopPropagation();
             addEventToCalendar(event);

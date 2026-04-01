@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import EventsSection from "@/app/components/events-section";
+import EventsSection from "../components/UpcomingEvents";
 import Link from "next/link";
 
 export default function Home() {

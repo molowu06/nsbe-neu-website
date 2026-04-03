@@ -1,56 +1,107 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
+import Link from "next/link";
 import styles from "../../../styles/archive.module.css";
+import {
+  fetchFolders,
+  fetchPhotos,
+  getDriveImageFallbackUrl,
+  getDriveImageUrl,
+} from "@/lib/drive";
+import { FiGrid, FiList } from "react-icons/fi";
 
-const albums = [
-  { id: 1, title: "NSBE Regional Conference", date: "March 21, 2026", year: 2026, category: "Conference", photoCount: 42 },
-  { id: 2, title: "Resume & LinkedIn Workshop", date: "March 12, 2026", year: 2026, category: "PCI", photoCount: 18 },
-  { id: 3, title: "BESS General Body Meeting", date: "March 5, 2026", year: 2026, category: "GBM", photoCount: 24 },
-  { id: 4, title: "BESS Banquet Night", date: "February 20, 2025", year: 2025, category: "Big Events", photoCount: 65 },
-  { id: 5, title: "Study Night", date: "January 10, 2025", year: 2025, category: "GBM", photoCount: 12 },
-];
+const MAIN_FOLDER_ID = process.env.NEXT_PUBLIC_GOOGLE_DRIVE_FOLDER_ID!;
 
 export default function ArchivePage() {
-  const [view, setView] = useState<"card" | "list">("card");
-  const [selectedYear, setSelectedYear] = useState<number | "All">("All");
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [albums, setAlbums] = useState<any[]>([]);
+  const [selectedYear, setSelectedYear] = useState<string | "All">("All");
+  const [selectedEvent, setSelectedEvent] = useState<string>("All");
+  const [view, setView] = useState<"grid" | "list">("grid");
+
+  useEffect(() => {
+    async function loadAlbums() {
+      const yearFolders = await fetchFolders(MAIN_FOLDER_ID);
+
+      const albumPromises = yearFolders.map(async (yearFolder: any) => {
+        const eventFolders = await fetchFolders(yearFolder.id);
+
+        return Promise.all(
+          eventFolders.map(async (eventFolder: any) => {
+            const thumbnail = await fetchPhotos(eventFolder.id, 1);
+
+            // Only include if there is at least one photo
+            if (!thumbnail || thumbnail.length === 0) return null;
+
+            return {
+              id: eventFolder.id,
+              title: eventFolder.name,
+              year: yearFolder.name,
+              event: eventFolder.name,
+              thumbnailId: thumbnail[0]?.id || null,
+            };
+          })
+        );
+      });
+
+      const nested = await Promise.all(albumPromises);
+      const flatAlbums = nested.flat().filter(Boolean);
+
+      setAlbums(flatAlbums);
+    }
+
+    loadAlbums();
+  }, []);
+
+  const parseYearStart = (yearString: string) => {
+    const parts = yearString.split("-").map((p) => parseInt(p));
+    return parts[0] || 0;
+  };
 
   const years = useMemo(() => {
-    return [...new Set(albums.map((a) => a.year))].sort((a, b) => b - a);
-  }, []);
+   return [...new Set(albums.map((a) => a.year))]
+      .sort((a, b) => parseYearStart(b) - parseYearStart(a));
+  }, [albums]);
 
   const filteredByYear =
     selectedYear === "All"
       ? albums
-      : albums.filter((a) => a.year === selectedYear);
+      : albums.filter((album) => album.year === selectedYear);
 
-  const categories = useMemo(() => {
-    return ["All", ...new Set(filteredByYear.map((a) => a.category))];
-  }, [filteredByYear]);
+  const events = useMemo(
+    () => [...new Set(filteredByYear.map((a) => a.event))],
+    [filteredByYear]
+  );
 
-  const fullyFiltered =
-    selectedCategory === "All"
+  const filteredAlbums =
+    selectedEvent === "All"
       ? filteredByYear
-      : filteredByYear.filter((a) => a.category === selectedCategory);
+      : filteredByYear.filter((album) => album.event === selectedEvent);
 
-  // PROFESSIONAL BANNER LOGIC
-  let bannerText = "";
+  const sortedFilteredAlbums = useMemo(() => {
+    return [...filteredAlbums].sort((a, b) => {
+      const yearSort = parseYearStart(b.year) - parseYearStart(a.year);
 
-  if (selectedYear === "All" && selectedCategory === "All") {
-    bannerText = "All Photos";
-  } else if (selectedYear !== "All" && selectedCategory === "All") {
+      if (yearSort !== 0) {
+        return yearSort;
+      }
+
+      return String(a.title).localeCompare(String(b.title));
+    });
+  }, [filteredAlbums]);
+
+  // banner text
+  let bannerText = "All Photos";
+  if (selectedYear !== "All" && selectedEvent === "All") {
     bannerText = `${selectedYear} Photos`;
-  } else {
-    bannerText = `${selectedYear} ${selectedCategory} Photos`;
+  } else if (selectedYear !== "All" && selectedEvent !== "All") {
+    bannerText = `${selectedYear} • ${selectedEvent}`;
   }
 
   return (
     <main className={styles.page}>
-
       {/* HEADER */}
       <div className={styles.header}>
-
         <div>
           <h1 className={styles.title}>Photo Archives</h1>
           <p className={styles.subtitle}>
@@ -58,136 +109,155 @@ export default function ArchivePage() {
           </p>
         </div>
 
-        {/* ALL CONTROLS INLINE */}
         <div className={styles.controlPanel}>
-
-          {/* GRID / LIST TOGGLE */}
+          {/* GRID / LIST */}
           <div className={styles.segmentedControl}>
             <button
               className={`${styles.segmentBtn} ${
-                view === "card" ? styles.activeSegment : ""
+                view === "grid" ? styles.activeSegment : ""
               }`}
-              onClick={() => setView("card")}
+              onClick={() => setView("grid")}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-              </svg>
-              Grid
+              <FiGrid /> Grid
             </button>
-
             <button
               className={`${styles.segmentBtn} ${
                 view === "list" ? styles.activeSegment : ""
               }`}
               onClick={() => setView("list")}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24">
-                <line x1="8" y1="6" x2="21" y2="6" />
-                <line x1="8" y1="12" x2="21" y2="12" />
-                <line x1="8" y1="18" x2="21" y2="18" />
-              </svg>
-              List
+              <FiList /> List
             </button>
           </div>
 
-          {/* FILTER ICON */}
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            className={styles.filterIcon}
-          >
-            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
-          </svg>
-
-          {/* YEAR DROPDOWN */}
+          {/* Year Dropdown */}
           <select
             className={styles.dropdown}
             value={selectedYear}
             onChange={(e) => {
-              const value =
-                e.target.value === "All"
-                  ? "All"
-                  : parseInt(e.target.value);
-              setSelectedYear(value);
-              setSelectedCategory("All");
+              setSelectedYear(e.target.value);
+              setSelectedEvent("All");
             }}
           >
             <option value="All">All Years</option>
             {years.map((year) => (
-              <option key={year} value={year}>
-                {year}
-              </option>
+              <option key={year}>{year}</option>
             ))}
           </select>
 
-          {/* CATEGORY FILTERS */}
+          {/* Event Dropdown */}
           {selectedYear !== "All" && (
-            <div className={styles.filterGroup}>
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  className={`${styles.filterTag} ${
-                    selectedCategory === cat
-                      ? styles.activeFilter
-                      : ""
-                  }`}
-                  onClick={() => setSelectedCategory(cat)}
-                >
-                  {cat}
-                </button>
+            <select
+              className={styles.dropdown}
+              value={selectedEvent}
+              onChange={(e) => setSelectedEvent(e.target.value)}
+            >
+              <option value="All">All Events</option>
+              {events.map((event) => (
+                <option key={event}>{event}</option>
               ))}
-            </div>
+            </select>
           )}
         </div>
       </div>
 
-      {/* FULL WIDTH WHITE BANNER */}
+      {/* BANNER */}
       <div className={styles.bannerWrapper}>
         <div className={styles.bannerCard}>{bannerText}</div>
       </div>
 
       {/* CONTENT */}
-      {view === "card" ? (
+      {view === "grid" ? (
         <div className={styles.grid}>
-          {fullyFiltered.map((album) => (
-            <div key={album.id} className={styles.card}>
+          {sortedFilteredAlbums.map((album) => (
+            <Link
+              key={album.id}
+              href={`/archive/${album.id}`}
+              className={styles.card}
+            >
               <div className={styles.cardImagePlaceholder}>
-                {album.photoCount} Photos
+                {album.thumbnailId ? (
+                  <img
+                    src={getDriveImageUrl(album.thumbnailId)}
+                    alt={album.title}
+                    loading="lazy"
+                    decoding="async"
+                    onError={(e) => {
+                      const img = e.currentTarget;
+
+                      if (img.dataset.fallbackApplied === "true") {
+                        return;
+                      }
+
+                      img.dataset.fallbackApplied = "true";
+                      img.src = getDriveImageFallbackUrl(album.thumbnailId);
+                    }}
+                  />
+                ) : (
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      background:
+                        "linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%)",
+                    }}
+                  />
+                )}
               </div>
+
               <div className={styles.cardInfo}>
-                <span className={styles.category}>
-                  {album.category}
-                </span>
                 <h3>{album.title}</h3>
-                <p>{album.date}</p>
+                <p>{album.year}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       ) : (
         <div className={styles.list}>
-          {fullyFiltered.map((album) => (
-            <div key={album.id} className={styles.listItem}>
-              <div className={styles.listImagePlaceholder} />
+          {sortedFilteredAlbums.map((album) => (
+            <Link
+              key={album.id}
+              href={`/archive/${album.id}`}
+              className={styles.listItem}
+            >
+              <div className={styles.listImagePlaceholder}>
+                {album.thumbnailId ? (
+                  <img
+                    src={getDriveImageUrl(album.thumbnailId)}
+                    alt={album.title}
+                    loading="lazy"
+                    decoding="async"
+                    onError={(e) => {
+                      const img = e.currentTarget;
+
+                      if (img.dataset.fallbackApplied === "true") {
+                        return;
+                      }
+
+                      img.dataset.fallbackApplied = "true";
+                      img.src = getDriveImageFallbackUrl(album.thumbnailId);
+                    }}
+                  />
+                ) : (
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      background:
+                        "linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%)",
+                    }}
+                  />
+                )}
+              </div>
+
               <div className={styles.listInfo}>
-                <span className={styles.category}>
-                  {album.category}
-                </span>
                 <h3>{album.title}</h3>
-                <p>{album.date}</p>
+                <p>{album.year}</p>
               </div>
-              <div className={styles.photoCount}>
-                {album.photoCount} Photos
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
       )}
-
     </main>
   );
 }

@@ -7,8 +7,8 @@ import { FiArrowLeft } from "react-icons/fi";
 import styles from "../../../../styles/archive.module.css";
 import {
   fetchPhotos,
-  getDriveImageFallbackUrl,
   getDriveImageUrl,
+  getDriveDownloadUrl,
 } from "@/lib/drive";
 
 interface Photo {
@@ -54,20 +54,10 @@ export default function AlbumPage() {
               className={styles.albumCardImage}
               loading="lazy"
               decoding="async"
-              onError={(e) => {
-                const img = e.currentTarget;
-
-                if (img.dataset.fallbackApplied === "true") {
-                  return;
-                }
-
-                img.dataset.fallbackApplied = "true";
-                img.src = getDriveImageFallbackUrl(photo.id);
-              }}
             />
             <a
               className={styles.downloadLink}
-              href={`https://drive.google.com/uc?export=download&id=${photo.id}`}
+              href={getDriveDownloadUrl(photo.id)}
               target="_blank"
               rel="noopener noreferrer"
             >

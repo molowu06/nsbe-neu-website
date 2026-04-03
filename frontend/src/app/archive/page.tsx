@@ -6,7 +6,6 @@ import styles from "../../../styles/archive.module.css";
 import {
   fetchFolders,
   fetchPhotos,
-  getDriveImageFallbackUrl,
   getDriveImageUrl,
 } from "@/lib/drive";
 import { FiGrid, FiList } from "react-icons/fi";
@@ -182,16 +181,6 @@ export default function ArchivePage() {
                     alt={album.title}
                     loading="lazy"
                     decoding="async"
-                    onError={(e) => {
-                      const img = e.currentTarget;
-
-                      if (img.dataset.fallbackApplied === "true") {
-                        return;
-                      }
-
-                      img.dataset.fallbackApplied = "true";
-                      img.src = getDriveImageFallbackUrl(album.thumbnailId);
-                    }}
                   />
                 ) : (
                   <div
@@ -227,16 +216,6 @@ export default function ArchivePage() {
                     alt={album.title}
                     loading="lazy"
                     decoding="async"
-                    onError={(e) => {
-                      const img = e.currentTarget;
-
-                      if (img.dataset.fallbackApplied === "true") {
-                        return;
-                      }
-
-                      img.dataset.fallbackApplied = "true";
-                      img.src = getDriveImageFallbackUrl(album.thumbnailId);
-                    }}
                   />
                 ) : (
                   <div

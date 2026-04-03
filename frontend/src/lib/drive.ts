@@ -57,9 +57,9 @@ export async function fetchPhotos(
 }
 
 export function getDriveImageUrl(fileId: string): string {
-  return `https://drive.google.com/uc?export=view&id=${fileId}&confirm=t`;
+  return `/api/drive-image?id=${encodeURIComponent(fileId)}`;
 }
 
-export function getDriveImageFallbackUrl(fileId: string): string {
-  return `https://drive.google.com/uc?export=download&id=${fileId}&confirm=t`;
+export function getDriveDownloadUrl(fileId: string): string {
+  return `/api/drive-image?id=${encodeURIComponent(fileId)}&download=1`;
 }

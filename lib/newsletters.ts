@@ -1,4 +1,4 @@
-import type { WeeklyNewsletterItem, PhotoArchiveItem } from "@/types"
+import type { WeeklyNewsletterItem, monthlyArchiveItem, PhotoArchiveItem } from "@/types"
 
 export const weeklyNewsletters: WeeklyNewsletterItem[] = [
     {
@@ -48,6 +48,33 @@ export const weeklyNewsletters: WeeklyNewsletterItem[] = [
             },
         ]
     }
+]
+
+export const monthlyArchives: monthlyArchiveItem[] = [
+    // February 2026
+    {
+        id: "feb-2026",
+        title: "February 2026",
+        date: "5 newsletters",
+        coverImage: "",
+        photoCount: 0
+    },
+    // January 2026
+    {
+        id: "jan-2026",
+        title: "January 2026",
+        date: "4 newsletters",
+        coverImage: "",
+        photoCount: 0
+    },
+    // December 2025
+    {
+        id: "dec-2025",
+        title: "December 2025",
+        date: "4 newsletters",
+        coverImage: "",
+        photoCount: 0
+    },
 ]
 
 export const photoArchives: PhotoArchiveItem[] = [

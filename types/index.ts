@@ -19,6 +19,14 @@ export type WeeklyNewsletterItem = {
     events: EventSection[]
 }
 
+export type monthlyArchiveItem = {
+    id: string
+    title: string
+    date: string
+    coverImage: string
+    photoCount: number
+}
+
 // Photo archive
 export type PhotoArchiveItem = {
     id: string

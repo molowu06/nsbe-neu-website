@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { weeklyNewsletters, photoArchives } from "@/lib/newsletters"
+import { useState } from "react"
+import { weeklyNewsletters, monthlyArchives, photoArchives } from "@/lib/newsletters"
 import NewsletterViewer from "@/components/NewsletterViewer"
 
 const NewsletterPage = () => {
@@ -9,27 +9,6 @@ const NewsletterPage = () => {
     const [activeTab, setActiveTab] = useState<"monthly" | "photos">("monthly")
     const currentWeek = weeklyNewsletters[currentWeekIndex]
     const totalWeeks = weeklyNewsletters.length
-    
-    useEffect(() => {
-        if (activeTab === "monthly") {
-            const container = document.getElementById("mailchimp-archive")
-            if (container) {
-                container.innerHTML = `
-                <style type="text/css">
-                    .display_archive {font-family: Poppins, arial, verdana; font-size: 14px; color: white !important;}
-                    .campaign {line-height: 125%; margin: 15px; padding: 15px; border-bottom: 1px solid rgba(245, 158, 11, 0.3);}
-                    .campaign a {color: #f59e0b !important; text-decoration: none;}
-                    .campaign a:hover {color: #fbbf24 !important;}
-                </style>
-            `
-
-            const script = document.createElement("script")
-            script.src = "https://neu.us3.list-manage.com/generate-js/?u=8f022d3f56b12ccfcfed63a48&show=10&fid=29928"
-            script.async = true
-            container.appendChild(script)
-            }
-        }
-    }, [activeTab])
 
     return (
         <div className="bg-black min-h-screen">
@@ -63,7 +42,7 @@ const NewsletterPage = () => {
                         Get the latest updates, event announcements, and member spotlights delivered to your inbox
                     </p>
 
-                    {/*Email Form */}
+                    {/* Email Form */}
                     <form
                         action="https://neu.us3.list-manage.com/subscribe/post?u=8f022d3f56b12ccfcfed63a48&id=29928" 
                         method="POST"
@@ -84,7 +63,7 @@ const NewsletterPage = () => {
                           Subscribe
                         </button>
                     </form>
-                  </div>
+                </div>
             </section>
 
             {/* Weekly Newsletter Viewer */}
@@ -114,14 +93,14 @@ const NewsletterPage = () => {
                             ←
                         </button>
                   
-                    {currentWeekIndex > 0 && (
-                        <button
-                            onClick={() => setCurrentWeekIndex(currentWeekIndex - 1)}
-                            className="text-amber-500 hover:text-amber-400 disabled:text-neutral-600 transition duration-150 text-2xl"
-                        >
-                            →
-                        </button>
-                    )}
+                        {currentWeekIndex > 0 && (
+                            <button
+                                onClick={() => setCurrentWeekIndex(currentWeekIndex - 1)}
+                                className="text-amber-500 hover:text-amber-400 disabled:text-neutral-600 transition duration-150 text-2xl"
+                            >
+                                →
+                            </button>
+                        )}
                     </div>
                 </div>
             </section>
@@ -137,7 +116,7 @@ const NewsletterPage = () => {
                                 : "text-neutral-400 border-transparent hover:text-neutral-300"
                         }`}
                     >
-                        📧 Monthly Newsletters
+                        📧 Newsletter Archive
                     </button>
                     <button
                         onClick={() => setActiveTab("photos")}
@@ -156,12 +135,32 @@ const NewsletterPage = () => {
             {activeTab === "monthly" && (
                 <section className="py-20">
                     <div className="mx-auto w-11/12 md:w-2/3 flex flex-col gap-10">
-                        <h2 className="font-cormorantGaramond text-4xl font-light text-white text-center">
-                            Monthly Newsletter Archive
+                        <h2 className="font-cormorantGaramond text-4xl font-light text-white text-center mb-8">
+                            All Past Newsletters
                         </h2>
                         
-                        {/* Mailchimp Archive Embed */}
-                        <div id="mailchimp-archive" className="text-white min-h-[400px]">
+                        <div className="flex flex-col gap-4">
+                            {monthlyArchives.map((archive) => (
+                                <a
+                                    key={archive.id}
+                                    href={`#`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="border border-amber-500/30 rounded-lg p-6 hover:border-amber-500 transition-colors"
+                                >
+                                    <div className="flex justify-between items-center">
+                                        <div>
+                                            <h3 className="font-poppins text-white text-lg font-semibold mb-1">
+                                                {archive.title}
+                                            </h3>
+                                            <p className="font-poppins text-neutral-400 text-sm">
+                                                {archive.date}
+                                            </p>
+                                        </div>
+                                        <span className="text-amber-500 text-xl">→</span>
+                                    </div>
+                                </a>
+                            ))}
                         </div>
                     </div>
                 </section>

@@ -28,6 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${cormorantGaramond.variable} ${poppins.variable} bg-neutral-100`}
+        suppressHydrationWarning
       >
         {children}
       </body>

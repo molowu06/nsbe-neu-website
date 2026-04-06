@@ -1,6 +1,8 @@
+import Leaderboard from "@/components/Leaderboard";
 import MemberOfTheMonth from "./components/MemberOfTheMonth";
 import MembershipTiers from "./components/MembershipTiers";
-import TopMembers from "./components/TopMembers";
+
+export const revalidate = 60;
 
 export default function MembershipPage() {
   return (
@@ -29,10 +31,14 @@ export default function MembershipPage() {
       {/* MEMBER OF THE MONTH */}
       <MemberOfTheMonth />
 
-      {/* TOP 10 MEMBERS */}
-      <TopMembers />
+      {/* MEMBERSHIP TIERS */}
+      <MembershipTiers />
 
-      {/* HOW TO BECOME A MEMBER */}
+      {/* MEMBERSHIP LEADERBOARD */}
+      <Leaderboard/>
+
+
+      {/* HOW TO BECOME A MEMBER
       <section
         style={{
           padding: "3rem 1rem",
@@ -66,10 +72,9 @@ export default function MembershipPage() {
             Learn how to join the community
           </p>
         </div>
-      </section>
+      </section> */}
 
-      {/* MEMBERSHIP TIERS */}
-      <MembershipTiers />
+      
     </main>
   );
 }

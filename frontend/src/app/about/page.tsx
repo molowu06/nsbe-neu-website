@@ -1,4 +1,4 @@
-import EBoardSection from "./components/EBoardSection";
+export const revalidate = 3600;
 
 export default function AboutPage() {
   return (
@@ -130,7 +130,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      <EBoardSection />
     </main>
   );
 }

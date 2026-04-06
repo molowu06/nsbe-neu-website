@@ -1,8 +1,25 @@
+// frontend/src/components/EBoardSection.tsx
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { eboardMembers, EboardMember } from "../data/EBoardData";
+import { useState, useEffect } from "react";
+import { supabase } from "@/lib/supabase";
+
+// ── Types ───────────────────────────────────────────────
+interface EboardMember {
+  name: string;
+  position: string;
+  year: string | null;
+  major: string | null;
+  email: string | null;
+  linkedin: string | null;
+  image: string | null;
+  display_order: number;
+}
+
+// ── Member Card ─────────────────────────────────────────
+// Keeps your exact current design — inline styles, green badges,
+// LinkedIn hover overlay, email links. No visual changes.
 function MemberCard({ member }: { member: EboardMember }) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -133,49 +150,100 @@ function MemberCard({ member }: { member: EboardMember }) {
         </h3>
 
         {/* Major & Year */}
-        <p
-          style={{
-            fontSize: "0.875rem",
-            color: "#4b5563",
-            margin: "0 0 12px 0",
-            fontFamily: "system-ui, -apple-system, sans-serif",
-          }}
-        >
-          {member.major} • {member.year} Year
-        </p>
+        {(member.major || member.year) && (
+          <p
+            style={{
+              fontSize: "0.875rem",
+              color: "#4b5563",
+              margin: "0 0 12px 0",
+              fontFamily: "system-ui, -apple-system, sans-serif",
+            }}
+          >
+            {member.major}{member.major && member.year ? " • " : ""}{member.year ? `${member.year} Year` : ""}
+          </p>
+        )}
 
         {/* Email */}
-        <a
-          href={`mailto:${member.email}`}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
-            fontSize: "0.8rem",
-            color: "#006400",
-            textDecoration: "none",
-            fontFamily: "system-ui, -apple-system, sans-serif",
-          }}
-        >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
+        {member.email && (
+          <a
+            href={`mailto:${member.email}`}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              fontSize: "0.8rem",
+              color: "#006400",
+              textDecoration: "none",
+              fontFamily: "system-ui, -apple-system, sans-serif",
+            }}
           >
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-            <polyline points="22,6 12,13 2,6" />
-          </svg>
-          {member.email}
-        </a>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              style={{ flexShrink: 0 }}
+            >
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+              {member.email}
+            </span>
+          </a>
+        )}
       </div>
     </div>
   );
 }
 
+// ── main section ────────────────────────────────────────
 export default function EBoardSection() {
+  const [members, setMembers] = useState<EboardMember[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchEboard() {
+      const { data, error } = await supabase
+        .from("eboard-25-26")
+        .select("name, position, year, major, email, linkedin, image, display_order")
+        .order("display_order", { ascending: true });
+
+      if (error) {
+        console.error("Supabase error:", error.message);
+        setError("Failed to load Executive Board data.");
+        setLoading(false);
+        return;
+      }
+
+      setMembers(data || []);
+      setLoading(false);
+    }
+
+    fetchEboard();
+  }, []);
+
+  if (loading) {
+    return (
+      <section style={{ padding: "4rem 1rem" }}>
+        <p style={{ textAlign: "center", color: "#6b7280" }}>
+          Loading Executive Board...
+        </p>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section style={{ padding: "4rem 1rem" }}>
+        <p style={{ textAlign: "center", color: "#ef4444" }}>{error}</p>
+      </section>
+    );
+  }
+
   return (
     <section
       style={{
@@ -221,8 +289,8 @@ export default function EBoardSection() {
             margin: "0 auto",
           }}
         >
-          {eboardMembers.map((member, index) => (
-            <MemberCard key={index} member={member} />
+          {members.map((member) => (
+            <MemberCard key={member.name} member={member} />
           ))}
         </div>
       </div>

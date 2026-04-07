@@ -6,27 +6,28 @@ import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
 import styles from "../../../../styles/archive.module.css";
 import {
-  fetchPhotos,
+  fetchMediaRecursive,
   getDriveImageUrl,
   getDriveDownloadUrl,
 } from "@/lib/drive";
 
-interface Photo {
+interface MediaItem {
   id: string;
   name: string;
+  mimeType?: string;
 }
 
 export default function AlbumPage() {
   const params = useParams<{ id: string }>();
-  const [photos, setPhotos] = useState<Photo[]>([]);
+  const [media, setMedia] = useState<MediaItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadPhotos() {
       if (!params?.id) return;
 
-      const data = await fetchPhotos(params.id);
-      setPhotos(data);
+      const data = await fetchMediaRecursive(params.id);
+      setMedia(data);
       setLoading(false);
     }
 
@@ -46,18 +47,27 @@ export default function AlbumPage() {
       </div>
 
       <div className={styles.albumGrid}>
-        {photos.map((photo) => (
-          <div key={photo.id}>
-            <img
-              src={getDriveImageUrl(photo.id)}
-              alt={photo.name}
-              className={styles.albumCardImage}
-              loading="lazy"
-              decoding="async"
-            />
+        {media.map((item) => (
+          <div key={item.id}>
+            {(item.mimeType || "").startsWith("video/") ? (
+              <video
+                src={getDriveImageUrl(item.id)}
+                className={styles.albumCardImage}
+                controls
+                preload="metadata"
+              />
+            ) : (
+              <img
+                src={getDriveImageUrl(item.id)}
+                alt={item.name}
+                className={styles.albumCardImage}
+                loading="lazy"
+                decoding="async"
+              />
+            )}
             <a
               className={styles.downloadLink}
-              href={getDriveDownloadUrl(photo.id)}
+              href={getDriveDownloadUrl(item.id)}
               target="_blank"
               rel="noopener noreferrer"
             >

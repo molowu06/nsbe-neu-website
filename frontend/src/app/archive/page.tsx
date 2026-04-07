@@ -5,7 +5,7 @@ import Link from "next/link";
 import styles from "../../../styles/archive.module.css";
 import {
   fetchFolders,
-  fetchPhotos,
+  fetchMediaRecursive,
   getDriveImageUrl,
 } from "@/lib/drive";
 import { FiGrid, FiList } from "react-icons/fi";
@@ -27,17 +27,21 @@ export default function ArchivePage() {
 
         return Promise.all(
           eventFolders.map(async (eventFolder: any) => {
-            const thumbnail = await fetchPhotos(eventFolder.id, 1);
+            const media = await fetchMediaRecursive(eventFolder.id, 12);
+            if (!media || media.length === 0) return null;
 
-            // Only include if there is at least one photo
-            if (!thumbnail || thumbnail.length === 0) return null;
+            const imageThumb = media.find((file) =>
+              (file.mimeType || "").startsWith("image/")
+            );
+            const thumbnail = imageThumb || media[0];
 
             return {
               id: eventFolder.id,
               title: eventFolder.name,
               year: yearFolder.name,
               event: eventFolder.name,
-              thumbnailId: thumbnail[0]?.id || null,
+              thumbnailId: thumbnail?.id || null,
+              thumbnailIsVideo: (thumbnail?.mimeType || "").startsWith("video/"),
             };
           })
         );
@@ -175,7 +179,7 @@ export default function ArchivePage() {
               className={styles.card}
             >
               <div className={styles.cardImagePlaceholder}>
-                {album.thumbnailId ? (
+                {album.thumbnailId && !album.thumbnailIsVideo ? (
                   <img
                     src={getDriveImageUrl(album.thumbnailId)}
                     alt={album.title}
@@ -187,10 +191,18 @@ export default function ArchivePage() {
                     style={{
                       width: "100%",
                       height: "100%",
-                      background:
-                        "linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      background: album.thumbnailIsVideo
+                        ? "linear-gradient(135deg, #11182a 0%, #2a3553 100%)"
+                        : "linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%)",
+                      color: "#fff",
+                      fontWeight: 700,
                     }}
-                  />
+                  >
+                    {album.thumbnailIsVideo ? "Video Album" : "No Preview"}
+                  </div>
                 )}
               </div>
 
@@ -210,7 +222,7 @@ export default function ArchivePage() {
               className={styles.listItem}
             >
               <div className={styles.listImagePlaceholder}>
-                {album.thumbnailId ? (
+                {album.thumbnailId && !album.thumbnailIsVideo ? (
                   <img
                     src={getDriveImageUrl(album.thumbnailId)}
                     alt={album.title}
@@ -222,10 +234,18 @@ export default function ArchivePage() {
                     style={{
                       width: "100%",
                       height: "100%",
-                      background:
-                        "linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      background: album.thumbnailIsVideo
+                        ? "linear-gradient(135deg, #11182a 0%, #2a3553 100%)"
+                        : "linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%)",
+                      color: "#fff",
+                      fontWeight: 700,
                     }}
-                  />
+                  >
+                    {album.thumbnailIsVideo ? "Video" : "No Preview"}
+                  </div>
                 )}
               </div>
 

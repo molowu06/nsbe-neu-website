@@ -90,7 +90,7 @@ export default function Home() {
             </div>
             <div
               className="photo-row-banner"
-              style={{ backgroundColor: "#c8860a" }}
+              style={{ backgroundColor: "#D4AF37" }}
             >
               <h4>Build Community</h4>
               <p>
@@ -112,7 +112,7 @@ export default function Home() {
             </div>
             <div
               className="photo-row-banner"
-              style={{ backgroundColor: "#273c16" }}
+              style={{ backgroundColor: "#1F5E3B" }}
             >
               <h4>Excel Academically</h4>
               <p>

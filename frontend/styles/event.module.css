@@ -470,3 +470,182 @@
   margin-bottom: 0.75rem;
   color: #273c16;
 }
+
+/* =============================================
+    MOBILE STYLES
+   ============================================= */
+
+@media (max-width: 767px) {
+
+  /* --- FILTERS --- */
+  .filters-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .view-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .filter-buttons {
+    justify-content: center;
+  }
+
+  .filter-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  /* --- CALENDAR NAV --- */
+  .calendar-nav {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    justify-content: center;
+  }
+
+  .calendar-month {
+    font-size: 1.3rem;
+    width: 100%;
+    text-align: center;
+    order: -1;
+    
+  }
+
+  .calendar-nav button {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  /* --- CALENDAR GRID --- */
+  .calendar-grid {
+    padding: 0.5rem;
+    overflow-x: auto;
+  }
+
+  /* Abbreviate weekday names with CSS — hide full names, show via ::after */
+  .weekday {
+    font-size: 0;
+    padding: 0.3rem 0;
+  }
+
+  .weekday::after {
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .weekday:nth-child(1)::after { content: "Sun"; }
+  .weekday:nth-child(2)::after { content: "Mon"; }
+  .weekday:nth-child(3)::after { content: "Tue"; }
+  .weekday:nth-child(4)::after { content: "Wed"; }
+  .weekday:nth-child(5)::after { content: "Thu"; }
+  .weekday:nth-child(6)::after { content: "Fri"; }
+  .weekday:nth-child(7)::after { content: "Sat"; }
+
+  .calendar-day {
+  min-height: 70px;
+  padding: 0.25rem;
+  border-width: 1px;
+  border-radius: 0.375rem;
+}
+
+  .calendar-day-number {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Hide event details in calendar cells, just show a colored dot */
+  .day-event {
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-bottom: 2px;
+  }
+
+  .day-event-title {
+  font-size: 0.55rem;
+  white-space: normal;
+  line-height: 1.2;
+  }
+
+  .day-event-info {
+    display: none;
+  }
+
+  /* --- EVENT CARDS (list view) --- */
+  .event-card {
+    padding: 16px;
+    gap: 12px;
+    border-radius: 12px;
+  }
+
+  .event-date-badge {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+  }
+
+  .event-weekday {
+    font-size: 0.65rem;
+  }
+
+  .event-day {
+    font-size: 0.85rem;
+  }
+
+  .event-month {
+    font-size: 0.65rem;
+  }
+
+  .event-name {
+    font-size: 1rem;
+  }
+
+  .event-meta-item {
+    font-size: 0.85rem;
+  }
+
+  .event-description {
+    font-size: 0.85rem;
+  }
+
+  .event-rsvp-btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  /* --- EVENTS GRID (if used) --- */
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .events-heading {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+
+  .events-section {
+    padding: 32px 16px;
+  }
+}
+
+/* --- SMALL PHONES (375px and below) --- */
+@media (max-width: 375px) {
+  .calendar-day {
+    min-height: 48px;
+  }
+
+  .calendar-day-number {
+    font-size: 0.75rem;
+  }
+
+  .day-event-title {
+    font-size: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.75rem;
+  }
+}

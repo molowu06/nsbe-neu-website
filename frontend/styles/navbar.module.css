@@ -30,8 +30,9 @@
   border: none;
   cursor: pointer;
   color: #111827;
-  padding: 0.5rem;
+  padding: 1rem;
   z-index: 1001;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Navigation links */
@@ -130,10 +131,10 @@ body {
 }
 
 /*
-mobile styles
+mobile & tablet styles
 */
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   /* show the hamburger button */
   .hamburger {
     display: block;
@@ -197,21 +198,5 @@ mobile styles
 
   .dropdownTrigger {
   justify-content: center;
-  }
-}
-
-/* tablet styles */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .logo h3 {
-    font-size: 0.95rem;
-  }
-
-  .links {
-    gap: 1.2vw;
-  }
-
-  .links a,
-  .dropdownTrigger {
-    font-size: 0.95rem;
   }
 }

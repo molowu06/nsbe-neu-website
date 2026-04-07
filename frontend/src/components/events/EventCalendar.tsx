@@ -67,7 +67,7 @@ export default function EventCalendar({ events, onSelectEvent }: Props) {
         </div>
 
         {/* Days */}
-        <div className="grid grid-cols-7 gap-2">
+        <div className="grid grid-cols-7 gap-[3px] sm:gap-2">
           {Array.from({ length: startingDayOfWeek }).map((_, i) => (
             <div key={`empty-${i}`} className={styles["calendar-day"]} />
           ))}

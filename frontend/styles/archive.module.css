@@ -322,3 +322,110 @@
   font-weight: 500;
   text-decoration: underline;
 }
+
+
+/* =============================
+  MOBILE RESPONSIVENESS
+============================= */
+
+@media (max-width: 768px) {
+  .page {
+    padding: 30px 20px;
+  }
+
+  /* Stack header vertically */
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  /* controls: stack below title, full width */
+  .controlPanel {
+    margin-top: 0;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .segmentBtn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .dropdown {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.9rem;
+  }
+
+  /* Banner */
+  .bannerWrapper {
+    margin-top: 24px;
+    margin-bottom: 30px;
+  }
+
+  .bannerCard {
+    font-size: 1.8rem;
+    padding: 18px 20px;
+    border-radius: 14px;
+  }
+
+  /* Grid: single column on small screens */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    height: auto;
+  }
+
+  .cardImagePlaceholder {
+    height: 180px;
+  }
+
+  /* List view */
+  .listItem {
+    padding: 10px;
+  }
+
+  .listImagePlaceholder {
+    width: 100px;
+    height: 75px;
+    margin-right: 14px;
+  }
+
+  .listInfo h3 {
+    font-size: 1rem;
+  }
+
+  /* Album page */
+  .albumPage {
+    padding: 30px 20px;
+  }
+
+  .albumTitle {
+    font-size: 1.8rem;
+  }
+
+  .albumGrid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 14px;
+  }
+
+  .albumCard img {
+    height: 160px;
+  }
+
+  .albumCardImage {
+    height: 140px;
+  }
+}

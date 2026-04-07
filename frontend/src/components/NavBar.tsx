@@ -29,7 +29,7 @@ const NavBar = () => {
   // Close mobile menu when resizing
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1025) {
         setMenuOpen(false);
       }
     }
@@ -52,6 +52,7 @@ const NavBar = () => {
             alt="NSBE Logo"
             width={160}
             height={160}
+            className={styles.logoImage}
           />
         </Link>
         <h3>
@@ -80,10 +81,10 @@ const NavBar = () => {
         <li
           className={styles.dropdown}
           onMouseEnter={() => {
-            if (window.innerWidth >= 768) setArchiveOpen(true);
+            if (window.innerWidth >= 1025) setArchiveOpen(true);
           }}
           onMouseLeave={() => {
-            if (window.innerWidth >= 768) setArchiveOpen(false);
+            if (window.innerWidth >= 1025) setArchiveOpen(false);
           }}
         >
           <button
@@ -124,10 +125,10 @@ const NavBar = () => {
         <li
           className={styles.dropdown}
           onMouseEnter={() => {
-            if (window.innerWidth >= 768) setAboutOpen(true);
+            if (window.innerWidth >= 1025) setAboutOpen(true);
           }}
           onMouseLeave={() => {
-            if (window.innerWidth >= 768) setAboutOpen(false);
+            if (window.innerWidth >= 1025) setAboutOpen(false);
           }}
         >
           <button

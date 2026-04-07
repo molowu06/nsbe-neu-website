@@ -7,13 +7,14 @@ import { EventType } from "../../../types/event";
 import EventCalendar from "./EventCalendar";
 import EventCard from "./EventCard";
 import EventFilters from "./EventFilters";
+import EventPopUp from "./EventPopUp";
 
 export default function Events() {
   const [events, setEvents] = useState<EventType[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [viewMode, setViewMode] = useState<"calendar" | "list">("calendar");
-  const [, setSelectedEvent] = useState<EventType | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<EventType | null>(null);
 
   const filters = ["All", "GBM", "Big Events", "PCI", "Torch", "Conference"];
 
@@ -73,13 +74,25 @@ const listEvents = events
 
   return (
     <div className="min-h-screen bg-gray-50">
-       {/* Header */}
-      <section className="bg-[#1f2b46] text-white py-12">        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-2">Events</h1>
-          <p className="text-lg sm:text-xl text-gray-300">
-            Stay connected with our community through workshops, meetings, and
-            social events
-          </p>
+      {/* Header */}
+      <section className="bg-gray-900 text-white py-4 px-4 sm:px-4">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-2 md:gap-8">
+          {/* logo — left */}
+          <img
+            src="/images/bess-logo.png"
+            alt="BESS Logo"
+            className="w-32 sm:w-36 md:w-48 object-contain flex-shrink-0 mb-1 md:mb-0 transition-transform duration-300 shadow-md hover:-translate-y-1 hover:shadow-lg"
+          />
+          {/* text — right */}
+          <div className="text-center md:text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              Events
+            </h1>
+            <p className="text-base sm:text-lg text-gray-300">
+              Stay connected with our community through workshops, meetings, and
+              social events
+            </p>
+          </div>
         </div>
       </section>
 
@@ -108,7 +121,7 @@ const listEvents = events
                   <MapPin className="text-[#D4AF37]" size={16} />
                   <span>Cabral Center</span>
                 </div>
-               
+              
               </div>
             </div>
 
@@ -132,6 +145,10 @@ const listEvents = events
         />
       </div>
 
+      <p className="text-center text-sm text-gray-500 mb-2">
+        Click on an event to see its full details
+      </p>
+
       {/* Calendar / List */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
         {loading ? (
@@ -146,7 +163,7 @@ const listEvents = events
             {filteredListEvents.map((event) => (
               <EventCard
                 key={event.id}
-                event={event}      
+                event={event}
                 onClick={setSelectedEvent}
               />
             ))}
@@ -157,6 +174,14 @@ const listEvents = events
           </p>
         )}
       </div>
+
+      {/* Event Detail Modal */}
+      {selectedEvent && (
+        <EventPopUp
+          event={selectedEvent}
+          onClose={() => setSelectedEvent(null)}
+        />
+      )}
     </div>
   );
 }

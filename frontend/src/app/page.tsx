@@ -117,7 +117,7 @@ export default function Home() {
             </div>
             <div
               className="photo-row-banner"
-              style={{ backgroundColor: "#1F5E3B" }}
+              style={{ backgroundColor: "#1f2b46" }}
             >
               <h4>Excel Academically</h4>
               <p>

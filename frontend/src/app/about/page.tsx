@@ -1,21 +1,26 @@
 export const revalidate = 3600;
 
+export const metadata = {
+  title: "About",
+  description: "Our mission, history, and the leaders driving our chapter forward.",
+};
+
 export default function AboutPage() {
   return (
     <main>
       {/* BANNER */}
       <section className="bg-gray-900 text-white py-4 px-4 sm:px-4">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-2 md:gap-8">
           {/* logo — left */}
           <img
             src="/images/bess-logo.png"
             alt="BESS Logo"
-            className="w-32 sm:w-36 md:w-48 object-contain flex-shrink-0 mb-4 md:mb-0 transition-transform duration-300 shadow-md hover:-translate-y-1 hover:shadow-lg"
+            className="w-32 sm:w-36 md:w-48 object-contain flex-shrink-0 mb-1 md:mb-0 transition-transform duration-300 shadow-md hover:-translate-y-1 hover:shadow-lg"
           />
           {/* text — right */}
           <div className="text-center md:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              About BESS-NSBE
+              About Northeastern NSBE
             </h1>
             <p className="text-base sm:text-lg text-gray-300">
               Our mission, history, and the leaders driving our chapter forward
@@ -121,7 +126,7 @@ export default function AboutPage() {
             </p>
             {/* Advisor bio */}
             <p className="text-gray-600 text-xs sm:text-base">
-              Dean Harris serves as the faculty advisor for BESS-NSBE at
+              Dean Harris serves as the faculty advisor for NSBE at
               Northeastern University. He has been a dedicated supporter of
               Black engineering students on campus, helping guide the chapter
               in its mission to foster academic excellence and professional

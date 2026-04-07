@@ -22,11 +22,17 @@ const Footer = () => {
       <div className={styles.newsletter}>
         <h2><strong>Subscribe to Our Newsletter</strong></h2>
         <p>Get the latest updates and events straight to your inbox!</p>
-        <form className={styles.form}>
-          <input 
-            type="email" 
-            placeholder="Enter your email" 
-            required 
+        <form
+          action="https://neu.us3.list-manage.com/subscribe/post?u=8f022d3f56b12ccfcfed63a48&id=fada841824&f_id=00ee30e2f0"          method="post"
+          target="_blank"
+          noValidate
+          className={styles.form}
+        >
+          <input
+            type="email"
+            name="EMAIL"
+            placeholder="Enter your email"
+            required
           />
           <button type="submit">Subscribe</button>
         </form>

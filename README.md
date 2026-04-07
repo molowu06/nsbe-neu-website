@@ -1,6 +1,9 @@
+<<<<<<< HEAD
+=======
 # Northeastern's National Society of Black Engineers Website
 The home website for Northeastern's chapter of the National Society of Black Engineers for news, announcements, events, etc
 
+>>>>>>> 0e4e1275ad8e72e0cd89c8cbe516941747984263
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

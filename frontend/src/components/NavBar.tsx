@@ -29,7 +29,7 @@ const NavBar = () => {
   // Close mobile menu when resizing
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1025) {
         setMenuOpen(false);
       }
     }
@@ -52,10 +52,11 @@ const NavBar = () => {
             alt="NSBE Logo"
             width={160}
             height={160}
+            className={styles.logoImage}
           />
         </Link>
         <h3>
-          <strong>BESS - NSBE Northeastern Chapter</strong>
+          <strong>Northeastern NSBE</strong>
         </h3>
       </div>
 
@@ -73,47 +74,12 @@ const NavBar = () => {
         </li>
 
         <li>
-          <Link href="/event" onClick={closeAll}>Events</Link>
+          <Link href="/events" onClick={closeAll}>Events</Link>
         </li>
 
-        {/* ARCHIVE DROPDOWN */}
-        <li
-          className={styles.dropdown}
-          onMouseEnter={() => {
-            if (window.innerWidth >= 768) setArchiveOpen(true);
-          }}
-          onMouseLeave={() => {
-            if (window.innerWidth >= 768) setArchiveOpen(false);
-          }}
-        >
-          <button
-            className={styles.dropdownTrigger}
-            onClick={() => setArchiveOpen(!archiveOpen)}
-          >
-            Archive{" "}
-            <span
-              className={`${styles.arrow} ${
-                archiveOpen ? styles.arrowOpen : ""
-              }`}
-            >
-              ▾
-            </span>
-          </button>
-
-          {archiveOpen && (
-            <ul className={styles.dropdownMenu}>
-              <li>
-                <Link href="/archive" onClick={closeAll}>
-                  Photo Archive
-                </Link>
-              </li>
-              <li>
-                <Link href="/newsletter" onClick={closeAll}>
-                  Newsletter
-                </Link>
-              </li>
-            </ul>
-          )}
+        {/* Photos link */}
+        <li>
+          <Link href="/archive" onClick={closeAll}>Photos</Link>
         </li>
 
         <li>
@@ -124,10 +90,10 @@ const NavBar = () => {
         <li
           className={styles.dropdown}
           onMouseEnter={() => {
-            if (window.innerWidth >= 768) setAboutOpen(true);
+            if (window.innerWidth >= 1025) setAboutOpen(true);
           }}
           onMouseLeave={() => {
-            if (window.innerWidth >= 768) setAboutOpen(false);
+            if (window.innerWidth >= 1025) setAboutOpen(false);
           }}
         >
           <button

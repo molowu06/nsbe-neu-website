@@ -84,7 +84,6 @@ function MemberCard({ member }: { member: EboardMember }) {
                 color: "white",
                 fontSize: "4rem",
                 fontWeight: "600",
-                fontFamily: "system-ui, -apple-system, sans-serif",
                 filter: isHovered ? "brightness(0.5)" : "brightness(1)",
                 transition: "filter 0.3s ease",
               }}
@@ -129,7 +128,6 @@ function MemberCard({ member }: { member: EboardMember }) {
             borderRadius: "20px",
             fontSize: "0.75rem",
             fontWeight: "600",
-            fontFamily: "system-ui, -apple-system, sans-serif",
             marginBottom: "12px",
           }}
         >
@@ -143,7 +141,6 @@ function MemberCard({ member }: { member: EboardMember }) {
             fontWeight: "700",
             color: "#111827",
             margin: "0 0 8px 0",
-            fontFamily: "system-ui, -apple-system, sans-serif",
           }}
         >
           {member.name}
@@ -156,7 +153,6 @@ function MemberCard({ member }: { member: EboardMember }) {
               fontSize: "0.875rem",
               color: "#4b5563",
               margin: "0 0 12px 0",
-              fontFamily: "system-ui, -apple-system, sans-serif",
             }}
           >
             {member.major}{member.major && member.year ? " • " : ""}{member.year ? `${member.year} Year` : ""}
@@ -174,7 +170,6 @@ function MemberCard({ member }: { member: EboardMember }) {
               fontSize: "0.8rem",
               color: "#006400",
               textDecoration: "none",
-              fontFamily: "system-ui, -apple-system, sans-serif",
             }}
           >
             <svg
@@ -249,7 +244,6 @@ export default function EBoardSection() {
       style={{
         padding: "4rem 1rem",
         background: "linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%)",
-        fontFamily: "system-ui, -apple-system, sans-serif",
       }}
     >
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>

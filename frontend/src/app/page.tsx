@@ -2,14 +2,16 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import EventsSection from "@/app/components/events-section";
+import EventsSection from "../app/components/UpcomingEvents";
 import Link from "next/link";
 
 export default function Home() {
   // Hero slideshow images (mixed JPG and PNG supported)
   const heroImages = [
     "/images/homepage/bess-1.jpg",
+    "/images/homepage/bess-7.jpg",
     "/images/homepage/bess-2.jpg",
+    "/images/homepage/bess-4.jpg",
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -48,7 +50,10 @@ export default function Home() {
         <div className="hero-content">
           <h1 className="hero-title">
             <span className="hero-pretitle">Welcome To</span>
-            <span className="hero-highlight">BESS</span>
+            <span className="hero-highlight">
+              <span className="hero-highlight-northeastern">Northeastern</span>
+              <span className="hero-highlight-nsbe">NSBE</span>
+            </span>
           </h1>
 
           <p className="hero-subtitle">
@@ -90,7 +95,7 @@ export default function Home() {
             </div>
             <div
               className="photo-row-banner"
-              style={{ backgroundColor: "#c8860a" }}
+              style={{ backgroundColor: "#D4AF37" }}
             >
               <h4>Build Community</h4>
               <p>
@@ -112,7 +117,7 @@ export default function Home() {
             </div>
             <div
               className="photo-row-banner"
-              style={{ backgroundColor: "#273c16" }}
+              style={{ backgroundColor: "#1f2b46" }}
             >
               <h4>Excel Academically</h4>
               <p>

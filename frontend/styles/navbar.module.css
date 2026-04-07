@@ -45,7 +45,7 @@
 
 .links a {
   text-decoration: none;
-  color: #111827;
+  color: #151a17;
   font-weight: 700;
   font-size: 1.1rem;     
 }
@@ -68,7 +68,7 @@ body {
   border: none;
   cursor: pointer;
   text-decoration: none;
-  color: #111827;
+  color: #111211;
   font-weight: 700;
   font-size: 1.1rem;
   display: flex;
@@ -116,7 +116,7 @@ body {
 .dropdownMenu li a {
   display: block;
   padding: 0.6rem 1.2rem;
-  color: #111827;
+  color: #0e0f0e;
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;

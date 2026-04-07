@@ -7,6 +7,7 @@
   --bess-black: #000000;
   --bess-green: #1F5E3B;
   --bess-white: #FFFFFF;
+  --bess-blue: #1f2b46;
 }
 
 @theme inline {
@@ -16,7 +17,7 @@
   --color-bess-black: var(--bess-black);
   --color-bess-green: var(--bess-green);
   --color-bess-white: var(--bess-white);
-
+  --color-bess-blue: var(--bess-blue);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

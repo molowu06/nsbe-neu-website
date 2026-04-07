@@ -9,6 +9,7 @@ export default function Home() {
   // Hero slideshow images (mixed JPG and PNG supported)
   const heroImages = [
     "/images/homepage/bess-1.jpg",
+    "/images/homepage/bess-7.jpg",
     "/images/homepage/bess-2.jpg",
     "/images/homepage/bess-4.jpg",
   ];

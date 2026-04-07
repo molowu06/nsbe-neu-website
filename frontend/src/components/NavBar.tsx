@@ -74,47 +74,12 @@ const NavBar = () => {
         </li>
 
         <li>
-          <Link href="/event" onClick={closeAll}>Events</Link>
+          <Link href="/events" onClick={closeAll}>Events</Link>
         </li>
 
-        {/* ARCHIVE DROPDOWN */}
-        <li
-          className={styles.dropdown}
-          onMouseEnter={() => {
-            if (window.innerWidth >= 1025) setArchiveOpen(true);
-          }}
-          onMouseLeave={() => {
-            if (window.innerWidth >= 1025) setArchiveOpen(false);
-          }}
-        >
-          <button
-            className={styles.dropdownTrigger}
-            onClick={() => setArchiveOpen(!archiveOpen)}
-          >
-            Archive{" "}
-            <span
-              className={`${styles.arrow} ${
-                archiveOpen ? styles.arrowOpen : ""
-              }`}
-            >
-              ▾
-            </span>
-          </button>
-
-          {archiveOpen && (
-            <ul className={styles.dropdownMenu}>
-              <li>
-                <Link href="/archive" onClick={closeAll}>
-                  Photo Archive
-                </Link>
-              </li>
-              <li>
-                <Link href="/newsletter" onClick={closeAll}>
-                  Newsletter
-                </Link>
-              </li>
-            </ul>
-          )}
+        {/* Photos link */}
+        <li>
+          <Link href="/archive" onClick={closeAll}>Photos</Link>
         </li>
 
         <li>

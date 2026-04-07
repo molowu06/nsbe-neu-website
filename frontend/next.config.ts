@@ -1,8 +1,9 @@
-import type { NextConfig } from "next";
+// frontend/next.config.ts
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
+  devIndicators: false,
+  allowedDevOrigins: ['10.110.88.196'],
 };
 
 export default nextConfig;

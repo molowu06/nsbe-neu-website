@@ -1,8 +1,8 @@
 export interface EboardMember {
     name: string;
     position: string;
-    year: string;
-    major: string;
+    year?: string;
+    major?: string;
     email?: string;
     linkedin?: string;
     image?: string;
@@ -54,7 +54,7 @@ export const eboardMembers: EboardMember[] = [
         year: "3rd",
         major: "Mechanical Engineering",
         linkedin: "https://www.linkedin.com/in/emmanuel-mcfarlene/",
-        image: "/headshots/ziggy.jpg",
+        image: "/headshots/rat_from_flushed_away.jpg",
         email: "bess.nsbe.programs@gmail.com"
     },
     {
@@ -104,7 +104,7 @@ export const eboardMembers: EboardMember[] = [
     },
     {
         name: "Oli Millien",
-        position: "Torch Chair",
+        position: "TORCH Chair",
         year: "2nd",
         major: "Computer Engineering",
         linkedin: "https://www.linkedin.com/in/olivetan-millien/",
@@ -122,7 +122,7 @@ export const eboardMembers: EboardMember[] = [
     },
     {
         name: "Tahmir Murphy",
-        position: "Pre-Collegiate Initiatives Chair",
+        position: "Pre-Collegiate Initiative Chair",
         year: "2nd",
         major: "Bioengineering",
         linkedin: "https://www.linkedin.com/in/tahmir-murphy/",
@@ -137,5 +137,14 @@ export const eboardMembers: EboardMember[] = [
         linkedin: "https://www.linkedin.com/in/milkias-ghidei-1024b6277/",
         image: "/headshots/milk.jpg",
         email: "bess.nsbe.relations@gmail.com"
+    },
+    {
+        name: "Seunfunmi Soyannwo",
+        position: "Freshman Representative",
+        year: "1st",
+        major: "Bioengineering",
+        linkedin: "https://www.linkedin.com/in/seunfunmi-soyannwo-1198aa313/",
+        email: "soyannwo.o@northeastern.edu",
+        image: "/headshots/seunfunmi.jpg"
     },
 ];

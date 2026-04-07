@@ -42,13 +42,13 @@ export default function EventCalendar({ events, onSelectEvent }: Props) {
       {/* Navigation */}
       <div className={styles["calendar-nav"]}>
         <button onClick={goToPreviousMonth}>
-          <ChevronLeft size={20} /> Back
+          <ChevronLeft size={25} /> Back
         </button>
         <h3 className={styles["calendar-month"]}>{formatMonthYear(currentMonth)}</h3>
         <div className="flex items-center gap-2">
-          <button onClick={goToToday}>Today</button>
+          <button onClick={goToToday} className="text-lg font-medium px-3 py-1"> Today </button>
           <button onClick={goToNextMonth}>
-            Next <ChevronRight size={20} />
+            Next <ChevronRight size={25} />
           </button>
         </div>
       </div>
@@ -95,8 +95,7 @@ export default function EventCalendar({ events, onSelectEvent }: Props) {
                             ${hasEvents ? styles["has-events"] : ""} 
                             ${isToday ? styles["today"] : ""}`}
               >
-                <div className="font-bold text-lg text-gray-700 mb-2">{day}</div>
-
+                <div className={styles["calendar-day-number"]}>{day}</div>
                 <div className="space-y-1 overflow-hidden">
                   {dayEvents.map((event) => (
                     <div

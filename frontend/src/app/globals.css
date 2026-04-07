@@ -73,52 +73,44 @@ h6 {
   font-weight: 700;
   line-height: 1.05;
   margin: 0;
-  color: #1f2b46;
+  color: #1F5E3B;
   display: flex;
   flex-direction: column;
 }
 
 .hero-pretitle {
   font-size: 3.2rem;
+  font-style: italic;
   font-weight: 500;
   font-style: italic;
   letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-top: -60px;
-  margin-bottom: 20px;
-  margin-left: -26px;
-  color: #1f2b46;
-  opacity: 1;
-  -webkit-text-stroke: 0;
-  text-shadow: none;
+  text-transform: none;
+  margin-top: -30px;
+  margin-bottom: 10px;
+  margin-left: -18px;
+  color: #1F5E3B;
+  opacity: 0.9;
 }
 
 .hero-highlight {
+  font-size: 8rem;
+  font-weight: 800;
   color: #D4AF37;
-  line-height: 0.78;
+  line-height: 1;
   letter-spacing: 2px;
   margin-left: -15px;
   display: flex;
   flex-direction: column;
-  -webkit-text-stroke: 0;
-  text-shadow: none;
+  align-items: flex-start;
+  gap: 2px;
 }
 
-.hero-highlight-top {
-  font-size: 5.8rem;
-  font-weight: 700;
-  display: block;
-  margin-bottom: -0.3em;
-  -webkit-text-stroke: 0.6px #1f2b46;
-  text-shadow: none;
+.hero-highlight-northeastern {
+  font-size: 0.72em;
 }
 
-.hero-highlight-bottom {
-  font-size: 10rem;
-  font-weight: 800;
-  display: block;
-  -webkit-text-stroke: 1.25px #1f2b46;
-  text-shadow: none;
+.hero-highlight-nsbe {
+  font-size: 1em;
 }
 
 .hero-subtitle {
@@ -179,7 +171,7 @@ h6 {
   letter-spacing: 2px;
   margin-bottom: 20px;
   text-transform: uppercase;
-  color: #1f2b46;
+  color: #1F5E3B;
 }
 
 .white-card p {
@@ -187,7 +179,7 @@ h6 {
   line-height: 1.7;
   max-width: 980px;
   margin: 0 auto 24px;
-  color: #1f2b46;
+  color: #0b0b0b;
 }
 
 /* ─── PHOTO ROW ───────────────────────────── */
@@ -269,7 +261,7 @@ h6 {
 .donate-heading {
   font-size: 3.8rem;
   font-weight: 700;
-  color: #1f2b46;
+  color: #1F5E3B;
   margin-bottom: 60px;
 }
 
@@ -303,7 +295,7 @@ h6 {
 .donate-card {
   position: relative;
   height: 600px;
-  background-color: #1f2b46;
+  background-color: #1F5E3B;
   border-radius: 24px;
   overflow: hidden;
 }
@@ -323,7 +315,7 @@ h6 {
 }
  
 .events-heading {
-  color: #1f2b46;
+  color: #1F5E3B;
   font-size: 3.8rem;
   font-weight: 600;
   letter-spacing: 2px;
@@ -362,7 +354,7 @@ h6 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #1f2b46;
+  background-color: #1F5E3B;
   color: white;
   border-radius: 12px;
   width: 80px;
@@ -400,7 +392,7 @@ h6 {
 }
  
 .event-name {
-  color: #1f2b46;
+  color: #1F5E3B;
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 1.3;
@@ -424,7 +416,7 @@ h6 {
 .event-meta-item svg {
   flex-shrink: 0;
   margin-top: 1px;
-  color: #1f2b46;
+  color: #1F5E3B;
 }
  
 .event-description {
@@ -437,7 +429,7 @@ h6 {
   display: inline-block;
   margin-top: auto;
   padding: 10px 24px;
-  background-color: #1f2b46;
+  background-color: #1F5E3B;
   color: white;
   border-radius: 100px;
   font-size: 0.95rem;
@@ -450,7 +442,7 @@ h6 {
 }
  
 .event-rsvp-btn:hover {
-  background-color: #18223a;
+  background-color: #1F5E3B;
   transform: translateY(-2px);
 }
 

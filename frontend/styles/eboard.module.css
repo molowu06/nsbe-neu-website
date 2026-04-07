@@ -61,26 +61,26 @@
 .memberName {
   font-size: 1.125rem;
   font-weight: 600;
-  color: #111827;
+  color: #1F5E3B;
   margin: 0;
 }
 
 .memberPosition {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #d97706; /* NSBE Gold - adjust to match your brand */
+  color: #D4AF37; /* NSBE Gold - adjust to match your brand */
   margin: 0.25rem 0;
 }
 
 .memberMajor {
   font-size: 0.875rem;
-  color: #4b5563;
+  color: #1F5E3B;
   margin: 0;
 }
 
 .memberYear {
   font-size: 0.875rem;
-  color: #6b7280;
+  color: #1F5E3B;
   margin: 0;
 }
 

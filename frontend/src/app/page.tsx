@@ -11,7 +11,7 @@ export default function Home() {
     "/images/homepage/bess-1.jpg",
     "/images/homepage/bess-7.jpg",
     "/images/homepage/bess-2.jpg",
-    "/images/homepage/bess-6.jpg",
+    "/images/homepage/bess-4.jpg",
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -51,9 +51,8 @@ export default function Home() {
           <h1 className="hero-title">
             <span className="hero-pretitle">Welcome To</span>
             <span className="hero-highlight">
-              <span className="hero-highlight-top">Northeastern</span>
-              <br />
-              <span className="hero-highlight-bottom">NSBE</span>
+              <span className="hero-highlight-northeastern">Northeastern</span>
+              <span className="hero-highlight-nsbe">NSBE</span>
             </span>
           </h1>
 
@@ -118,7 +117,7 @@ export default function Home() {
             </div>
             <div
               className="photo-row-banner"
-              style={{ backgroundColor: "#1f2b46" }}
+              style={{ backgroundColor: "#1F5E3B" }}
             >
               <h4>Excel Academically</h4>
               <p>

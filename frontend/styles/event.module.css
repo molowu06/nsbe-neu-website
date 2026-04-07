@@ -322,7 +322,7 @@
 .calendar-month {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #273c16;
+  color: #1f2b46;
 }
 
 .calendar-grid {
@@ -338,7 +338,7 @@
   gap: 0.5rem;
   font-weight: bold;
   text-align: center;
-  color: #374151;
+  color: #1f2b46;
   margin-bottom: 1rem;
 }
 
@@ -387,7 +387,7 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  color: #374151;
+  color: #1f2b46;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -406,7 +406,7 @@
   /* Button style */
   border: 2px solid #d1d5db;
   background-color: #f9fafb;
-  color: #111827;
+  color: #1f2b46;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: all 0.2s ease;
 }

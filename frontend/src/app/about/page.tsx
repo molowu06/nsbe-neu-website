@@ -20,7 +20,7 @@ export default function AboutPage() {
           {/* text — right */}
           <div className="text-center md:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              About BESS-NSBE
+              About Northeastern NSBE
             </h1>
             <p className="text-base sm:text-lg text-gray-300">
               Our mission, history, and the leaders driving our chapter forward
@@ -126,7 +126,7 @@ export default function AboutPage() {
             </p>
             {/* Advisor bio */}
             <p className="text-gray-600 text-xs sm:text-base">
-              Dean Harris serves as the faculty advisor for BESS-NSBE at
+              Dean Harris serves as the faculty advisor for NSBE at
               Northeastern University. He has been a dedicated supporter of
               Black engineering students on campus, helping guide the chapter
               in its mission to foster academic excellence and professional

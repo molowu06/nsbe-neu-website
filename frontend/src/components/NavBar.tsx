@@ -56,7 +56,7 @@ const NavBar = () => {
           />
         </Link>
         <h3>
-          <strong>BESS - NSBE Northeastern Chapter</strong>
+          <strong>Northeastern NSBE</strong>
         </h3>
       </div>
 

@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { fetchGoogleEvents } from "@/lib/googleCalendar";
-import { EventType } from "../../types/event";
-import { addEventToCalendar } from "../lib/calendar";
+import { EventType } from "../../../types/event";
+import { addEventToCalendar } from "../../lib/calendar";
 
 function formatDate(dateStr: string) {
   const date = new Date(dateStr);

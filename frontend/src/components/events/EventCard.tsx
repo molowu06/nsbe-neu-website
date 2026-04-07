@@ -1,67 +1,65 @@
 "use client";
 
-import { Clock, MapPin } from "lucide-react";
 import { EventType } from "../../../types/event";
+import { addEventToCalendar } from "../../lib/calendar";
 import styles from "../../../styles/event.module.css";
+
+
 
 type Props = {
   event: EventType;
   onClick?: (event: EventType) => void;
 };
 
-export default function EventCard({ event, onClick }: Props) {
-  const handleAddToCalendar = () => {
-    alert(`Add "${event.title}" to your calendar`);
+function formatDate(dateStr: string) {
+  const date = new Date(dateStr);
+  return {
+    weekday: date.toLocaleDateString("en-US", { weekday: "short" }).toUpperCase(),
+    day: date.getDate(),
+    month: date.toLocaleDateString("en-US", { month: "short" }).toUpperCase(),
   };
+}
 
-  const isSingleDay =
-    new Date(event.startDate).toDateString() ===
-    new Date(event.endDate).toDateString();
+export default function EventCard({ event, onClick }: Props) {
+  const { weekday, day, month } = formatDate(event.startDate);
 
   return (
     <div
-      className={styles["event-list-card"]}
+      className={styles["event-card"]}
       onClick={() => onClick && onClick(event)}
     >
-      <div className="flex justify-between items-start">
-        <div>
-          <h4 className={styles["event-list-title"]}>{event.title}</h4>
+      <div className={styles["event-date-badge"]}>
+        <span className={styles["event-weekday"]}>{weekday}</span>
+        <span className={styles["event-day"]}>{day}</span>
+        <span className={styles["event-month"]}>{month}</span>
+      </div>
 
-          <div className={styles["event-list-time"]}>
-            <Clock size={16} className={styles["event-icon"]} />{" "}
-            {isSingleDay
-              ? `${new Date(event.startDate).toLocaleDateString(undefined, {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                })} – ${event.time}`
-              : `${new Date(event.startDate).toLocaleDateString(undefined, {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                })} – ${new Date(event.endDate).toLocaleDateString(undefined, {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                })}`}
-          </div>
+      <div className={styles["event-content"]}>
+        <h3 className={styles["event-name"]}>{event.title}</h3>
 
-          <div className={styles["event-list-location"]}>
-            <MapPin size={16} className={styles["event-icon"]} /> {event.location}
-          </div>
+        <div className={styles["event-meta"]}>
+          <span className={styles["event-meta-item"]}>
+            {event.startTime || "All Day"}
+          </span>
+
+          <span className={styles["event-meta-item"]}>
+            {event.location || "Location TBA"}
+          </span>
         </div>
 
-        <div className={styles["event-list-actions"]}>
-          <button
-            className={styles["add-to-calendar-btn"]}
-            onClick={(e) => {
-              e.stopPropagation();
-              handleAddToCalendar();
-            }}
-          >
-            Add to Calendar
-          </button>
-        </div>
+        <p className={styles["event-description"]}>
+          {event.description || "More details coming soon."}
+        </p>
+
+        <button
+          className={styles["event-rsvp-btn"]}
+          onClick={(e) => {
+            e.stopPropagation();
+            addEventToCalendar(event);
+          }}
+        >
+          Add to Calendar →
+        </button>
       </div>
     </div>
   );

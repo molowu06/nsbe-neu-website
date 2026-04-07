@@ -88,7 +88,7 @@ export default function EventsSection() {
                   rel="noopener noreferrer"
                   className="event-rsvp-btn"
                 >
-                  Add To Calender →
+                  Add To Calendar →
                 </a>
               </div>
 

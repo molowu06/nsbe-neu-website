@@ -10,6 +10,7 @@ export default function Home() {
   const heroImages = [
     "/images/homepage/bess-1.jpg",
     "/images/homepage/bess-2.jpg",
+    "/images/homepage/bess-4.jpg",
   ];
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -48,7 +49,10 @@ export default function Home() {
         <div className="hero-content">
           <h1 className="hero-title">
             <span className="hero-pretitle">Welcome To</span>
-            <span className="hero-highlight">BESS</span>
+            <span className="hero-highlight">
+              <span className="hero-highlight-northeastern">Northeastern</span>
+              <span className="hero-highlight-nsbe">NSBE</span>
+            </span>
           </h1>
 
           <p className="hero-subtitle">

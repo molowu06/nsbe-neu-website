@@ -139,6 +139,18 @@ export default function Leaderboard() {
                 />
               </div>
             </div>
+            <div className="mt-4">
+              <p className="text-gray-900 text-xl font-bold mb-1">
+                The point system is as follows:
+              </p>
+              <ul className="text-black text-lg font-medium space-y-1 pl-8">
+                  <li>• LARGE EVENT = 0.5 pts</li>
+                  <li>• GENERAL BODY MEETING = 1 pt</li>
+                  <li>• AEX MEETING = 1 pt</li>
+                  <li>• PCI EVENT = 2 pts</li>
+                  <li>• TORCH EVENT = 3 pts</li>
+              </ul>
+            </div>
           </div>
 
           {/* --- RIGHT: ranked list --- */}

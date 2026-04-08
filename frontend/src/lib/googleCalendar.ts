@@ -12,6 +12,7 @@ function mapTypeFromTitle(title: string): EventType["type"] {
   if (lowerTitle.includes("torch")) return "Torch";
   if (lowerTitle.includes("mixer") || lowerTitle.includes("soiree") || lowerTitle.includes("collab")) return "Big Events";
   if (lowerTitle.includes("conference")) return "Conference";
+  if (lowerTitle.includes("aex")) return "AEx";
 
   return "GBM";
 }

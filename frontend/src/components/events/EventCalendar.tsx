@@ -14,6 +14,7 @@ type Props = {
 // Map event types to CSS classes
 const typeClassMap: Record<string, string> = {
   GBM: styles["event-gbm"],
+  AEx: styles["event-aex"],
   PCI: styles["event-pci"],
   Torch: styles["event-torch"],
   "Big Events": styles["event-big-events"],

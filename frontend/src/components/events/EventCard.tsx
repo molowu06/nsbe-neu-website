@@ -35,7 +35,19 @@ export default function EventCard({ event, onClick }: Props) {
       </div>
 
       <div className={styles["event-content"]}>
-        <h3 className={styles["event-name"]}>{event.title}</h3>
+        <div className={styles["event-title-row"]}>
+          <h3 className={styles["event-name"]}>{event.title}</h3>
+
+          {event.type && (
+            <span
+              className={`${styles["event-type-badge"]} ${
+                styles[`event-${event.type.toLowerCase().replace(" ", "-")}`]
+              }`}
+            >
+              {event.type}
+            </span>
+          )}
+        </div>
 
         <div className={styles["event-meta"]}>
           <span className={styles["event-meta-item"]}>

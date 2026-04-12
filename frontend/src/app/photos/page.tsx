@@ -10,6 +10,7 @@ import {
 import { fetchMediaRecursive } from "@/lib/drive";
 import { FiGrid, FiList } from "react-icons/fi";
 
+
 const MAIN_FOLDER_ID = process.env.NEXT_PUBLIC_GOOGLE_DRIVE_FOLDER_ID!;
 
 export default function ArchivePage() {

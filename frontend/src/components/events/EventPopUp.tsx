@@ -15,16 +15,18 @@ const typeBgMap: Record<string, string> = {
     GBM: "#dbeafe",
     PCI: "#e8d1ce",
     Torch: "#cee6d9",
+    AEx: "#eadcff",
     "Big Events": "#e7dfc7",
-    Conference: "#e7dfc7",
+    Conference: "#fef3c7",
 };
 
 const typeTextMap: Record<string, string> = {
-    GBM: "#1e40af",
-    PCI: "#C8102E",
-    Torch: "#1F5E3B",
-    "Big Events": "#D4AF37",
-    Conference: "#D4AF37",
+    GBM: "#dbeafe",
+    PCI: "#e8d1ce",
+    Torch: "#cee6d9",
+    AEx: "#eadcff",
+    "Big Events": "#e7dfc7",
+    Conference: "#fef3c7",
 };
 
 export default function EventPopUp({ event, onClose }: Props) {
@@ -181,7 +183,7 @@ export default function EventPopUp({ event, onClose }: Props) {
                 onClick={() => addEventToCalendar(event)}
                 style={{
                     padding: "0.6rem 1.25rem",
-                    backgroundColor: "#273c16",
+                    backgroundColor: "#1f2b46",
                     color: "white",
                     borderRadius: "100px",
                     fontSize: "0.85rem",

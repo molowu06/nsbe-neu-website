@@ -79,7 +79,7 @@ const NavBar = () => {
 
         {/* Photos link */}
         <li>
-          <Link href="/archive" onClick={closeAll}>Photos</Link>
+          <Link href="/photos" onClick={closeAll}>Photos</Link>
         </li>
 
         <li>

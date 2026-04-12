@@ -37,53 +37,24 @@ export async function fetchPhotos(
   folderId: string,
   limit?: number
 ): Promise<DriveFile[]> {
-  return fetchFilesByQuery(
-    `'${folderId}' in parents and mimeType contains 'image/'`,
-    limit
-  );
-}
+  try {
+    const pageSize = limit ? `&pageSize=${limit}` : "";
 
     const res = await fetch(
       `${BASE_URL}?q='${folderId}'+in+parents+and+mimeType contains 'image/'&key=${API_KEY}&fields=files(id,name,mimeType)&orderBy=createdTime desc${pageSize}`
     );
 
-export async function fetchMediaRecursive(
-  rootFolderId: string,
-  limit?: number
-): Promise<DriveFile[]> {
-  const queue: string[] = [rootFolderId];
-  const media: DriveFile[] = [];
-  const visited = new Set<string>();
-
-  while (queue.length > 0) {
-    const folderId = queue.shift();
-    if (!folderId || visited.has(folderId)) {
-      continue;
+    if (!res.ok) {
+      console.error(`fetchPhotos error: ${res.status} ${res.statusText}`, await res.text());
+      return [];
     }
 
-    visited.add(folderId);
-
-    const remaining = limit ? Math.max(limit - media.length, 0) : undefined;
-    if (limit && remaining === 0) {
-      break;
-    }
-
-    const directMedia = await fetchMedia(folderId, remaining);
-    media.push(...directMedia);
-
-    if (limit && media.length >= limit) {
-      break;
-    }
-
-    const subFolders = await fetchFolders(folderId);
-    for (const folder of subFolders) {
-      if (!visited.has(folder.id)) {
-        queue.push(folder.id);
-      }
-    }
+    const data = await res.json();
+    return data.files || [];
+  } catch (error) {
+    console.error("fetchPhotos error:", error);
+    return [];
   }
-
-  return limit ? media.slice(0, limit) : media;
 }
 
 // Fetch all media (images + videos) from a Drive folder

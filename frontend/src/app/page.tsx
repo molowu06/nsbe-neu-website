@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import EventsSection from "../app/components/UpcomingEvents";
 import Link from "next/link";
+import FAQSection from "../app/components/FAQSection";
 
 export default function Home() {
   // Hero slideshow images (mixed JPG and PNG supported)
@@ -194,6 +195,9 @@ export default function Home() {
 
       {/* ───────── EVENTS SECTION ───────── */}
       <EventsSection />
+
+      {/* ───────── FAQ SECTION ───────── */}
+      <FAQSection />
     </main>
   );
 }

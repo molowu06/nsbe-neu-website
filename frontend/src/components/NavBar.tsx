@@ -125,8 +125,14 @@ const NavBar = () => {
             </ul>
           )}
         </li>
-      </ul>
-    </nav>
+        <li className={styles.donateItem}>
+          <Link href="https://givingday.northeastern.edu/s/fund-details?dc=DN4507-83" onClick={closeAll} className={styles.donateButton}>
+            Donate
+          </Link>
+        </li>
+      </ul> 
+      </nav>
+    
   );
 };
 

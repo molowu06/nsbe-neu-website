@@ -4,6 +4,7 @@ import { Playfair_Display, Lora } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import CountdownBar from "@/components/CountdownBar";
 
 /* Provide a minimal JSX namespace fallback if @types/react is not available */
 declare global {
@@ -44,6 +45,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <NavBar />
+        <CountdownBar targetDate="2026-04-15T00:00:00" />
         <main className="pt-16">{children}</main>
         <Footer />
       </body>

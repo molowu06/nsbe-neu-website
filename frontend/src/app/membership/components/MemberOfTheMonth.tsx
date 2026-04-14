@@ -47,7 +47,7 @@ export default function MemberOfTheMonth() {
   if (loading) {
     return (
       <section className="py-12 px-4 bg-yellow-50">
-        <p className="text-center text-gray-500">Loading Member of the Month...</p>
+        <p className="text-center text-gray-500">Loading Member of the Year...</p>
       </section>
     );
   }
@@ -60,7 +60,7 @@ export default function MemberOfTheMonth() {
         {/* gold header bar */}
         <div className="bg-[#BF8836] px-6 py-4 flex items-center gap-3">
           <FaTrophy className="text-white text-3xl" />
-          <h2 className="text-3xl font-bold text-white">Member of the Month</h2>
+          <h2 className="text-3xl font-bold text-white">Member of the Year</h2>
         </div>
 
         {/* white body */}

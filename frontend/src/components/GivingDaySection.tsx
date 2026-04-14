@@ -1,7 +1,7 @@
 export default function GivingDaySection() {
-  const raised = 3908;
-  const goal = 5000;
-  const donors = 164;
+  const raised = 3963;
+  const goal = 10000;
+  const donors = 165;
 
   const percent = Math.min((raised / goal) * 100, 100);
 

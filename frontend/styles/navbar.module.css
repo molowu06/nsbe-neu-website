@@ -200,3 +200,22 @@ mobile & tablet styles
   justify-content: center;
   }
 }
+.donateItem {
+  display: flex;
+  align-items: center;
+}
+
+.donateButton {
+  background-color: #D4AF37; /* BESS gold */
+  color: #000;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.donateButton:hover {
+  transform: scale(1.05);
+  background-color: #c9a32f;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

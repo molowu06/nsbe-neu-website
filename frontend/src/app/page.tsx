@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import EventsSection from "../app/components/UpcomingEvents";
 import Link from "next/link";
+import GivingDaySection from "@/components/GivingDaySection";
+
 import FAQSection from "../app/components/FAQSection";
 
 export default function Home() {
@@ -64,7 +66,7 @@ export default function Home() {
           </p>
         </div>
       </section>
-
+      <GivingDaySection />
       {/* ───────── WHO WE ARE ───────── */}
       <section className="section-light">
         <div className="white-card">

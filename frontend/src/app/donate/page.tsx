@@ -50,7 +50,7 @@ export default function DonatePage() {
                 
                 {/* donate button */}
                 <a
-                href="https://givingday.northeastern.edu/s/fund-details?dc=DN4507-83"
+                href="https://givingday.northeastern.edu/s/fund-details?dc=DN4507-83&referralid=WB26GQVR"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#BF8836] text-white text-base rounded-md px-4 py-2"
@@ -146,7 +146,7 @@ export default function DonatePage() {
 
           {/* Replace # with actual Giving Day donation link */}
           <a
-            href="https://givingday.northeastern.edu/s/fund-details?dc=DN4507-83"
+            href="https://givingday.northeastern.edu/s/fund-details?dc=DN4507-83&referralid=WB26GQVR"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#BF8836] text-white text-lg font-bold rounded-md px-8 py-3 transition-all duration-300 hover:bg-[#a87530] hover:shadow-lg hover:-translate-y-0.5"

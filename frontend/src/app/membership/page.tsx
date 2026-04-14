@@ -52,44 +52,6 @@ export default function MembershipPage() {
 
       {/* MEMBERSHIP LEADERBOARD */}
       <Leaderboard/>
-
-
-      {/* HOW TO BECOME A MEMBER
-      <section
-        style={{
-          padding: "3rem 1rem",
-          background: "linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%)",
-          fontFamily: "system-ui, -apple-system, sans-serif",
-        }}
-      >
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <h2
-            style={{
-              fontSize: "2.25rem",
-              fontWeight: "700",
-              textAlign: "center",
-              color: "#111827",
-              marginBottom: "0.5rem",
-            }}
-          >
-            How to Become a National NSBE Member
-          </h2>
-          <p
-            style={{
-              textAlign: "center",
-              color: "#6b7280",
-              marginBottom: "3rem",
-              maxWidth: "600px",
-              marginLeft: "auto",
-              marginRight: "auto",
-              fontSize: "1rem",
-            }}
-          >
-            Learn how to join the community
-          </p>
-        </div>
-      </section> */}
-
       
     </main>
   );

@@ -45,7 +45,6 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <NavBar />
-        <CountdownBar targetDate="2026-04-15T00:00:00" />
         <main className="pt-16">{children}</main>
         <Footer />
       </body>

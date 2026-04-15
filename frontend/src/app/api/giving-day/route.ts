@@ -73,7 +73,7 @@ export async function GET() {
     return NextResponse.json({
       raised,
       donors,
-      goal: 10000,
+      goal: raised,
       designationCode: "DN4507-83",
       lastUpdated: new Date().toISOString(),
       live: true,

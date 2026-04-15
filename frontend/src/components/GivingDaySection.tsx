@@ -35,8 +35,8 @@ export default function GivingDaySection() {
     return () => clearInterval(interval);
   }, []);
 
-  const raised = data?.raised ?? 3988;
-  const donors = data?.donors ?? 167;
+  const raised = data?.raised ?? 0;
+  const donors = data?.donors ?? 0;
   const goal = data?.goal ?? 10000;
   const percent = Math.min((raised / goal) * 100, 100);
 
@@ -44,16 +44,16 @@ export default function GivingDaySection() {
     <section className="donate-section">
       <div className="donate-grid">
         <div>
-          <h2 className="donate-heading">Support BESS on Giving Day</h2>
+          <h2 className="donate-heading">Thank you for suporting BESS on Giving Day!</h2>
 
           <p className="donate-text">
-            Every donation helps fund conferences, professional development,
-            and opportunities for Black engineers at Northeastern. Be part of
-            the impact and support BESS today.
+            Every donation from Giving day will help fund conferences, professional development,
+            and opportunities for Black engineers at Northeastern. Thank you on behalf of BESS for 
+            all your support.
           </p>
 
           <a
-            href="https://givingday.northeastern.edu/s/fund-details?dc=DN4507-83"
+            href="https://give.northeastern.edu/student-organizations/DN4507-83.html"
             target="_blank"
             rel="noopener noreferrer"
             className="donate-btn"

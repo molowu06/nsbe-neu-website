@@ -42,7 +42,7 @@ export default function CountdownBar({ targetDate }: CountdownBarProps) {
   return (
     <div className="sticky top-36 z-40 w-full bg-[#D4AF37] text-white shadow-md">
       <div className="mx-auto flex flex-wrap items-center justify-center gap-3 px-4 py-2 text-center">
-        <span className="font-semibold tracking-wide">Giving Day is here! DONATE to support BESS.   </span>
+        <span className="font-semibold tracking-wide">We were able to raise over $10,000 on Giving Day!</span>
 
         {timeLeft.expired ? (
           <span className="text-sm">Thank you for supporting BESS! #NUGIVINGDAY.</span>

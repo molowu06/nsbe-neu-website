@@ -71,9 +71,9 @@ export async function GET() {
     const donors = Number(totals?.numberOfDonors ?? 0);
 
     return NextResponse.json({
-      raised,
+      raised: raised + 2000,
       donors,
-      goal: raised,
+      goal: 10000,
       designationCode: "DN4507-83",
       lastUpdated: new Date().toISOString(),
       live: true,

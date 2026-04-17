@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { formatDate } from "../app/events/components/EventUtils";
 import { fetchGoogleEvents } from "../../lib/googleCalendar";
-import { EventType } from "../types/index";
+import { EventType } from "../../types/index";
 import { addEventToCalendar } from "../../lib/calendar";
 
 

@@ -1,4 +1,4 @@
-import type { WeeklyNewsletterItem, monthlyArchiveItem, PhotoArchiveItem } from "../src/types"
+import type { WeeklyNewsletterItem, monthlyArchiveItem, PhotoArchiveItem } from "../types"
 
 export const weeklyNewsletters: WeeklyNewsletterItem[] = [
     {

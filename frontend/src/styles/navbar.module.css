@@ -1,0 +1,221 @@
+/* navbar container */
+.nav {
+  background: #ffffff;
+  border-bottom: 3px solid #D4AF37;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 3vw;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo h3 {
+  font-size: 1.2rem;       
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #111827;
+  padding: 1rem;
+  z-index: 1001;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Navigation links */
+.links {
+  display: flex;
+  gap: 2vw;                
+  list-style: none;
+  align-items: center;
+}
+
+.links a {
+  text-decoration: none;
+  color: #151a17;
+  font-weight: 700;
+  font-size: 1.1rem;     
+}
+
+.links a:hover {
+  color:#C8102E ;
+}
+
+body {
+  padding-top: 5rem;    
+}
+
+/* dropdown wrapper*/
+.dropdown {
+  position: relative;
+}
+
+.dropdownTrigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: #111211;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0;
+  font-family: inherit;
+  line-height: normal;
+  vertical-align: baseline;
+}
+
+.dropdownTrigger:hover {
+  color: #C8102E;
+}
+
+/* arrow icon next to "About" */
+.arrow {
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+/* rotates arrow upward when dropdown is open */
+.arrowOpen {
+  transform: rotate(180deg);
+}
+
+/* the floating dropdown panel */
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  min-width: 220px;
+  z-index: 1001;
+}
+
+/* individual dropdown links */
+.dropdownMenu li a {
+  display: block;
+  padding: 0.6rem 1.2rem;
+  color: #0e0f0e;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+/* hover state — light gold tint to match brand */
+.dropdownMenu li a:hover {
+  background: #fdf6e3;
+  color: #C8102E;
+}
+
+/*
+mobile & tablet styles
+*/
+
+@media (max-width: 1024px) {
+  /* show the hamburger button */
+  .hamburger {
+    display: block;
+  }
+
+  /* hide chapter name on small screens to save space */
+  .logo h3 {
+    display: none;
+  }
+
+  /* collapse links by default on mobile */
+  .links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* show links when hamburger is tapped */
+  .linksOpen {
+    display: flex;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+  }
+
+  /* each link takes full width */
+  .links li {
+    width: 100%;
+  }
+
+  .links a,
+  .dropdownTrigger {
+    display: block;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #f3f4f6;
+    text-align: center;
+  }
+
+  /* dropdown becomes inline (not floating) on mobile */
+  .dropdownMenu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    min-width: 0;
+    padding: 0;
+    background: #f9fafb;
+  }
+
+  /* sub-links are indented to show hierarchy */
+  .dropdownMenu li a {
+    padding: 0.75rem 2rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .dropdownTrigger {
+  justify-content: center;
+  }
+}
+.donateItem {
+  display: flex;
+  align-items: center;
+}
+
+.donateButton {
+  background-color: #D4AF37; /* BESS gold */
+  color: #000;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.donateButton:hover {
+  transform: scale(1.05);
+  background-color: #c9a32f;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

@@ -7,7 +7,7 @@ import {
   fetchFolders,
   fetchMediaRecursive,
   getDriveImageUrl,
-} from "@/lib/drive";
+} from "../../../lib/drive";
 import { FiGrid, FiList } from "react-icons/fi";
 
 const MAIN_FOLDER_ID = process.env.NEXT_PUBLIC_GOOGLE_DRIVE_FOLDER_ID!;

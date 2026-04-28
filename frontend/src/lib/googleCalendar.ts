@@ -17,6 +17,21 @@ function mapTypeFromTitle(title: string): EventType["type"] {
   return "GBM";
 }
 
+function cleanDescription(html: string): string {
+  // Replace <br> tags with newlines
+  let text = html.replace(/<br\s*\/?>/gi, "\n");
+  // Convert anchor tags to just their text/URL
+  text = text.replace(/<a\s+href="([^"]*)"[^>]*>[^<]*<\/a>/gi, "$1");
+  // Strip any remaining HTML tags
+  text = text.replace(/<[^>]+>/g, "");
+  // Decode common HTML entities
+  text = text.replace(/&amp;/g, "&")
+            .replace(/&lt;/g, "<")
+            .replace(/&gt;/g, ">")
+            .replace(/&quot;/g, '"');
+  return text.trim();
+}
+
 export async function fetchGoogleEvents(): Promise<EventType[]> {
   const res = await fetch(
     `https://www.googleapis.com/calendar/v3/calendars/${CALENDAR_ID}/events?key=${API_KEY}&singleEvents=true&orderBy=startTime`
@@ -52,8 +67,14 @@ export async function fetchGoogleEvents(): Promise<EventType[]> {
       }),
       time: isAllDay
         ? "All Day"
-        : startObj.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+        : `${startObj.toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})} - ${endObj.toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})}`,
+      startTime: isAllDay
+        ? "All Day"
+        : startObj.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit"}),
       location: event.location || "TBA",
+      description: event.description
+        ? cleanDescription(event.description)
+        : "More details coming soon.",
       link: event.htmlLink,
     };
   });

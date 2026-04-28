@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { X, Clock, MapPin } from "lucide-react";
+import { X, Clock, MapPin, TextAlignStart } from "lucide-react";
 import { EventType } from "../../../types/event";
 import { addEventToCalendar } from "../../lib/calendar";
 
@@ -175,6 +175,21 @@ export default function EventPopUp({ event, onClose }: Props) {
             >
                 <MapPin size={18} style={{ color: "#D4AF37", flexShrink: 0 }} />
                 <span>{event.location || "Location TBA"}</span>
+            </div>
+            
+            {/* Details */} 
+            <div
+                style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                marginBottom: "1.25rem",
+                color: "#374151",
+                fontSize: "0.95rem",
+                }}
+            >
+                <TextAlignStart size={18} style={{ color: "#D4AF37", flexShrink: 0 }} />
+                <span>{event.description || "More details coming soon."}</span>
             </div>
 
             {/* Action buttons */}

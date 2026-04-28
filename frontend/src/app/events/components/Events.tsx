@@ -1,56 +1,47 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Calendar, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
-import { fetchGoogleEvents } from "@/lib/googleCalendar";
-import { EventType } from "../../../types/event";
+import {Calendar, ChevronLeft, ChevronRight, MapPin} from "lucide-react";
+import { fetchGoogleEvents } from "../../../../lib/googleCalendar";
+import { EventType } from "../../../../types/index";
 import EventCalendar from "./EventCalendar";
 import EventCard from "./EventCard";
 import EventFilters from "./EventFilters";
 import EventPopUp from "./EventPopUp";
-import styles from "../../../styles/event.module.css";
-
-function getStartOfWeek(date: Date) {
-  const d = new Date(date);
-  const day = d.getDay(); // Sunday = 0
-  d.setDate(d.getDate() - day);
-  d.setHours(0, 0, 0, 0);
-  return d;
-}
-
-function formatMonthYear(date: Date) {
-  return date.toLocaleDateString("en-US", {
-    month: "long",
-    year: "numeric",
-  });
-}
-
-function formatWeekRange(startDate: Date) {
-  const endDate = new Date(startDate);
-  endDate.setDate(endDate.getDate() + 6);
-
-  const startMonth = startDate.toLocaleDateString("en-US", { month: "short" });
-  const startDay = startDate.getDate();
-  const endMonth = endDate.toLocaleDateString("en-US", { month: "short" });
-  const endDay = endDate.getDate();
-  const year = endDate.getFullYear();
-
-  return `${startMonth} ${startDay} - ${endMonth} ${endDay}, ${year}`;
-}
+import styles from "../styles/event.module.css";
+import { getStartOfWeek, formatMonthYear, formatWeekRange} from "./EventUtils";
 
 export default function Events() {
+
+
   const [events, setEvents] = useState<EventType[]>([]);
+
+  // Tracks loading state while events are being fetched
   const [loading, setLoading] = useState(true);
+
+  // Currently selected filter (All, GBM, PCI, etc.)
   const [selectedFilter, setSelectedFilter] = useState("All");
+
+  // View toggle between calendar and list
   const [viewMode, setViewMode] = useState<"calendar" | "list">("calendar");
+
+  // Stores the event selected for popup modal
   const [selectedEvent, setSelectedEvent] = useState<EventType | null>(null);
 
+  // Tracks current month (used for navigation + filtering)
   const [currentMonth, setCurrentMonth] = useState(new Date());
+
+  // Controls whether list view shows "month" or "week"
   const [listRangeMode, setListRangeMode] = useState<"month" | "week">("month");
+
+  // Start date of the current week (used when in "week" mode)
   const [currentWeekStart, setCurrentWeekStart] = useState(
     getStartOfWeek(new Date())
   );
 
+  /*
+  List of available filters passed into EventFilters component
+  */
   const filters = [
     "All",
     "GBM",
@@ -61,6 +52,7 @@ export default function Events() {
     "Conference",
   ];
 
+  /* FETCH EVENTS */
   useEffect(() => {
     async function loadEvents() {
       try {
@@ -69,6 +61,7 @@ export default function Events() {
           "Mapped events:",
           data.map((e) => ({ title: e.title, type: e.type }))
         );
+
         setEvents(data);
       } catch (error) {
         console.error(error);
@@ -80,26 +73,33 @@ export default function Events() {
     loadEvents();
   }, []);
 
+  /* NAVIGATION (MONTH / WEEK) */
+
+  // Move to previous month
   const goToPreviousMonth = () => {
-    setListRangeMode("month");
+    setListRangeMode("month"); // reset to month view
     setCurrentMonth(
       new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1)
     );
   };
 
+  // Move to next month
   const goToNextMonth = () => {
-    setListRangeMode("month");
+    setListRangeMode("month"); // reset to month view
     setCurrentMonth(
       new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1)
     );
   };
 
+  /*
+  Toggle "This Week":
+  - If already in week mode -> switch back to month
+  - Otherwise -> switch to current week
+  */
   const goToThisWeek = () => {
     if (listRangeMode === "week") {
-      // toggle OFF → go back to month view
       setListRangeMode("month");
     } else {
-      // toggle ON → switch to this week
       const now = new Date();
       setListRangeMode("week");
       setCurrentWeekStart(getStartOfWeek(now));
@@ -107,8 +107,17 @@ export default function Events() {
     }
   };
 
+  /* FILTERING LOGIC */
+
+  // Calendar always uses all events (filtering happens separately)
   const calendarEvents = events;
 
+  /*
+  List view filtering:
+  - If "week" mode -> only show events in that week
+  - Otherwise -> show events in current month
+  - Then sort events by date (earliest first)
+  */
   const listEvents = events
     .filter((event) => {
       const eventDate = new Date(event.startDate);
@@ -116,6 +125,7 @@ export default function Events() {
       if (listRangeMode === "week") {
         const weekEnd = new Date(currentWeekStart);
         weekEnd.setDate(weekEnd.getDate() + 7);
+
         return eventDate >= currentWeekStart && eventDate < weekEnd;
       }
 
@@ -129,6 +139,9 @@ export default function Events() {
         new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
     );
 
+  /*
+  Apply type filter (GBM, PCI, etc.)
+  */
   const filteredCalendarEvents =
     selectedFilter === "All"
       ? calendarEvents
@@ -147,15 +160,22 @@ export default function Events() {
             selectedFilter.trim().toLowerCase()
         );
 
+  
   return (
     <div className="min-h-screen bg-gray-50">
+
+      {/* ----- HEADER SECTION ----- */}
       <section className="bg-gray-900 text-white py-4 px-4 sm:px-4">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-2 md:gap-8">
+
+          {/* Logo */}
           <img
             src="/images/bess-logo.png"
             alt="BESS Logo"
             className="w-32 sm:w-36 md:w-48 object-contain flex-shrink-0 mb-1 md:mb-0 transition-transform duration-300 shadow-md hover:-translate-y-1 hover:shadow-lg"
           />
+
+          {/* Title + description */}
           <div className="text-center md:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
               Events
@@ -168,6 +188,7 @@ export default function Events() {
         </div>
       </section>
 
+      {/* ----- FEATURED EVENT SECTION ----- */}
       <section className="py-8 bg-gradient-to-br from-amber-50 to-amber-100 border-y-4 border-[#D4AF37]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-md flex flex-col sm:flex-row gap-4 sm:gap-6">
@@ -204,6 +225,7 @@ export default function Events() {
         </div>
       </section>
 
+      {/* ----- FILTER BAR ----- */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <EventFilters
           filters={filters}
@@ -214,21 +236,35 @@ export default function Events() {
         />
       </div>
 
+      {/* Instruction text */}
       <p className="text-center text-sm text-gray-500 mb-2">
         Click on an event to see its full details
       </p>
 
+      {/* ----- MAIN CONTENT ----- */}
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
+
+        {/* Loading state */}
         {loading ? (
           <p className="text-center py-12 text-gray-600">Loading events...</p>
+
         ) : viewMode === "calendar" ? (
+
+          // ----- CALENDAR VIEW -----
           <EventCalendar
             events={filteredCalendarEvents}
             onSelectEvent={setSelectedEvent}
           />
+
         ) : (
+
+          // ----- LIST VIEW -----
           <div className="space-y-6">
+
+            {/* Navigation (month / week toggle) */}
             <div className={styles["calendar-nav"]}>
+
+              {/* Previous month button */}
               <button
                 onClick={goToPreviousMonth}
                 className={styles["prev-btn"]}
@@ -236,24 +272,29 @@ export default function Events() {
                 <ChevronLeft size={25} /> Back
               </button>
 
+              {/* Month or week label */}
               <h3 className={styles["calendar-month"]}>
                 {listRangeMode === "week"
                   ? formatWeekRange(currentWeekStart)
                   : formatMonthYear(currentMonth)}
               </h3>
 
+              {/* Right-side controls */}
               <div className={styles["button-group"]}>
+
+                {/* Toggle week view */}
                 <button
                   onClick={goToThisWeek}
                   className={
                     listRangeMode === "week"
-                      ? styles["today-btn"]   // gold when active
-                      : styles["filter-btn"]  // neutral when inactive
+                      ? styles["today-btn"]   // active (gold)
+                      : styles["filter-btn"]  // inactive
                   }
                 >
                   This Week
                 </button>
 
+                {/* Next month button */}
                 <button
                   onClick={goToNextMonth}
                   className={styles["next-btn"]}
@@ -263,6 +304,7 @@ export default function Events() {
               </div>
             </div>
 
+            {/* Event list */}
             {filteredListEvents.length > 0 ? (
               <div className="space-y-4">
                 {filteredListEvents.map((event) => (
@@ -284,6 +326,7 @@ export default function Events() {
         )}
       </div>
 
+      {/* ----- POPUP MODAL ----- */}
       {selectedEvent && (
         <EventPopUp
           event={selectedEvent}

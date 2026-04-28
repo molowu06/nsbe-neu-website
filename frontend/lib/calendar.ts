@@ -1,5 +1,5 @@
 // lib/addToCalendar.ts
-import { EventType } from "../../types/event";
+import { EventType } from "../types/index";
 
 const formatICSDate = (dateString: string) => {
   const date = new Date(dateString);

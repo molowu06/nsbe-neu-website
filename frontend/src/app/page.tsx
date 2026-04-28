@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import EventsSection from "../app/components/UpcomingEvents";
+import UpcomingEvents from "../components/UpcomingEvents";
 import Link from "next/link";
 import GivingDaySection from "@/components/GivingDaySection";
 
-import FAQSection from "../app/components/FAQSection";
+import FAQSection from "../components/FAQSection";
 
 export default function Home() {
   // Hero slideshow images (mixed JPG and PNG supported)
@@ -66,7 +66,6 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <GivingDaySection />
       {/* ───────── WHO WE ARE ───────── */}
       <section className="section-light">
         <div className="white-card">
@@ -196,7 +195,7 @@ export default function Home() {
       </section>
 
       {/* ───────── EVENTS SECTION ───────── */}
-      <EventsSection />
+      <UpcomingEvents />
 
       {/* ───────── FAQ SECTION ───────── */}
       <FAQSection />

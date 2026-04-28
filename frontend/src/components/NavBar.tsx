@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaBars, FaTimes } from "react-icons/fa";
-import styles from "../../styles/navbar.module.css";
+import styles from "../styles/navbar.module.css";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);

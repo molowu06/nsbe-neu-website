@@ -9,7 +9,7 @@ import {
   fetchPhotos,
   getDriveImageUrl,
   getDriveDownloadUrl,
-} from "@/lib/drive";
+} from "../../../../lib/drive";
 
 interface Photo {
   id: string;

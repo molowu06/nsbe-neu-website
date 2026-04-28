@@ -1,4 +1,4 @@
-import styles from "../../styles/footer.module.css";
+import styles from "../styles/footer.module.css";
 import Image from "next/image";
 import { FaInstagram, FaLinkedin, FaSlack, FaEnvelope } from "react-icons/fa";
 import { SiTiktok } from "react-icons/si"; // TikTok icon from Simple Icons

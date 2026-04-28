@@ -9,7 +9,7 @@ import {
   fetchMediaRecursive,
   getDriveImageUrl,
   getDriveDownloadUrl,
-} from "@/lib/drive";
+} from "../../../../lib/drive";
 
 interface MediaItem {
   id: string;

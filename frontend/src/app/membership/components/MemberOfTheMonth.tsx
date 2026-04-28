@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { FaTrophy } from "react-icons/fa";
-import { supabase } from "@/lib/supabase";
+import { supabase } from "../../../../lib/supabase";
 
 // ── Types ───────────────────────────────────────────────
 interface MemberOfMonthData {

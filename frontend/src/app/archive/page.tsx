@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { FiGrid, FiList } from "react-icons/fi";
 import styles from "../../../styles/archive.module.css";
-import { fetchFolders, fetchPhotos, getDriveImageUrl } from "@/lib/drive";
+import { fetchFolders, fetchPhotos, getDriveImageUrl } from "../../../lib/drive";
 
 const MAIN_FOLDER_ID = process.env.NEXT_PUBLIC_GOOGLE_DRIVE_FOLDER_ID!;
 

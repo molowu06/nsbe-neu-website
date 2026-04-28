@@ -66,7 +66,6 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <GivingDaySection />
       {/* ───────── WHO WE ARE ───────── */}
       <section className="section-light">
         <div className="white-card">

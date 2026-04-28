@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { FaTrophy, FaSearch } from "react-icons/fa";
-import { supabase } from "@/lib/supabase";
+import { supabase } from "../../lib/supabase";
 
 // --- types ---
 interface Member {

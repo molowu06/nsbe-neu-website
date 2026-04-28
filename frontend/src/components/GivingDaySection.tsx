@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 
 type GivingDayData = {
-  raised: number;
-  donors: number;
-  goal: number;
-  lastUpdated?: string;
-  live?: boolean;
-  fallback?: boolean;
+  raised: number;        // total amount raised ($)
+  donors: number;        // number of donors
+  goal: number;          // fundraising goal
+  lastUpdated?: string;  // timestamp of last update
+  live?: boolean;        // whether data is live
+  fallback?: boolean;    // whether fallback data is being used
 };
 
 export default function GivingDaySection() {
@@ -18,11 +18,15 @@ export default function GivingDaySection() {
     async function loadGivingDayData() {
       try {
         const res = await fetch("/api/giving-day");
+
+        // Handle failed response
         if (!res.ok) {
           throw new Error(`API request failed: ${res.status}`);
         }
 
         const json = await res.json();
+
+        // Update state with API data
         setData(json);
       } catch (error) {
         console.error("Failed to load Giving Day data:", error);
@@ -33,27 +37,36 @@ export default function GivingDaySection() {
 
     const interval = setInterval(loadGivingDayData, 60000);
     return () => clearInterval(interval);
+
   }, []);
 
-  const raised = data?.raised ?? 3988;
-  const donors = data?.donors ?? 167;
+  const raised = data?.raised ?? 0;
+  const donors = data?.donors ?? 0;
   const goal = data?.goal ?? 10000;
   const percent = Math.min((raised / goal) * 100, 100);
 
   return (
     <section className="donate-section">
       <div className="donate-grid">
-        <div>
-          <h2 className="donate-heading">Support BESS on Giving Day</h2>
 
+        {/* ===== LEFT SIDE: TEXT + CTA ===== */}
+        <div>
+
+          {/* Heading */}
+          <h2 className="donate-heading">
+            Thank you for suporting BESS on Giving Day!
+          </h2>
+
+          {/* Description */}
           <p className="donate-text">
-            Every donation helps fund conferences, professional development,
-            and opportunities for Black engineers at Northeastern. Be part of
-            the impact and support BESS today.
+            Every donation from Giving day will help fund conferences, professional development,
+            and opportunities for Black engineers at Northeastern. Thank you on behalf of BESS for 
+            all your support.
           </p>
 
+          {/* External donation link */}
           <a
-            href="https://givingday.northeastern.edu/s/fund-details?dc=DN4507-83"
+            href="https://give.northeastern.edu/student-organizations/DN4507-83.html"
             target="_blank"
             rel="noopener noreferrer"
             className="donate-btn"
@@ -62,8 +75,11 @@ export default function GivingDaySection() {
           </a>
         </div>
 
+        {/* ===== RIGHT SIDE: CARD ===== */}
         <div className="donate-card">
           <div className="donate-card-inner flex flex-col overflow-hidden text-white">
+
+            {/* Video section */}
             <div className="giving-card-video">
               <video
                 src="/videos/Giving-Day-Video.mp4"
@@ -73,8 +89,13 @@ export default function GivingDaySection() {
               />
             </div>
 
+            {/* Stats + progress section */}
             <div className="flex flex-col justify-center p-5 flex-1">
+
+              {/* ---- STATS GRID ---- */}
               <div className="grid grid-cols-3 text-center mb-5">
+
+                {/* Amount raised */}
                 <div>
                   <p className="text-xl font-bold">
                     ${raised.toLocaleString()}
@@ -82,11 +103,13 @@ export default function GivingDaySection() {
                   <p className="text-xs opacity-80">Raised</p>
                 </div>
 
+                {/* Donor count */}
                 <div>
                   <p className="text-xl font-bold">{donors}</p>
                   <p className="text-xs opacity-80">Donors</p>
                 </div>
 
+                {/* Percentage of goal */}
                 <div>
                   <p className="text-xl font-bold">
                     {Math.round(percent)}%
@@ -95,6 +118,7 @@ export default function GivingDaySection() {
                 </div>
               </div>
 
+              {/* ===== PROGRESS BAR ===== */}
               <div className="w-full h-2 bg-white/20 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-[#D4AF37] transition-all duration-500"
@@ -102,16 +126,19 @@ export default function GivingDaySection() {
                 />
               </div>
 
+              {/* Goal display */}
               <p className="text-center mt-2 text-xs opacity-80">
                 Goal: ${goal.toLocaleString()}
               </p>
 
+              {/* Last updated timestamp */}
               {data?.lastUpdated && (
                 <p className="text-center mt-2 text-[10px] opacity-60">
                   Updated {new Date(data.lastUpdated).toLocaleTimeString()}
                 </p>
               )}
 
+              {/* Fallback indicator */}
               {data?.fallback && (
                 <p className="text-center mt-1 text-[10px] opacity-50">
                   Showing last known totals

@@ -1,4 +1,4 @@
-import Events from '@/components/events/Events';
+import Events from './components/Events';
 
 export const metadata = {
     title: "Events",

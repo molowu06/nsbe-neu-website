@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaBars, FaTimes } from "react-icons/fa";
-import styles from "../../styles/navbar.module.css";
+import styles from "../styles/navbar.module.css";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -126,7 +126,7 @@ const NavBar = () => {
           )}
         </li>
         <li className={styles.donateItem}>
-          <Link href="https://givingday.northeastern.edu/s/fund-details?dc=DN4507-83" onClick={closeAll} className={styles.donateButton}>
+          <Link href="https://give.northeastern.edu/student-organizations/DN4507-83.html" onClick={closeAll} className={styles.donateButton}>
             Donate
           </Link>
         </li>

@@ -1,6 +1,6 @@
 "use client";
 
-import { EventType } from "../../types/event";
+import { EventType } from "../types/index";
 
 const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY;
 const CALENDAR_ID = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_ID;

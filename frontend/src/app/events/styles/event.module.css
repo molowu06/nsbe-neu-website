@@ -1,4 +1,5 @@
-/* Event Type Colors */
+/* EVENT TYPE COLORS */
+
 .event-gbm {
   background-color: #dbeafe;
   color: #1d4ed8;
@@ -34,7 +35,9 @@
   color: #a16207;
 }
 
-/* Event List Card */
+
+/* EVENT LIST CARD */
+
 .event-list-card {
   background-color: white;
   border-radius: 20px;
@@ -52,7 +55,7 @@
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
-/* Event Title */
+/* Event title inside list cards */
 .event-list-title {
   font-weight: 600;
   font-size: 1rem;
@@ -60,7 +63,7 @@
   margin-bottom: 0.5rem;
 }
 
-/* Time and Location */
+/* Time and location rows inside list cards */
 .event-list-time,
 .event-list-location {
   display: flex;
@@ -70,14 +73,14 @@
   margin-bottom: 0.25rem;
 }
 
-/* Icon styling */
+/* Shared icon styling */
 .event-icon {
   display: inline-block;
   margin-right: 0.25rem;
   color: #D4AF37;
 }
 
-/* Add to Calendar Button */
+/* Add to calendar button used in list view */
 .add-to-calendar-btn {
   display: inline-block;
   margin-top: auto;
@@ -99,12 +102,15 @@
   transform: translateY(-4px);
 }
 
+
+/* EVENTS SECTION LAYOUT */
+
 .events-section {
   background-color: #f0f0f0;
   padding: 64px 32px;
   text-align: center;
 }
- 
+
 .events-heading {
   color: #273c16;
   font-size: 3.8rem;
@@ -113,7 +119,7 @@
   text-transform: uppercase;
   margin-bottom: 48px;
 }
- 
+
 .events-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -121,7 +127,10 @@
   max-width: 1450px;
   margin: 0 auto;
 }
- 
+
+
+/* EVENT CARD */
+
 .event-card {
   position: relative;
   background-color: #f3efec72;
@@ -135,12 +144,13 @@
   border: 2px solid #c8860a;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
- 
+
 .event-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
- 
+
+/* Date badge on the event card */
 .event-date-badge {
   display: flex;
   flex-direction: column;
@@ -154,27 +164,28 @@
   flex-shrink: 0;
   padding: 5px 5px 5px 5px;
 }
- 
+
 .event-weekday {
   font-size: .8rem;
   font-weight: 600;
   letter-spacing: 1px;
   opacity: 0.8;
 }
- 
+
 .event-day {
   font-size: 1.0rem;
   font-weight: 800;
   line-height: 1;
 }
- 
+
 .event-month {
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 1px;
   opacity: 0.8;
 }
- 
+
+/* Main text/content area of each card */
 .event-content {
   display: flex;
   flex-direction: column;
@@ -182,20 +193,21 @@
   flex: 1;
   font-size: 1.25rem;
 }
- 
+
 .event-name {
   color: #1f2b46;
   font-size: 1.2rem;
   font-weight: 700;
   line-height: 1.3;
 }
- 
+
+/* Time/location metadata */
 .event-meta {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
- 
+
 .event-meta-item {
   display: flex;
   align-items: flex-start;
@@ -204,19 +216,21 @@
   color: #4a4a4a;
   line-height: 1.4;
 }
- 
+
 .event-meta-item svg {
   flex-shrink: 0;
   margin-top: 1px;
   color: #1f2b46;
 }
- 
+
+/* Event description paragraph */
 .event-description {
   font-size: 1rem;
   color: #3a3a3a;
   line-height: 1.6;
 }
 
+/* Top card layout helpers */
 .event-header {
   display: flex;
   justify-content: space-between;
@@ -232,11 +246,11 @@
   flex: 1;
 }
 
-.event-rsvp-btn {
+/* Floating add-to-calendar button on card */
+.event-add-btn {
   position: absolute;
   top: 20px;
   right: 20px;
-
   padding: 8px 16px;
   background-color: #1f2b46;
   color: white;
@@ -245,16 +259,17 @@
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
- 
-.event-rsvp-btn:hover {
+
+.event-add-btn:hover {
   background-color: #1f2b46;
   transform: translateY(-2px);
 }
 
-/* Event Filters */
+
+/* EVENT FILTERS */
+
 .filters-container {
   display: flex;
   justify-content: space-between;
@@ -289,6 +304,7 @@
   background-color: #f3f4f6;
 }
 
+/* Active state for calendar/list toggle */
 .active {
   background-color: #e2b512;
   color: #000000;
@@ -320,12 +336,15 @@
   background-color: #f3f4f6;
 }
 
+/* Active state for selected event type filter */
 .active-filter {
   background-color: #d4af37;
   color: #000000;
 }
 
-/* Calendar */
+
+/* CALENDAR LAYOUT */
+
 .calendar-container {
   display: flex;
   flex-direction: column;
@@ -355,6 +374,7 @@
   box-shadow: 0 8px 16px rgba(12, 83, 34, 0.1);
 }
 
+/* Weekday row at top of calendar */
 .weekdays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -368,6 +388,9 @@
 .weekday {
   padding: 0.5rem 0;
 }
+
+
+/* CALENDAR DAY CELLS */
 
 .calendar-day {
   min-height: 140px;
@@ -384,7 +407,34 @@
   background-color: #ffffff;
 }
 
-/* Event Cards in Calendar */
+/* Highlight today's date */
+.calendar-day.today {
+  border: 2px solid #D4AF37;
+}
+
+/* Hover effect for calendar day cells */
+.calendar-day {
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.calendar-day:hover {
+  background-color: #f3f4f6;
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+/* Large day number shown in each cell */
+.calendar-day-number {
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  color: #273c16;
+}
+
+
+/* EVENT CARDS INSIDE CALENDAR */
+
 .day-event {
   border-radius: 0.5rem;
   padding: 0.25rem 0.5rem;
@@ -416,7 +466,9 @@
   white-space: nowrap;
 }
 
-/* Calendar Nav Buttons */
+
+/* CALENDAR NAV BUTTONS */
+
 .calendar-nav button {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -426,7 +478,7 @@
   align-items: center;
   gap: 0.25rem;
 
-  /* Button style */
+  /* Shared button appearance */
   border: 2px solid #d1d5db;
   background-color: #f9fafb;
   color: #1f2b46;
@@ -434,7 +486,7 @@
   transition: all 0.2s ease;
 }
 
-/* Prev / Next buttons */
+/* Previous / next month buttons */
 .calendar-nav .prev-btn,
 .calendar-nav .next-btn {
   background-color: #f3f4f6;
@@ -450,7 +502,7 @@
   box-shadow: 0 4px 6px rgba(0,0,0,0.15);
 }
 
-/* Today button */
+/* "Today" / active week toggle button */
 .calendar-nav .today-btn {
   background-color: #D4AF37;
   border-color: #b9972f;
@@ -464,35 +516,15 @@
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
-/* Grouping Prev / Today / Next */
+/* Grouping buttons together on right side */
 .calendar-nav .button-group {
   display: flex;
   gap: 0.5rem;
 }
 
-/* Highlight today's date */
-.calendar-day.today {
-  border: 2px solid #D4AF37;
-}
 
-/* Calendar Day */
-.calendar-day {
-  transition: background-color 0.2s, transform 0.2s;
-}
+/* EVENT TYPE BADGE */
 
-.calendar-day:hover {
-  background-color: #f3f4f6;
-  transform: translateY(-2px);
-  cursor: pointer;
-}
-
-.calendar-day-number {
-  font-size: 1.8rem;
-  font-weight: 800;
-  line-height: 1;
-  margin-bottom: 0.75rem;
-  color: #273c16;
-}
 .event-title-row {
   display: flex;
   align-items: center;
@@ -500,19 +532,17 @@
   flex-wrap: wrap;
 }
 
-/* THE BUBBLE */
 .event-type-badge {
   font-size: 0.7rem;
   font-weight: 700;
   padding: 4px 10px;
-  border-radius: 999px; /* makes it pill-shaped */
+  border-radius: 999px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-/* =============================================
-    MOBILE STYLES
-   ============================================= */
+
+/* MOBILE STYLES */
 
 @media (max-width: 767px) {
 
@@ -549,7 +579,6 @@
     width: 100%;
     text-align: center;
     order: -1;
-    
   }
 
   .calendar-nav button {
@@ -563,7 +592,7 @@
     overflow-x: auto;
   }
 
-  /* Abbreviate weekday names with CSS — hide full names, show via ::after */
+  /* Hide full weekday text and replace with short labels */
   .weekday {
     font-size: 0;
     padding: 0.3rem 0;
@@ -583,18 +612,18 @@
   .weekday:nth-child(7)::after { content: "Sat"; }
 
   .calendar-day {
-  min-height: 70px;
-  padding: 0.25rem;
-  border-width: 1px;
-  border-radius: 0.375rem;
-}
+    min-height: 70px;
+    padding: 0.25rem;
+    border-width: 1px;
+    border-radius: 0.375rem;
+  }
 
   .calendar-day-number {
     font-size: 0.9rem;
     margin-bottom: 0.25rem;
   }
 
-  /* Hide event details in calendar cells, just show a colored dot */
+  /* Hide event details in calendar cells, keep compact titles */
   .day-event {
     padding: 2px 4px;
     border-radius: 4px;
@@ -602,16 +631,16 @@
   }
 
   .day-event-title {
-  font-size: 0.55rem;
-  white-space: normal;
-  line-height: 1.2;
+    font-size: 0.55rem;
+    white-space: normal;
+    line-height: 1.2;
   }
 
   .day-event-info {
     display: none;
   }
 
-  /* --- EVENT CARDS (list view) --- */
+  /* --- EVENT CARDS --- */
   .event-card {
     position: relative;
     padding: 16px;
@@ -649,7 +678,7 @@
     font-size: 0.85rem;
   }
 
-  /* --- EVENTS GRID (if used) --- */
+  /* --- EVENTS GRID --- */
   .events-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -665,7 +694,9 @@
   }
 }
 
-/* --- SMALL PHONES (375px and below) --- */
+
+/* SMALL PHONE STYLES */
+
 @media (max-width: 375px) {
   .calendar-day {
     min-height: 48px;
@@ -683,9 +714,4 @@
     padding: 0.3rem 0.5rem;
     font-size: 0.75rem;
   }
-
-  
-
-
 }
-

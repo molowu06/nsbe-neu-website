@@ -1,0 +1,553 @@
+.page {
+  background: #f3f1ed;
+  min-height: 100vh;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  background: #11182a;
+  border-top: 4px solid #caa52b;
+  border-bottom: 4px solid #caa52b;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(202, 165, 43, 0.08), transparent 35%),
+    radial-gradient(circle at 80% 30%, rgba(202, 165, 43, 0.06), transparent 30%);
+  pointer-events: none;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  max-width: 64rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.heroLogo {
+  width: 128px;
+  max-width: 128px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.3));
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+  align-items: center;
+}
+
+/* HEADER */
+.header {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contentWrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 32px 64px;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.subtitle {
+  margin-top: 0;
+  color: #d1d5db;
+  font-size: 1rem;
+  max-width: 36ch;
+}
+
+@media (min-width: 640px) {
+  .heroLogo {
+    width: 144px;
+    max-width: 144px;
+  }
+
+  .title {
+    font-size: 2.25rem;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 16px;
+  }
+
+  .heroInner {
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .heroLogo {
+    width: 192px;
+    max-width: 192px;
+  }
+
+  .heroCopy {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    max-width: none;
+  }
+}
+
+/* CONTROL PANEL (ALL INLINE) */
+.controlPanel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 0;
+  flex-wrap: wrap;
+}
+
+/* SEGMENTED CONTROL */
+.segmentedControl {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.segmentBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #333;
+  transition: 0.2s ease;
+}
+
+.segmentBtn svg {
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+.activeSegment {
+  background-color: #caa52b;
+  color: white;
+}
+
+/* FILTERS */
+.filterIcon {
+  stroke: #333;
+  fill: none;
+  stroke-width: 2;
+}
+
+.dropdown {
+  padding: 7px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: white;
+}
+
+.filterGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.filterTag {
+  padding: 6px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.activeFilter {
+  background-color: #caa52b;
+  color: white;
+  border: none;
+}
+
+/* FULL WIDTH WHITE BANNER */
+.bannerWrapper {
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+.bannerCard {
+  width: 100%;
+  background: linear-gradient(180deg, #ffffff 0%, #fdfbf5 100%);
+  padding: 20px 32px;
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  font-size: clamp(1.8rem, 2.6vw, 2.8rem);
+  font-weight: 600;
+  color: #1f2b46;
+  text-align: center;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* =============================
+   UNIFORM CARD LAYOUT
+============================= */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 340px; /* fixed height */
+  background: white;
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+}
+
+.cardImagePlaceholder {
+  height: 190px; /* fixed image height */
+  background: #ddd;
+  overflow: hidden;
+}
+
+.cardImagePlaceholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardInfo {
+  padding: 14px 18px;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.cardInfo h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1f2b46;
+  margin: 0 0 4px 0;
+}
+
+.cardInfo p {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #333;
+  margin: 0;
+}
+
+/* LIST ITEM UPDATE */
+.listItem {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 16px;
+}
+
+.listImagePlaceholder {
+  width: 130px;
+  height: 92px;
+  background: #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-right: 16px;
+}
+
+.listImagePlaceholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.listInfo h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2b46;
+  margin: 0;
+}
+
+.listInfo p {
+  font-size: 0.85rem;
+  color: #333;
+  margin: 4px 0 0 0;
+}
+
+.listInfo {
+  flex: 1;
+}
+
+.photoCount {
+  font-weight: 600;
+}
+
+/* =============================
+   ALBUM PAGE
+============================= */
+
+.albumPage {
+  padding: 48px 32px;
+}
+
+.albumHeader {
+  margin-bottom: 50px;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #1f2b46;
+  margin-bottom: 25px;
+  transition: opacity 0.2s ease;
+}
+
+.backButton:hover {
+  opacity: 0.7;
+}
+
+.albumTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.albumSubtitle {
+  font-size: 1rem;
+  color: #666;
+}
+
+.loadingWrapper {
+  text-align: center;
+  padding: 100px 0;
+  color: #777;
+}
+
+/* =============================
+   GALLERY GRID
+============================= */
+
+.albumGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.albumCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #f3f3f3;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.albumCard img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.albumCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Lightbox image grid */
+
+
+/* Thumbnails */
+.albumCardImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.albumCardImage:hover {
+  transform: scale(1.03);
+}
+
+.downloadLink {
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #1f2b46;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+
+/* =============================
+  MOBILE RESPONSIVENESS
+============================= */
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 16px;
+  }
+
+  .heroInner {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .heroLogo {
+    width: 128px;
+    max-width: 128px;
+  }
+
+  .heroCopy {
+    text-align: center;
+    align-items: center;
+  }
+
+  .contentWrap {
+    padding: 24px 20px 40px;
+  }
+
+  /* Stack header vertically */
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 1.875rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    max-width: 36ch;
+  }
+
+  /* controls: stack below title, full width */
+  .controlPanel {
+    margin-top: 0;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .segmentBtn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .dropdown {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.9rem;
+  }
+
+  /* Banner */
+  .bannerWrapper {
+    margin-top: 18px;
+    margin-bottom: 28px;
+  }
+
+  .bannerCard {
+    font-size: 1.55rem;
+    padding: 16px 18px;
+    border-radius: 14px;
+  }
+
+  /* Grid: single column on small screens */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    height: auto;
+  }
+
+  .cardImagePlaceholder {
+    height: 180px;
+  }
+
+  /* List view */
+  .listItem {
+    padding: 10px;
+  }
+
+  .listImagePlaceholder {
+    width: 100px;
+    height: 75px;
+    margin-right: 14px;
+  }
+
+  .listInfo h3 {
+    font-size: 1rem;
+  }
+
+  /* Album page */
+  .albumPage {
+    padding: 30px 20px;
+  }
+
+  .albumTitle {
+    font-size: 1.8rem;
+  }
+
+  .albumGrid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 14px;
+  }
+
+  .albumCard img {
+    height: 160px;
+  }
+
+  .albumCardImage {
+    height: 140px;
+  }
+}

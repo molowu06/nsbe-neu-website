@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
-import styles from "../../../../styles/archive.module.css";
+import styles from "../../styles/archive.module.css";
 import {
   fetchPhotos,
   getDriveImageUrl,

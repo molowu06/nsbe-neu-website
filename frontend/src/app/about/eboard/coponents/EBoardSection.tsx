@@ -203,7 +203,7 @@ export default function EBoardSection() {
   useEffect(() => {
     async function fetchEboard() {
       const { data, error } = await supabase
-        .from("eboard-25-26")
+        .from("eboard-26-27")
         .select("name, position, year, major, email, linkedin, image, display_order")
         .order("display_order", { ascending: true });
 

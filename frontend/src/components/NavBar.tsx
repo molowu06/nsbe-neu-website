@@ -119,7 +119,7 @@ const NavBar = () => {
               </li>
               <li>
                 <Link href="/about/eboard" onClick={closeAll}>
-                  Executive Board &apos;25-&apos;26
+                  Executive Board &apos;26-&apos;27
                 </Link>
               </li>
             </ul>

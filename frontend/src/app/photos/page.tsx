@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import styles from "../../../styles/archive.module.css";
+import styles from "../../styles/archive.module.css";
 import {
   fetchFolders,
   fetchMediaRecursive,

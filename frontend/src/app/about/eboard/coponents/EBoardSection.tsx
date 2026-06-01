@@ -256,7 +256,7 @@ export default function EBoardSection() {
             marginBottom: "0.5rem",
           }}
         >
-          Executive Board 2025-2026
+          Executive Board 2026-2027
         </h2>
         <p
           style={{

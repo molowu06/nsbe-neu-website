@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import { X, Clock, MapPin } from "lucide-react";
 import { EventType } from "../../../../types/index";
 import { addEventToCalendar } from "../../../../lib/calendar";
-
 /*
 Props:
 - event: the selected event to display in the popup

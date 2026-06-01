@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { X, Clock, MapPin, TextAlignStart } from "lucide-react";
+import { X, Clock, MapPin, AlignLeft } from "lucide-react";
 import { EventType } from "../../../types/event";
 import { addEventToCalendar } from "../../lib/calendar";
 
@@ -188,7 +188,7 @@ export default function EventPopUp({ event, onClose }: Props) {
                 fontSize: "0.95rem",
                 }}
             >
-                <TextAlignStart size={18} style={{ color: "#D4AF37", flexShrink: 0 }} />
+                <AlignLeft size={18} style={{ color: "#D4AF37", flexShrink: 0 }} />
                 <span>{event.description || "More details coming soon."}</span>
             </div>
 

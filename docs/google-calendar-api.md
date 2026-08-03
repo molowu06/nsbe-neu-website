@@ -69,11 +69,8 @@ Using the Google Calendar API allows us to:
 
 Potential improvements include:
 
-- Event filtering by committee or event type
-- Search functionality
 - RSVP integration
 - Event reminders
-- Calendar view in addition to the current event list
 
 ---
 

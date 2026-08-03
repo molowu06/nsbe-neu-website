@@ -32,6 +32,7 @@ GOOGLE_API_KEY=
 
 GOOGLE_CLIENT_ID=
 ```
+> **Note:** API keys should never be committed to GitHub. Keep them in your local `.env.local` file or your deployment platform's environment variables.
 
 ## Run
 

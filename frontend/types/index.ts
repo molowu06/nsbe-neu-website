@@ -40,8 +40,8 @@ export type EventType = {
   link: any;
   startTime: string;
   description: string;
-  date: string | number | Date;
-  id: number;
+  date?: string | number | Date;
+  id: string;
   title: string;
   type: string;
   startDate: string;

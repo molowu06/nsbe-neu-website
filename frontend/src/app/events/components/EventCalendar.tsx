@@ -121,7 +121,7 @@ export default function EventCalendar({ events, onSelectEvent }: Props) {
                 <div className={styles["calendar-day-number"]}>{day}</div>
 
                 {/* Events for this day */}
-                <div className="space-y-1 overflow-hidden">
+                <div className="space-y-1">
                   {dayEvents.map((event) => (
                     <div
                       key={event.id}

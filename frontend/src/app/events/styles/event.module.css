@@ -399,7 +399,11 @@
   padding: 0.5rem;
   background-color: white;
   transition: all 0.2s;
-  overflow: hidden;
+  /*
+  Was `overflow: hidden`, which silently clipped the 3rd+ event on busy days.
+  The cell now grows to fit every event it holds.
+  */
+  overflow: visible;
 }
 
 .calendar-day.has-events {

@@ -1,30 +1,92 @@
-<<<<<<< HEAD
-=======
 # Northeastern's National Society of Black Engineers Website
-The home website for Northeastern's chapter of the National Society of Black Engineers for news, announcements, events, etc
+Welcome to the official website repository for the National Society of Black Engineers (NSBE) at Northeastern University.
 
->>>>>>> 0e4e1275ad8e72e0cd89c8cbe516941747984263
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This website serves as the central hub for chapter members, prospective members, alumni, sponsors, and the executive board. It provides information about events, committees, leadership, newsletters, sponsorship opportunities, and other chapter resources.
 
+---
+
+## Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Supabase
+- Google Calendar API
+- Google Drive API
+- Vercel
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+Before running the project, install:
+
+- Node.js
+- npm
+- Git
+
+### Clone the Repository
+
+```bash
+git clone <repository-url>
+cd frontend
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Configure Environment Variables
+
+Create a `.env.local` file inside the `frontend` directory and add the required environment variables.
+
+(See `docs/setup.md` for the complete configuration.)
+
+### Start the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then visit
+
+```
+http://localhost:3000
+```
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+---
+
+## Project Structure
+
+```
+frontend/
+├── src/
+├── data/
+├── lib/
+├── public/
+├── types/
+└── docs/
+```
+
+---
+## Contributing
+
+Members of the NSBE DOT Software Team are encouraged to contribute through feature branches and pull requests.
+
+Before contributing:
+
+1. Pull the latest changes.
+2. Create a feature branch.
+3. Test your changes locally.
+4. Submit a Pull Request for review.
+
+---
 
 ## Learn More
 

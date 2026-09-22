@@ -1,0 +1,11 @@
+# Code owners for the NSBE NEU website.
+#
+# GitHub automatically requests a review from the matching owners on every pull
+# request. Combined with the "Require review from Code Owners" branch protection
+# rule on `main`, a PR cannot merge until one of them approves.
+#
+# GitHub never counts a PR author's own approval, so when a lead opens a PR the
+# other lead is the one who has to approve it.
+
+# Everything in the repo is owned by the project leads.
+* @molowu06 @hawa01b

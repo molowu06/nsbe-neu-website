@@ -46,7 +46,7 @@ export default function AboutPage() {
 
             {/* BESS history */}
             <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
-              Northeastern's chapter, the Black Engineering Student Society (BESS),
+              Northeastern&apos;s chapter, the Black Engineering Student Society (BESS),
               was founded on April 18, 1974 by Harold C. Hunte and Harold Blake,
               two students who saw the need for community among Black engineers on
               campus. In 1975, BESS became an official NSBE collegiate chapter, and

@@ -8,8 +8,16 @@ import { fetchFolders, fetchPhotos, getDriveImageUrl } from "../../../lib/drive"
 
 const MAIN_FOLDER_ID = process.env.NEXT_PUBLIC_GOOGLE_DRIVE_FOLDER_ID!;
 
+type Album = {
+  id: string;
+  title: string;
+  year: string;
+  event: string;
+  thumbnailId: string | null;
+};
+
 export default function ArchivePage() {
-  const [albums, setAlbums] = useState<any[]>([]);
+  const [albums, setAlbums] = useState<Album[]>([]);
   const [selectedYear, setSelectedYear] = useState<string | "All">("All");
   const [selectedEvent, setSelectedEvent] = useState<string>("All");
   const [view, setView] = useState<"grid" | "list">("grid");
@@ -18,11 +26,11 @@ export default function ArchivePage() {
     async function loadAlbums() {
       const yearFolders = await fetchFolders(MAIN_FOLDER_ID);
 
-      const albumPromises = yearFolders.map(async (yearFolder: any) => {
+      const albumPromises = yearFolders.map(async (yearFolder) => {
         const eventFolders = await fetchFolders(yearFolder.id);
 
         return Promise.all(
-          eventFolders.map(async (eventFolder: any) => {
+          eventFolders.map(async (eventFolder) => {
             const thumbnail = await fetchPhotos(eventFolder.id, 1);
 
             if (!thumbnail || thumbnail.length === 0) return null;
@@ -39,7 +47,9 @@ export default function ArchivePage() {
       });
 
       const nested = await Promise.all(albumPromises);
-      const flatAlbums = nested.flat().filter(Boolean);
+      const flatAlbums = nested
+        .flat()
+        .filter((album): album is Album => album !== null);
 
       setAlbums(flatAlbums);
     }

@@ -6,15 +6,6 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import CountdownBar from "@/components/CountdownBar";
 
-/* Provide a minimal JSX namespace fallback if @types/react is not available */
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      [elemName: string]: any;
-    }
-  }
-}
-
 const playfairDisplay = Playfair_Display({
   variable: "--font-heading",
   subsets: ["latin"],

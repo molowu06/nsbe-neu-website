@@ -2,6 +2,22 @@
 
 import { EventType } from "../types/index";
 
+/*
+The subset of Google Calendar's event resource we actually read. Timed events
+come back with `dateTime`, all-day events with `date` — never both, which is how
+`isAllDay` below tells them apart.
+*/
+type GoogleCalendarEvent = {
+  id: string;
+  status?: string;
+  summary?: string;
+  location?: string;
+  description?: string;
+  htmlLink?: string;
+  start: { date?: string; dateTime?: string };
+  end: { date?: string; dateTime?: string };
+};
+
 const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_API_KEY;
 const CALENDAR_ID = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_ID;
 
@@ -69,8 +85,8 @@ The API returns at most 250 events per page by default and pages the rest behind
 a nextPageToken, which the previous version silently dropped. Walk every page so
 the calendar keeps working as the club adds more events.
 */
-async function fetchAllPages(): Promise<any[]> {
-  const items: any[] = [];
+async function fetchAllPages(): Promise<GoogleCalendarEvent[]> {
+  const items: GoogleCalendarEvent[] = [];
   let pageToken: string | undefined;
 
   do {
@@ -104,20 +120,20 @@ export async function fetchGoogleEvents(): Promise<EventType[]> {
   const allItems = await fetchAllPages();
 
   const filteredItems = allItems.filter(
-    (event: any) =>
-      event.status !== "cancelled" && !isInternalDotEvent(event.summary)
+    (event) =>
+      event.status !== "cancelled" && !isInternalDotEvent(event.summary ?? "")
   );
 
-  return filteredItems.map((event: any) => {
+  return filteredItems.map((event) => {
     const isAllDay = !!event.start.date;
 
     const start = isAllDay
-      ? allDayToLocal(event.start.date)
-      : event.start.dateTime;
+      ? allDayToLocal(event.start.date!)
+      : event.start.dateTime!;
 
     const end = isAllDay
-      ? allDayToLocal(exclusiveEndToInclusive(event.end.date), true)
-      : event.end.dateTime;
+      ? allDayToLocal(exclusiveEndToInclusive(event.end.date!), true)
+      : event.end.dateTime!;
 
     const startObj = new Date(start);
     const endObj = new Date(end);

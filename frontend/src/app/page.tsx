@@ -60,7 +60,7 @@ export default function Home() {
           </h1>
 
           <p className="hero-subtitle">
-            Northeastern's Black Engineering Student Society — Empowering Black
+            Northeastern&apos;s Black Engineering Student Society — Empowering Black
             engineers to excel academically, succeed professionally, and
             positively impact the community.
           </p>

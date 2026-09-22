@@ -12,8 +12,17 @@ import { FiGrid, FiList } from "react-icons/fi";
 
 const MAIN_FOLDER_ID = process.env.NEXT_PUBLIC_GOOGLE_DRIVE_FOLDER_ID!;
 
+type Album = {
+  id: string;
+  title: string;
+  year: string;
+  event: string;
+  thumbnailId: string | null;
+  thumbnailIsVideo: boolean;
+};
+
 export default function PhotosPage() {
-  const [albums, setAlbums] = useState<any[]>([]);
+  const [albums, setAlbums] = useState<Album[]>([]);
   const [selectedYear, setSelectedYear] = useState<string | "All">("All");
   const [selectedEvent, setSelectedEvent] = useState<string>("All");
   const [view, setView] = useState<"grid" | "list">("grid");
@@ -22,11 +31,11 @@ export default function PhotosPage() {
     async function loadAlbums() {
       const yearFolders = await fetchFolders(MAIN_FOLDER_ID);
 
-      const albumPromises = yearFolders.map(async (yearFolder: any) => {
+      const albumPromises = yearFolders.map(async (yearFolder) => {
         const eventFolders = await fetchFolders(yearFolder.id);
 
         return Promise.all(
-          eventFolders.map(async (eventFolder: any) => {
+          eventFolders.map(async (eventFolder) => {
             const media = await fetchMediaRecursive(eventFolder.id, 12);
             if (!media || media.length === 0) return null;
 
@@ -48,7 +57,9 @@ export default function PhotosPage() {
       });
 
       const nested = await Promise.all(albumPromises);
-      const flatAlbums = nested.flat().filter(Boolean);
+      const flatAlbums = nested
+        .flat()
+        .filter((album): album is Album => album !== null);
 
       setAlbums(flatAlbums);
     }

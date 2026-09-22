@@ -37,7 +37,7 @@ export type PhotoArchiveItem = {
 }
 
 export type EventType = {
-  link: any;
+  link?: string;
   startTime: string;
   description: string;
   date?: string | number | Date;

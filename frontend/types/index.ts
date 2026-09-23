@@ -37,16 +37,16 @@ export type PhotoArchiveItem = {
 }
 
 export type EventType = {
-  link?: string;
-  startTime: string;
-  description: string;
-  date?: string | number | Date;
-  id: string;
-  title: string;
-  type: string;
-  startDate: string;
-  endDate: string; 
-  displayDate: string;
-  time: string;
-  location: string;
+    link?: string;
+    startTime: string;
+    description: string;
+    date?: string | number | Date;
+    id: string;
+    title: string;
+    type: string;
+    startDate: string;
+    endDate: string; 
+    displayDate: string;
+    time: string;
+    location: string;
 };
